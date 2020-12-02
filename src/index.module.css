@@ -1,4 +1,23 @@
-body {
-  margin: 0;
+html {
+  box-sizing: border-box;
+  width: 100vw;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+  color: #212121;
+  background-color: #fff;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

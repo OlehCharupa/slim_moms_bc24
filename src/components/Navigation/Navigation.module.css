@@ -1,0 +1,35 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  border-left: 2px solid #E0E0E0;
+ 
+}
+.navList {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 32px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  list-style: none;
+  
+  
+}
+
+.navList__item_link {
+  text-decoration: none;
+  color: #9B9FAA;
+  margin-left: 30px;
+  
+
+}
+
+.navList__item_active_link {
+  color: #212121;
+  
+
+}

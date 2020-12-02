@@ -1,0 +1,37 @@
+.mobileNav {
+  width: 100vw;
+  height: 100vh;
+  left: 0px;
+  top: 80px;
+  padding: 15px;
+  background: #264061;
+}
+
+.mobileNavList {
+  list-style: none;
+  margin: 80px 0 0 0;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  padding: 0 0 35px 0;
+ 
+  text-transform: uppercase;
+}
+
+.mobileNavList__item {
+  line-height: 50px;
+}
+
+.mobileNavList__item_link {
+  text-decoration: none;
+  color: white;
+ 
+}
+
+.mobileNavList__item_active_link {
+  color: #9B9FAA;
+}

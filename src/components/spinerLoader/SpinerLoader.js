@@ -10,8 +10,8 @@ const SpinerLoader = () => {
       className={style.loader}
       type="Circles"
       color="#FC842D"
-      height={onlyWidth < 768 ? 70 : 100}
-      width={onlyWidth < 768 ? 70 : 100}
+      height={onlyWidth ? 70 : 110}
+      width={onlyWidth ? 70 : 110}
       timeout={3000} //3 secs
     />
   );

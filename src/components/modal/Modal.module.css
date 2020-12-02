@@ -29,6 +29,7 @@
   cursor: pointer;
   transition: background-color 200ms ease-in-out;
   outline: none;
+  
   background-image: url("./icon-close.svg");
   background-position: center;
   background-size: 60%;

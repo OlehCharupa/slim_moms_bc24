@@ -1,11 +1,14 @@
 import React from 'react';
 import styles from './App.module.css';
-import Modal from './modal/Modal';
-import SpinerLoader from './spinerLoader/SpinerLoader';
+import CurrentDate from './currentDate/CurrentDate';
+// import CurrentDate from './currentDate/CurrentDate';
+// import {useSelector} from 'react-redux'
+// import Modal from './modal/Modal';
+// import SpinerLoader from './spinerLoader/SpinerLoader';
 
 
 function App() {
- 
+  //
   return (
     <div>
       {/* <Modal>
@@ -20,7 +23,8 @@ function App() {
           et accusamus.
         </p>
       </Modal> */}
- <SpinerLoader/>
+
+ <CurrentDate/>
   </div> 
   );
 }

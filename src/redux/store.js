@@ -10,6 +10,7 @@ import {
     PURGE,
     REGISTER
 } from "redux-persist";
+// import  from "./slice/errorRequestSlice";
 
 
 const persistConfig = {
@@ -24,7 +25,7 @@ export const store = configureStore({
     reducer: persistedReducer,
     middleware: getDefaultMiddleware({
         serializableCheck: {
-            ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
+            ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER,]
         }
     }),
     devTools: process.env.NODE_ENV !== "production"

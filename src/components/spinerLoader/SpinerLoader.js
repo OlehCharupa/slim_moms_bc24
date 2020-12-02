@@ -2,6 +2,7 @@ import React from 'react';
 import Loader from 'react-loader-spinner'
 import style from './SpinerLoader.module.css'
 
+
 const SpinerLoader = () => {
     return (
         <Loader

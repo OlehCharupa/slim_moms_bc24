@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
+
 import style from "./Modal.module.css";
 
 const Modal = ({ children }) => {
   const [openModal, setOpenModal] = useState(false);
   const toggleModal = () => {
     setOpenModal(!openModal)
-    // setOpenModal((prev) => !prev);
   };
 
   useEffect(() => {
@@ -17,10 +17,8 @@ const Modal = ({ children }) => {
   }, []);
 
   const handleKeyDown = (e) => {
-    // console.log(e);
     if (e.code === "Escape") {
       setOpenModal(false);
-      //   toggleModal();
     }
   };
   const handleClick = (e) => {

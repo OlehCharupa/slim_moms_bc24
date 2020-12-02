@@ -4,8 +4,8 @@ import style from "./Modal.module.css";
 const Modal = ({ children }) => {
   const [openModal, setOpenModal] = useState(false);
   const toggleModal = () => {
-    // setOpenModal(!openModal)
-    setOpenModal((prev) => !prev);
+    setOpenModal(!openModal)
+    // setOpenModal((prev) => !prev);
   };
 
   useEffect(() => {

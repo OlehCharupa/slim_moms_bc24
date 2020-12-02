@@ -8,7 +8,7 @@ function App() {
  
   return (
     <div>
-      <Modal>
+      {/* <Modal>
       <h2>Modal title</h2>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae
@@ -19,8 +19,8 @@ function App() {
           excepturi nam repellendus officiis distinctio minima enim magnam
           et accusamus.
         </p>
-      </Modal>
- {/* <SpinerLoader/> */}
+      </Modal> */}
+ <SpinerLoader/>
   </div> 
   );
 }

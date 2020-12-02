@@ -21,10 +21,10 @@
     /* width:77%; */
     /* height: 57%; */
     /* ====================== */
-    /* width:594px; */
+    max-width:594px;
     /* height: 580px; */
     /* ====================== */
-    max-width: calc(100vw - 174px);
+    /* max-width: calc(100vw - 174px); */
     max-height: auto;
     /* max-height: calc(100vh - 444px); */
     box-shadow: 0px 22px 40px 0px rgba(0, 0, 0, 0.1);
@@ -65,9 +65,9 @@
      .modal{
          /* width:77%; */
          /* height: 57%; */
-         max-width: calc(100vw - 174px);
-         max-height: auto;
-         padding:0 42px ;
+         /* max-width: calc(100vw - 174px); */
+         /* max-height: auto; */
+         /* padding:0 42px ; */
      }
   }
 

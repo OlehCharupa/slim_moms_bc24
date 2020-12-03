@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
-// import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import style from './../Registration/Registration.module.css'
-
+import { loginOperations } from "./../../redux/operations/loginOperations";
 const Login = () => {
 
 	const logState = {
@@ -12,10 +12,10 @@ const Login = () => {
 	const [logForm, setLogForm] = useState(logState)
 	const [emailDirty, setEmailDirty] = useState(false)
 	const [passwordDirty, setPasswordDirty] = useState(false)
-	const [emailError, setEmailError] = useState("Емейл не может быть пустым")
+	const [emailError, setEmailError] = useState("Поле email не может быть пустым")
 	const [passwordError, setPasswordError] = useState("Пароль не может быть пустым")
 	const [formValid, setFormValid] = useState(false)
-	// const dispatch = useDispatch()
+	const dispatch = useDispatch()
 
 	useEffect(() => {
 		if (emailError || passwordError) {
@@ -23,7 +23,7 @@ const Login = () => {
 		} else {
 			setFormValid(true)
 		}
-	})
+	}, [emailError, passwordError])
 
 	const emailHandler = (e) => {
 		setLogForm((prev) => ({ ...prev, email: e.target.value }))
@@ -32,9 +32,9 @@ const Login = () => {
 		}
 		const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 		if (!e.target.value) {
-			setEmailError("Емейл не может быть пустым")
+			setEmailError("Поле email не может быть пустым")
 		} else if (!re.test(String(e.target.value).toLowerCase())) {
-			setEmailError("Некорректный емейл")
+			setEmailError("Некорректный email")
 		} else {
 			setEmailError("")
 		}
@@ -69,7 +69,7 @@ const Login = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 
-		// dispatch(authOperations.logIn(logForm)); //отправлять на функцию запросна на бэк
+		dispatch(loginOperations(logForm)); //отправлять на функцию запросна на бэк
 		setLogForm(logState)
 	}
 
@@ -81,7 +81,7 @@ const Login = () => {
 
 			<form onSubmit={handleSubmit} className={style.form}>
 				<label className={style.label}>
-					<p className={style.input__title}>Логин *</p>
+					<p className={style.input__title}>Email *</p>
 					<input
 						className={(emailDirty && emailError) ? style.input_err : style.input}
 						type="email"

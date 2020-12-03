@@ -55,7 +55,8 @@ margin-top: 40px;
 }
 .err__message{
     position: absolute;
-
+    top: -14px;
+    left: 0;
     font-family: Verdana;
     font-style: normal;
     font-weight: bold;

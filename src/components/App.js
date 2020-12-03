@@ -1,7 +1,7 @@
 import routes from '../routes/routes';
 import React from 'react';
-import PrivateRoute from './privateRoute/PrivateRoute';
-import PublicRoute from './publicRoute/PublicRoute';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import PublicRoute from './PublicRoute/PublicRoute';
 import styles from './App.module.css';
 
 function App() {

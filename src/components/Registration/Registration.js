@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react"
-// import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
+import { registrationOperations } from "./../../redux/operations/registrationOperations";
 
 import style from './Registration.module.css'
 
 const Registration = () => {
 	const regState = {
-		name: "",
+		username: "",
 		email: "",
 		password: "",
 	}
@@ -14,21 +15,21 @@ const Registration = () => {
 	const [emailDirty, setEmailDirty] = useState(false)
 	const [passwordDirty, setPasswordDirty] = useState(false)
 	const [nameDirty, setNameDirty] = useState(false)
-	const [emailError, setEmailError] = useState("Емейл не может быть пустым")
+	const [emailError, setEmailError] = useState("Поле Еmail не может быть пустым")
 	const [passwordError, setPasswordError] = useState("Пароль не может быть пустым")
 	const [nameError, setNameError] = useState("Поле 'Имя' не может быть пустым")
 	const [formValid, setFormValid] = useState(false)
-	// const dispatch = useDispatch()
+	const dispatch = useDispatch()
 
 	useEffect(() => {
-		if (emailError || passwordError) {
+		if (nameError || emailError || passwordError) {
 			setFormValid(false)
 		} else {
 			setFormValid(true)
 		}
-	})
+	}, [emailError, passwordError])
 	const nameHandler = (e) => {
-		setRegForm((prev) => ({ ...prev, name: e.target.value }))
+		setRegForm((prev) => ({ ...prev, username: e.target.value }))
 		if (!e.target.value) {
 			setNameDirty(true)
 			setNameError("Поле 'Имя' не может быть пустым")
@@ -43,9 +44,9 @@ const Registration = () => {
 		}
 		const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 		if (!e.target.value) {
-			setEmailError("Емейл не может быть пустым")
+			setEmailError("Поле еmail не может быть пустым")
 		} else if (!re.test(String(e.target.value).toLowerCase())) {
-			setEmailError("Некорректный емейл")
+			setEmailError("Некорректный email")
 		} else {
 			setEmailError("")
 		}
@@ -80,11 +81,11 @@ const Registration = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		// dispatch(authOperations.Registration(regForm));//отправлять на функцию запросна на бэк
+		dispatch(registrationOperations(regForm));
 		setRegForm(regState)
 	}
 
-	const { name, email, password } = regForm
+	const { username, email, password } = regForm
 
 	return (
 		<section className={style.section}>
@@ -96,8 +97,8 @@ const Registration = () => {
 					<input
 						className={(nameDirty && nameError) ? style.input_err : style.input}
 						type="text"
-						name="name"
-						value={name}
+						name="username"
+						value={username}
 						onChange={nameHandler}
 						onBlur={handleBlur}
 					/>
@@ -108,10 +109,10 @@ const Registration = () => {
 				</div>
 
 				<label className={style.label}>
-					<p className={style.input__title}>Логин *</p>
+					<p className={style.input__title}>Email *</p>
 					<input
 						className={(emailDirty && emailError) ? style.input_err : style.input}
-						type="email"
+						type="0"
 						name="email"
 						value={email}
 						onChange={emailHandler}

@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-hook/window-size": "^3.0.7",
+    "@reduxjs/toolkit": "^1.5.0",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.3.0",
     "axios": "^0.21.0",
     "css-modules": "^0.3.0",
+    "moment": "^2.29.1",
     "persist": "^0.2.7",
     "react": "^17.0.1",
     "react-datepicker": "^3.3.0",
@@ -17,6 +20,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "redux-toolkit": "^1.1.2",
     "web-vitals": "^0.2.4"

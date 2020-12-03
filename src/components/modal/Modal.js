@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
+
 import style from "./Modal.module.css";
 
-const Modal = ({ children }) => {
+const Modal = ({ children, arrowVisible=false, callback }) => {
   const [openModal, setOpenModal] = useState(false);
   const toggleModal = () => {
     setOpenModal(!openModal)
-    // setOpenModal((prev) => !prev);
   };
 
   useEffect(() => {
+    arrowVisible&&callback(toggleModal)
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
@@ -17,10 +18,8 @@ const Modal = ({ children }) => {
   }, []);
 
   const handleKeyDown = (e) => {
-    // console.log(e);
     if (e.code === "Escape") {
       setOpenModal(false);
-      //   toggleModal();
     }
   };
   const handleClick = (e) => {
@@ -42,11 +41,11 @@ const Modal = ({ children }) => {
           data-name="overlay"
         >
           <div className={style.modal} data-name="modal">
-            <button
+          {!arrowVisible&&<button
               className={style.closeButton}
               type="button"
               onClick={toggleModal}
-            ></button>
+            ></button>}
             {children}
           </div>
         </div>

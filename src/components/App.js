@@ -25,8 +25,7 @@ function App() {
         </p>
       </Modal> */}
       <SpinerLoader />
-      {/* Navigation поместить в Header */}
-      {/* <Navigation /> */}
+
 
       {routes.map(route => {
         return route.private ? (

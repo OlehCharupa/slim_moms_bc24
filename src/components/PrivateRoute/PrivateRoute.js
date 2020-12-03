@@ -1,19 +1,23 @@
-// import React from 'react';
-// import { Route } from 'react-router-dom';
-// import routes from '../../routes/routes';
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-// const PrivateRoute = ({ component: Component, isLogin, ...routeProps }) => {
-  // <Route
-  //   {...routeProps }
-  //   render = { props => {
-  //   return isLogin ? (
-  //     <Component {...props} />
-  //   ) : (
-  //       <Redirect to={routes.login} />
-  //     )
-  // }
-  // }
-  // />
-// };
+import { isLogin } from '../../redux/selectors/selectors'; // тестовая логика, пока не заменят.
 
-// export default PrivateRoute;
+import routes from '../../routes/routes';
+
+const PrivateRoute = ({ component: Component, ...routeProps }) => {
+  const isLoginState = useSelector(isLogin)
+
+  return (
+    <Route
+      {...routeProps}
+      render={props => isLoginState
+        ? <Component {...props} />
+        : <Redirect to={routes.login} />
+      }
+    />
+  )
+};
+
+export default PrivateRoute;

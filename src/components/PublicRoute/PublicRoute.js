@@ -1,18 +1,25 @@
-// import React from 'react';
-// import { Route, Redirect } from 'react-router-dom';
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-// const PublicRoute = ({ component: Component, isLogin, restricted, ...routeProps }) =>
-//   <Route
-//     {...routeProps}
-//     render={props => {
-//       return isLogin && routeProps.restricted ? (
-//         <Redirect to='/diary' />
-//       ) : (
-//           <Component {...props} />
-//         );
+import { isLogin } from '../../redux/selectors/selectors'; // тестовая логика, пока не заменят. 
 
-//     }}
-//   />
+import { paths } from '../../routes/routes';
+
+const PublicRoute = ({ component: Component, ...routeProps }) => {
+  const isLoginState = useSelector(isLogin);
+
+  return (<Route
+    {...routeProps}
+    render={props => {
+      return isLoginState && routeProps.restricted ? (
+        <Redirect to={paths.home} />
+      ) : (
+          <Component {...props} />
+        );
+    }}
+  />)
+}
 
 
-// export default PublicRoute;
+export default PublicRoute;

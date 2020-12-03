@@ -1,9 +1,9 @@
 import { Switch, Route } from 'react-router-dom';
 import routes from '../routes/routes';
 import React from 'react';
-import Navigation from './Navigation/Navigation';
-// import PrivateRoute from './PrivateRoute/PrivateRoute';
-// import PublicRoute from './PublicRoute/PublicRoute';
+import Navigation from './navigation/Navigation';
+import PrivateRoute from './privateRoute/PrivateRoute';
+import PublicRoute from './publicRoute/PublicRoute';
 import styles from './App.module.css';
 import Modal from './modal/Modal';
 import SpinerLoader from './spinerLoader/SpinerLoader';
@@ -25,23 +25,17 @@ function App() {
         </p>
       </Modal> */}
       <SpinerLoader />
+      {/* Navigation поместить в Header */}
       <Navigation />
-      <Switch>
-        {/* Вставте вместо render={() => <h2>Home</h2>} --> component={свой компонент, соответствующий роуту} */}
-        <Route exact path={routes.home} render={() => <h2>Home</h2>} />
-        <Route path={routes.registration} render={() => <h2>Регистрация</h2>} />
-        <Route path={routes.login} render={() => <h2>Вход</h2>} />
-        <Route path={routes.diary} render={() => <h2>Дневник</h2>} />
-        <Route path={routes.calculator} render={() => <h2>Калькулятор</h2>} />
 
-        {/* {routes.map(route => {
-          return route.private ? (
-            <PrivateRoute key={route.label} {...route} />
-          ) : (
-              <PublicRoute key={route.label} {...route} />
-            )
-        })} */}
-      </Switch>
+      {routes.map(route => {
+        return route.private ? (
+          <PrivateRoute key={route.label} {...route} />
+        ) : (
+            <PublicRoute key={route.label} {...route} />
+          )
+      })}
+
     </div>
 
   );

@@ -1,0 +1,28 @@
+.currentdate__wrapper {
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #212121;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+  }
+  .currentdate__wrapper:hover,
+  .currentdate__wrapper:focus {
+    color: #fc842d;
+  }
+  .currentdate__value {
+    margin-right: 21px;
+  }
+  
+  @media (min-width: 768px) {
+    .currentdate__wrapper {
+      font-size: 34px;
+      line-height: 41px;
+      align-items: baseline;
+    }
+  }
+  

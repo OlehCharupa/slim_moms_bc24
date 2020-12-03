@@ -1,15 +1,27 @@
-import React from "react";
-import styles from "./App.module.css";
-
-
+import routes from '../routes/routes';
+import React from 'react';
+import PrivateRoute from './privateRoute/PrivateRoute';
+import PublicRoute from './publicRoute/PublicRoute';
+import styles from './App.module.css';
 
 function App() {
+
   return (
     <div>
- 
-  
+      {routes.map(route => {
+        return route.private ? (
+          <PrivateRoute key={route.label} {...route} />
+        ) : (
+            <PublicRoute key={route.label} {...route} />
+          )
+      })}
+
     </div>
+
   );
 }
 
 export default App;
+
+
+

@@ -8,20 +8,16 @@ import UserDateSelect from "../userDateSelect/UserDateSelect";
 import { getCurrentDay } from "../../redux/slice/currentDateInfoSlice";
 import { getDateInfoOperation } from "../../redux/operations/currentDateInfoOperations";
 
-
-
 registerLocale("ru", ru);
-
-
-
 
 const CurrentDate = () => {
   const [startDate, setStartDate] = useState(new Date());
  
   const dispatch = useDispatch();
   const reguestData = moment(startDate).format().split("T")[0];
+
   useEffect(()=>{
-    dispatch(getDateInfoOperation(reguestData))
+    // dispatch(getDateInfoOperation(reguestData))
     dispatch(getCurrentDay(reguestData))
 
   // eslint-disable-next-line react-hooks/exhaustive-deps

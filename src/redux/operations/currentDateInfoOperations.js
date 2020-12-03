@@ -2,7 +2,7 @@ import axios from "axios";
 import { setErrorRequest } from "../slice/errorRequestSlice";
 import { loaderOff, loaderOn } from "../slice/loaderSlice";
 
-axios.defaults.baseURL = "http://slimmom-backend.herokuapp.com";
+// axios.defaults.baseURL = "http://slimmom-backend.herokuapp.com";
 
 // const token = {
 //   set(token) {
@@ -17,7 +17,7 @@ export const getDateInfoOperation = (requestDate) => async (dispatch) => {
     try {
       dispatch(loaderOn());
       const result = await axios.post("/day/info",requestDate);
-  console.log(result);
+  // console.log(result);
       
     } catch (error) {
       dispatch(setErrorRequest(error.message));

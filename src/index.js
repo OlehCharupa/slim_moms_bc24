@@ -8,6 +8,7 @@ import styles from './index.module.css';
 import { store } from "./redux/store"
 import { persistor } from "./redux/store"
 
+
 ReactDOM.render(
   <Provider store={store} >
     <PersistGate loading={null} persistor={persistor}>

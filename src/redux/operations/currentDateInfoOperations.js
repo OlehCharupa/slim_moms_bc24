@@ -24,4 +24,4 @@ export const getDateInfoOperation = (requestDate) => async (dispatch) => {
     } finally {
       dispatch(loaderOff());
     }
-  };
+};

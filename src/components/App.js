@@ -7,16 +7,17 @@ import styles from './App.module.css';
 function App() {
 
 	return (
-		<div>
-			{routes.map(route => {
-				return route.private ? (
-					<PrivateRoute key={route.label} {...route} />
-				) : (
-						<PublicRoute key={route.label} {...route} />
-					)
-			})}
-
-		</div>
+		<>
+			<div className={styles.container}>
+				{routes.map(route => {
+					return route.private ? (
+						<PrivateRoute key={route.label} {...route} />
+					) : (
+							<PublicRoute key={route.label} {...route} />
+						)
+				})}
+			</div>
+		</>
 
 	);
 }

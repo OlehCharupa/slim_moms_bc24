@@ -4,6 +4,7 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
 import styles from './App.module.css';
 import BgImage from './BgImage/BgImage'
+
 function App() {
 
 	return (

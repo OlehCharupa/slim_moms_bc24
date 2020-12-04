@@ -1,0 +1,24 @@
+.logo_pointer {
+  width: 170px;
+  height: 67px;
+  cursor: pointer;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url(./images_for_logo/logo_1240.svg);
+}
+@media (max-width: 768px) {
+  .logo_pointer {
+    width: 162px;
+    height: 44px;
+    background-image: url(./images_for_logo/logo_768.svg);
+  }
+}
+@media (max-width: 480px) {
+  .logo_pointer {
+    width: 45px;
+    height: 45px;
+    background-size: 45px;
+    background-repeat: no-repeat;
+    background-image: url(./images_for_logo/logo_480.svg);
+  }
+}

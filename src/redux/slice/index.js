@@ -5,6 +5,8 @@ import storage from "redux-persist/lib/storage"
 import loaderSlice from "./loaderSlice";
 import currentDateInfoSlice from "./currentDateInfoSlice";
 import errorRequestSlice from "./errorRequestSlice";
+import tokinSlice from './tokinSlice'
+import userSlice from './userSlice'
 
 
 const dateInfoPersistConfig = {
@@ -17,8 +19,10 @@ const dateInfoPersistConfig = {
 
 const rootReducer = combineReducers({
   loader: loaderSlice,
-  currentDateInfo: persistReducer(dateInfoPersistConfig,currentDateInfoSlice),
-  errorRequest:errorRequestSlice
+  currenDateInfo: persistReducer(dateInfoPersistConfig,currentDateInfoSlice),
+  errorRequest: errorRequestSlice,
+  token: tokinSlice,
+  user: userSlice
 });
 
 export default rootReducer;

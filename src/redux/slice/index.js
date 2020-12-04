@@ -19,7 +19,7 @@ const dateInfoPersistConfig = {
 
 const rootReducer = combineReducers({
   loader: loaderSlice,
-  currenDateInfo: persistReducer(dateInfoPersistConfig,currentDateInfoSlice),
+  currentDateInfo: persistReducer(dateInfoPersistConfig,currentDateInfoSlice),
   errorRequest: errorRequestSlice,
   token: tokinSlice,
   user: userSlice

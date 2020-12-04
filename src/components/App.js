@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div>
-      {routes.map(route => {
+        {routes.map(route => {
         return route.private ? (
           <PrivateRoute key={route.label} {...route} />
         ) : (

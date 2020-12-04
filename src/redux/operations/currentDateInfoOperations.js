@@ -27,4 +27,4 @@ export const getDateInfoOperation = (requestDate,persistedToken) => async (dispa
       dispatch(loaderOff());
       dispatch(resetErrorRequest());
     }
-  };
+};

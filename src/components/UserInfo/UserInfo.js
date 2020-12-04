@@ -2,10 +2,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import style from "./UserInfo.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { logOut } from "../../redux/operations/UserInfoOperations";
+import { logOut } from "../../redux/operations/logoutOperations";
 
 const UserInfo = () => {
   const token = useSelector((state) => state.token);
+  const user = useSelector((state) => state.user?.username);
+  // console.log(user);
   const dispatch = useDispatch();
 
   const logout = () => {
@@ -14,13 +16,13 @@ const UserInfo = () => {
   return (
     <div className={style.mainInfo}>
       <NavLink to="/" className={style.userInfoLink}>
-        User
+        {user}
       </NavLink>
       <NavLink onClick={logout} to="/" className={style.exitInfoLink}>
         Выйти
       </NavLink>
     </div>
   );
-};
+};;;;;;
 
 export default UserInfo;

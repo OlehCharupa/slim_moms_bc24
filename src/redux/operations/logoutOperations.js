@@ -1,7 +1,8 @@
 import axios from "axios";
 import { setErrorRequest } from "../slice/errorRequestSlice";
 import { loaderOff, loaderOn } from "../slice/loaderSlice";
-import { resetToken } from "../slice/userInfoSlice";
+import { resetToken } from "../slice/tokinSlice";
+import { resetUser } from "../slice/userSlice";
 
 export const logOut = (token) => async (dispatch) => {
   try {
@@ -12,6 +13,7 @@ export const logOut = (token) => async (dispatch) => {
       headers: { Authorization: `Bearer ${token}` },
     });
     dispatch(resetToken());
+    dispatch(resetUser());
   } catch (error) {
     dispatch(setErrorRequest(error));
   } finally {

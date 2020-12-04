@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 const initialState={
     "eatenProducts":[],
     "currentDate":'',
@@ -6,7 +7,7 @@ const initialState={
 }
 
 const currentDateInfoSlice=createSlice({
-    name:"currenDateInfo",
+    name:"currentDateInfo",
     initialState,
     reducers:{
         getCurrentDay(state, {payload}){
@@ -15,6 +16,7 @@ const currentDateInfoSlice=createSlice({
        
     }
 })
+
 
 const { actions, reducer } = currentDateInfoSlice;
 export const { getCurrentDay } = actions;

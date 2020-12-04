@@ -10,13 +10,13 @@ function App() {
     <>
       <BgImage />
       <div className={styles.container}>
-        {/* {routes.map((route) => {
+        {routes.map((route) => {
           return route.private ? (
             <PrivateRoute key={route.label} {...route} />
           ) : (
-            <PublicRoute key={route.label} {...route} />
-          );
-        })} */}
+              <PublicRoute key={route.label} {...route} />
+            );
+        })}
       </div>
     </>
   );

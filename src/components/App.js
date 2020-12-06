@@ -3,12 +3,14 @@ import React from "react";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PublicRoute from "./PublicRoute/PublicRoute";
 import styles from "./App.module.css";
-import BgImage from "./BgImage/BgImage";
-
+import DailyCalories from './DailyCalories/DailyCalories';
+import RightSideBar from './RightSideBar/RightSideBar';
+import { useSelector } from "react-redux";
 function App() {
+  const token = useSelector(state => state.token);
+  
   return (
     <>
-      <BgImage />
       <div className={styles.container}>
         {routes.map((route) => {
           return route.private ? (
@@ -17,7 +19,11 @@ function App() {
               <PublicRoute key={route.label} {...route} />
             );
         })}
+        <DailyCalories />
+        {token && <DailyCalories /> && <RightSideBar />}
       </div>
+
+
     </>
   );
 }

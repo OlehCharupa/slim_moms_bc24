@@ -1,6 +1,7 @@
 .block{
     padding: 15px;
-
+    float: left;
+    margin-top: 30px;
 }
 .title{
     font-weight: bold;
@@ -15,7 +16,7 @@
 @media screen and (min-width: 768px) {
     .block{
         width: 565px;
-        margin-left: 87px;
+        margin-top: 180px;
     }
     .title{
         font-size: 30px;
@@ -24,11 +25,12 @@
 }
 @media screen and (min-width: 1280px){
     .block{
-        width: 505px;
-        margin-left: 115px;
+        width: 605px;
+        margin-top: 76px;
     }
     .title{
         font-size: 34px;
         line-height: 1.205;
+        padding-bottom: 68px;
     }
 }

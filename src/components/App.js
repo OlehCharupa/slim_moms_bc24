@@ -8,6 +8,8 @@ import { Switch } from "react-router-dom";
 
 
 function App() {
+  const token = useSelector(state => state.token);
+  
   return (
     <>
       <div className={styles.container}>
@@ -24,6 +26,8 @@ function App() {
           </Switch>
         </Suspense>
       </div>
+
+
     </>
   );
 }

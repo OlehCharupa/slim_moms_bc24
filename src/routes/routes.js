@@ -1,4 +1,6 @@
-// import { lazy } from 'react';
+
+
+import { lazy } from 'react';
 
 export const paths = {
   home: '/',
@@ -11,10 +13,10 @@ export const paths = {
 const routes = [
   {
     path: paths.home,
-    label: 'Home', // записать сюда правильное имя, 
+    label: 'MainPage',
     exact: true,
-    // component: lazy(() => import('./components/Home')), // раскомментировать,  в импорт внести место и имя своего компонента
-    component: () => <h2>Home</h2>, // удалить, когда будет корректный импорт
+    component: lazy(() => import("../pages/MainPage/MainPage"  /* webpackChunkName: "MainPage"*/)), 
+    
     private: false,
     restricted: false,
   },

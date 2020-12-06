@@ -25,7 +25,6 @@ const CurrentDate = () => {
   useEffect(() => {
     if (persistedDate) {
       setStartDate(startpersistedDate);
-      // return;
     }
     console.log(reguestDate);
     dispatch(getCurrentDay(reguestDate));

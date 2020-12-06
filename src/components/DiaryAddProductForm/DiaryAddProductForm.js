@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styles from './DiaryAddProductForm.module.css';
-import { viewportFunction } from '../../helpers/index';
 import { useWindowWidth } from '@react-hook/window-size';
+import { addProduct } from '../../redux/operations/diaryAddProduct';
 const diaryAddProductInitialState = {
   product: '',
   grams: ''
 }
 
 const DiaryAddProductForm = () => {
-
   const [diaryForm, setDiaryForm] = useState(diaryAddProductInitialState);
+  const dispatch = useDispatch();
   const onlyWidth = useWindowWidth();
   const inputHandlerDiaryAddProduct = ({ target }) => {
     const { name, value } = target;
@@ -18,7 +19,15 @@ const DiaryAddProductForm = () => {
 
   const submitHandlerDiaryAddProduct = (e) => {
     e.preventDefault();
-    console.log(diaryForm);
+    const { product, grams } = diaryForm;
+
+    const singleProduct = {
+      product,
+      grams,
+    }
+    dispatch(addProduct(singleProduct));
+    setDiaryForm({ ...diaryAddProductInitialState });
+    // console.log(singleProduct);
   }
 
   return (

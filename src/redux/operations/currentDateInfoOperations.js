@@ -1,6 +1,6 @@
 import axios from "axios";
 import { resetErrorRequest, setErrorRequest } from "../slice/errorRequestSlice";
-import { setDateInfo} from "../slice/currentDateInfoSlice";
+import { setDateInfo } from "../slice/currentDateInfoSlice";
 import { loaderOff, loaderOn } from "../slice/loaderSlice";
 
 axios.defaults.baseURL = "http://slimmom-backend.herokuapp.com";
@@ -14,17 +14,17 @@ const token = {
   },
 };
 
-export const getDateInfoOperation = (requestDate,persistedToken) => async (dispatch) => {
-     try {
-      dispatch(loaderOn());
-      const result = await axios.post("/day/info",{"date":requestDate}, token.set(persistedToken))
+export const getDateInfoOperation = (requestDate, persistedToken) => async (dispatch) => {
+  try {
+    dispatch(loaderOn());
+    const result = await axios.post("/day/info", { "date": requestDate }, token.set(persistedToken))
     // dispatch(setDateInfo({"eatenProducts":result.data.eatenProducts, "daySummary":result.data.daySummary}));
     dispatch(setDateInfo(result.data))
 
-    } catch (error) {
-      dispatch(setErrorRequest(error.message));
-    } finally {
-      dispatch(loaderOff());
-      dispatch(resetErrorRequest());
-    }
+  } catch (error) {
+    dispatch(setErrorRequest(error.message));
+  } finally {
+    dispatch(loaderOff());
+    dispatch(resetErrorRequest());
+  }
 };

@@ -4,10 +4,22 @@ import Modal from '../modal/Modal';
 import DiaryAddProductForm from '../DiaryAddProductForm/DiaryAddProductForm';
 
 const OpenFormAddProductInDiary = () => {
+  let toggleModal;
+  const toggle = () => {
+    toggleModal();
+  }
 
   return (
     <>
-      <button type='button' className={styles.openAddProductForm}></button>
+      <button type='button' className={styles.openAddProductForm} onClick={toggle}></button>
+      <Modal
+        arrowVisible={true}
+        callback={(toggle) => {
+          toggleModal = toggle;
+        }}
+      >
+        <DiaryAddProductForm />
+      </Modal>
     </>
   );
 };

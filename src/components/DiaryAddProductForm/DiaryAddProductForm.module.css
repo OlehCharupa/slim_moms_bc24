@@ -1,7 +1,6 @@
 .diaryAddProductForm {
  display: flex;
-  border: 1px solid red;
-  padding-top: 50px;
+padding-top: 50px;
 
 }
 
@@ -35,7 +34,6 @@
 
 .diaryAddProductForm_inputGrams {
   width: 105px;
-  text-align: end;
 
 }
 
@@ -101,7 +99,10 @@
     background-position: center;
   }
 
-  .inputProduct {
-min-width: 239px;
+  .diaryAddProductForm_inputGrams {
+    text-align: end;
+
   }
+
+
 }

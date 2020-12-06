@@ -6,7 +6,7 @@ const loaderSlice = createSlice({
     initialState,
     reducers: {
         setUser(state, { payload }) {
-            return payload
+            return payload;;
         },
         resetUser(state, { payload }) {
             return null

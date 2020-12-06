@@ -5,29 +5,26 @@ import PublicRoute from "./PublicRoute/PublicRoute";
 import styles from "./App.module.css";
 import SpinerLoader from "./spinerLoader/SpinerLoader";
 import { Switch } from "react-router-dom";
-
-
+import Header from "./Header/Header"
 function App() {
-  const token = useSelector(state => state.token);
-  
+
   return (
     <>
       <div className={styles.container}>
+        <Header />
         {/*для відображення сторінок Не видаляти! */}
-        <Suspense fallback={<SpinerLoader />}> 
+        <Suspense fallback={<SpinerLoader />}>
           <Switch>
             {routes.map((route) => {
               return route.private ? (
                 <PrivateRoute key={route.label} {...route} />
               ) : (
-                <PublicRoute key={route.label} {...route} />
-              );
+                  <PublicRoute key={route.label} {...route} />
+                );
             })}
           </Switch>
         </Suspense>
       </div>
-
-
     </>
   );
 }

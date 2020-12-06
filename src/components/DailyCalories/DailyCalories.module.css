@@ -1,36 +1,36 @@
-.block{
-    padding: 15px;
-    float: left;
-    margin-top: 30px;
+.block {
+  padding: 15px;
+  float: left;
+  /* margin-top: 30px; */
 }
-.title{
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 1.444;
+.title {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.444;
 
-    color: #212121;
-    margin: 0;
+  color: #212121;
+  margin: 0;
 
-    padding-bottom: 30px;
+  padding-bottom: 30px;
 }
 @media screen and (min-width: 768px) {
-    .block{
-        width: 565px;
-        margin-top: 180px;
-    }
-    .title{
-        font-size: 30px;
-        line-height: 1.2;
-    }
+  .block {
+    width: 565px;
+    /* margin-top: 180px; */
+  }
+  .title {
+    font-size: 30px;
+    line-height: 1.2;
+  }
 }
-@media screen and (min-width: 1280px){
-    .block{
-        width: 605px;
-        margin-top: 76px;
-    }
-    .title{
-        font-size: 34px;
-        line-height: 1.205;
-        padding-bottom: 68px;
-    }
+@media screen and (min-width: 1280px) {
+  .block {
+    width: 605px;
+    /* margin-top: 76px; */
+  }
+  .title {
+    font-size: 34px;
+    line-height: 1.205;
+    padding-bottom: 68px;
+  }
 }

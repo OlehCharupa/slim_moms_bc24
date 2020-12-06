@@ -11,9 +11,8 @@ import ValidationPage from "./FormValidation";
 function App() {
   return (
     <>
-      {/* <Header /> */}
-      <ValidationPage />
-      {/* <BgImage />
+      
+      <BgImage />
       <div className={styles.container}>
         {routes.map((route) => {
           return route.private ? (
@@ -22,7 +21,7 @@ function App() {
               <PublicRoute key={route.label} {...route} />
             );
         })}
-      </div> */}
+      </div>
     </>
   );
 }

@@ -162,6 +162,9 @@
   .label {
     margin-right: 30px;
   }
+  .label:not(:last-child) { /*додала згідно макету*/
+    padding-bottom: 40px;
+  }
   .box {
     position: absolute;
     display: flex;
@@ -169,6 +172,9 @@
     width: 210px;
     top: 0;
     left: 260px;
+  }
+  .btn { /*додала згідно макету*/
+    margin: 20px 0;
   }
 }
 @media screen and (min-width: 1280px) {

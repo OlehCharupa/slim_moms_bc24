@@ -10,8 +10,8 @@ function App() {
 
   return (
     <>
-      <div className={styles.container}>
         <Header />
+      <div className={styles.container}>
         {/*для відображення сторінок Не видаляти! */}
         <Suspense fallback={<SpinerLoader />}>
           <Switch>

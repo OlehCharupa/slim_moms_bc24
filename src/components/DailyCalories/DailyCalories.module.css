@@ -1,5 +1,5 @@
 .block {
-  padding: 15px;
+  padding: 15px 0;  /*бокові паддінги дублюють стилі контейнера, тому додала 0*/
   float: left;
   /* margin-top: 30px; */
 }
@@ -21,6 +21,7 @@
   .title {
     font-size: 30px;
     line-height: 1.2;
+    padding-bottom: 50px;
   }
 }
 @media screen and (min-width: 1280px) {

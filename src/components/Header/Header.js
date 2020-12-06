@@ -7,6 +7,7 @@ import burger from "./images/burger.svg";
 import close from "./images/close.svg";
 import MenuModal from "../MenuModal/MenuModal";
 import MobileNavigation from "../MobileNavigation/MobileNavigation";
+import Logo from "../Logo";
 
 const Header = () => {
   //   const Authenticated = useSelector((state) => isAuthenticated(state));
@@ -29,7 +30,9 @@ const Header = () => {
   return (
     <>
       <header className={styles.header}>
-        <div className={styles.logo}>Logo</div>
+        <div className={styles.logo}>
+          <Logo />
+        </div>
         {!viewport.isDesktop && Authenticated ? (
           <button
             type="button"

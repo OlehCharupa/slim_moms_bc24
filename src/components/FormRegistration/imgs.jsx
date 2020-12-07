@@ -4,7 +4,7 @@ const Imgs = () => {
   return (
     <>
       <div className={img.LogoImg}>
-        <Logo />{" "}
+        {/* <Logo />{" "} */}
       </div>
       {/* <div className={img.LogoText}></div> */}
       <div className={img.LeafImg}></div>

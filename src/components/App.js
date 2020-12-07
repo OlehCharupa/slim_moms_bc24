@@ -12,6 +12,7 @@ import routes from '../routes/routes';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
 import BgImage from './BgImage/BgImage'
+// import Header from "./Header/Header"
 // import DailyAddProductForm from '../components/DiaryAddProductForm/DiaryAddProductForm';
 // import OpenFormAddProductInDiary from '../components/OpenFormAddProductInDiary/OpenFormAddProductInDiary';
 
@@ -20,9 +21,12 @@ function App() {
   const token = useSelector(state => state.token);
   // const onlyWidth = useWindowWidth();
 
+  <BgImage />
+
+
   return (
     <>
-      <BgImage />
+      {/* <Header /> */}
       <div className={styles.container}>
         {/* {onlyWidth < 768 ? <OpenFormAddProductInDiary /> : <DailyAddProductForm />} */}
 

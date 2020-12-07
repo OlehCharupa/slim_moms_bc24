@@ -1,35 +1,21 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import DiaryProductsListItem from "../DiaryProductListItem/DiaryProductListItem";
 import styles from "./DiaryProductsList.module.css";
 
-const item = [
-  {
-    name: "Баклажан",
-    gramm: "100",
-    kilocalories: "320",
-  },
-  {
-    name: "Баклажан",
-    gramm: "100",
-    kilocalories: "320",
-  },
-  {
-    name: "Баклажан",
-    gramm: "100",
-    kilocalories: "320",
-  },
-  {
-    name: "Баклажан",
-    gramm: "100",
-    kilocalories: "320",
-  },
-];
+const DiaryProductsList = () => {
+  const items = useSelector((state) => state.eatenProduct);
 
-const DiaryProductsListItem = () => {
   return (
-    <div className={styles.container}>
-      <ul className={styles.list}></ul>
+    <div className={styles.relative}>
+            <div className={styles.container}>
+              <ul className={styles.list}>
+                <DiaryProductsListItem />
+              </ul>
+            </div>
+      <div className={styles.gradient}></div>
     </div>
   );
 };
 
-export default DiaryProductsListItem;
+export default DiaryProductsList;

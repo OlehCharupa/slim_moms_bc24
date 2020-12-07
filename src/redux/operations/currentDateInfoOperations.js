@@ -1,27 +1,30 @@
 import axios from "axios";
-import { setErrorRequest } from "../slice/errorRequestSlice";
+import { resetErrorRequest, setErrorRequest } from "../slice/errorRequestSlice";
+import { setDateInfo} from "../slice/currentDateInfoSlice";
 import { loaderOff, loaderOn } from "../slice/loaderSlice";
 
-// axios.defaults.baseURL = "http://slimmom-backend.herokuapp.com";
+axios.defaults.baseURL = "http://slimmom-backend.herokuapp.com";
 
-// const token = {
-//   set(token) {
-//     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-//   },
-//   unset() {
-//     axios.defaults.headers.common.Authorization = "";
-//   },
-// };
+const token = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = "";
+  },
+};
 
-export const getDateInfoOperation = (requestDate) => async (dispatch) => {
-    try {
+export const getDateInfoOperation = (requestDate,persistedToken) => async (dispatch) => {
+     try {
       dispatch(loaderOn());
-      const result = await axios.post("/day/info",requestDate);
-  // console.log(result);
-      
+      const result = await axios.post("/day/info",{"date":requestDate}, token.set(persistedToken))
+    // dispatch(setDateInfo({"eatenProducts":result.data.eatenProducts, "daySummary":result.data.daySummary}));
+    dispatch(setDateInfo(result.data))
+
     } catch (error) {
       dispatch(setErrorRequest(error.message));
     } finally {
       dispatch(loaderOff());
+      dispatch(resetErrorRequest());
     }
 };

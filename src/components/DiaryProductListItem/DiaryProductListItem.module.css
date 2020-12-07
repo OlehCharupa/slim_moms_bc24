@@ -51,7 +51,7 @@
 }
 
 .listButton{
-  height: max-content;
+  /* height: max-content; */
   display: inline-block;
   align-items: center;
   justify-content: center;
@@ -63,8 +63,8 @@
 }
 
 .img{
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
 }
 
 @media screen and (min-width: 768px) {
@@ -135,7 +135,7 @@
 }
 
 
-/* @media screen and (min-width: 1280px) {
+@media screen and (min-width: 1280px) {
   .list{
     display: flex;
     align-items: center;
@@ -203,7 +203,7 @@
     width: 12px;
     height: 12px;
   }
-} */
+}
 
 
 

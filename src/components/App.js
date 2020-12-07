@@ -1,26 +1,32 @@
 import routes from "../routes/routes";
-import React from "react";
+import React, { Suspense } from "react";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PublicRoute from "./PublicRoute/PublicRoute";
 import styles from "./App.module.css";
-import BgImage from "./BgImage/BgImage";
-import DiaryProductsListItem from "./DiaryProductListItem/DiaryProductListItem";
+import SpinerLoader from "./spinerLoader/SpinerLoader";
+import { Switch } from "react-router-dom";
 import Header from "./Header/Header";
-
+import DiaryProductListItem from "./DiaryProductListItem/DiaryProductListItem";
+import DiaryProductList from "./DiaryProductsList/DiaryProductsList";
 function App() {
   return (
     <>
-      {/* <Header /> */}
-      <BgImage />
+      <Header />
+      {/* <DiaryProductListItem /> */}
       <div className={styles.container}>
-            <DiaryProductsListItem />
-        {routes.map((route) => {
-          return route.private ? (
-            <PrivateRoute key={route.label} {...route} />
-          ) : (
-            <PublicRoute key={route.label} {...route} />
-          );
-        })}
+        <DiaryProductList />
+        {/*для відображення сторінок Не видаляти! */}
+        <Suspense fallback={<SpinerLoader />}>
+          <Switch>
+            {routes.map((route) => {
+              return route.private ? (
+                <PrivateRoute key={route.label} {...route} />
+              ) : (
+                <PublicRoute key={route.label} {...route} />
+              );
+            })}
+          </Switch>
+        </Suspense>
       </div>
     </>
   );

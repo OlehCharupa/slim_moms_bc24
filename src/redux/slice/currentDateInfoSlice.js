@@ -13,12 +13,17 @@ const currentDateInfoSlice=createSlice({
         getCurrentDay(state, {payload}){
             return {...state, "currentDate":payload}
         },
+        setDateInfo(state,{payload}){
+            console.log("setDateInfo",payload);
+            return{...state, "eatenProducts":payload.eatenProducts, "daySummary":payload.daySummary }
+        }
+
        
     }
 })
 
 
 const { actions, reducer } = currentDateInfoSlice;
-export const { getCurrentDay } = actions;
+export const { getCurrentDay,setDateInfo } = actions;
 
 export default reducer;

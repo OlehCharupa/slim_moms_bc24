@@ -103,7 +103,14 @@ const CalculatorCalorieForm = () => {
 
   const submitHeandler = (e) => {
     e.preventDefault();
-    userToken ? dispatch(DailyCaloriesFormOperationById(values, userId, userToken)) : dispatch(DailyCaloriesFormOperation(values));
+    const VALUES = {
+      weight: Number(values.weight),
+      height: Number(values.height),
+      age: Number(values.age),
+      desiredWeight: Number(values.desiredWeight),
+      bloodType: Number(values.bloodType),
+    };
+    userToken ? dispatch(DailyCaloriesFormOperationById(VALUES, userId, userToken)) : dispatch(DailyCaloriesFormOperation(VALUES));
   };
   
   return (

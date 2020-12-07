@@ -10,7 +10,7 @@ import SpinerLoader from "./spinerLoader/SpinerLoader";
 import routes from '../routes/routes';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
-// import Header from "./Header/Header"
+import Header from "./Header/Header"
 // import DailyAddProductForm from '../components/DiaryAddProductForm/DiaryAddProductForm';
 // import OpenFormAddProductInDiary from '../components/OpenFormAddProductInDiary/OpenFormAddProductInDiary';
 
@@ -21,7 +21,7 @@ function App() {
 
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <div className={styles.container}>
         {/* {onlyWidth < 768 ? <OpenFormAddProductInDiary /> : <DailyAddProductForm />} */}
 

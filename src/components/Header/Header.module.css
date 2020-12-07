@@ -22,7 +22,11 @@
     margin-left: 90px;
     margin-right: 115px;
 
-    align-items: baseline;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    padding-bottom: 47px;
   }
 }
 
@@ -32,6 +36,11 @@
     justify-content: space-between;
 
     background-color: #fff;
+  }
+
+  .navBar {
+    width: 100%;
+    justify-content: space-between;
   }
 }
 
@@ -55,4 +64,10 @@
 
 .userBar {
   display: flex;
+}
+
+.navBar {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
 }

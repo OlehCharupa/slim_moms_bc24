@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import styles from './DiaryAddProductForm.module.css';
 import { useWindowWidth } from '@react-hook/window-size';
 import { addProduct } from '../../redux/operations/diaryAddProduct';
+
 const diaryAddProductInitialState = {
   product: '',
   grams: ''
@@ -10,10 +11,15 @@ const diaryAddProductInitialState = {
 
 const DiaryAddProductForm = () => {
   const [diaryForm, setDiaryForm] = useState(diaryAddProductInitialState);
+  // const [productError, setProductError] = useState('Введите название продукта. Используйте исключительно буквы кириллицы.');
+  // const [gransError, setGramsError] = useState('Введите кол-во грамм цыфрами');
+  const [formError, setFormError] = useState('Поле не заполнено. Введите граммы цифрами, Название продукта - буквами')
   const dispatch = useDispatch();
   const onlyWidth = useWindowWidth();
+
   const inputHandlerDiaryAddProduct = ({ target }) => {
     const { name, value } = target;
+
     setDiaryForm(state => ({ ...state, [name]: value }))
   }
 
@@ -25,7 +31,12 @@ const DiaryAddProductForm = () => {
       product,
       grams,
     }
+    // if (product === '' && Number(grams)) {
+    //   setFormError('Поле не заполнено. Введите граммы цифрами, Название продукта - буквами')
+    // }
+
     dispatch(addProduct(singleProduct));
+
     setDiaryForm({ ...diaryAddProductInitialState });
     // console.log(singleProduct);
   }

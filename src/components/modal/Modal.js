@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import style from "./Modal.module.css";
 
-const Modal = ({ children, arrowVisible = false, callback }) => {
-  const [openModal, setOpenModal] = useState(false);
-  const toggleModal = () => {
-    setOpenModal(!openModal)
-  };
+const Modal = ({ children, arrowVisible = false, callback, openModal, toggleModal }) => {
 
   useEffect(() => {
     arrowVisible && callback(toggleModal);
@@ -19,7 +15,7 @@ const Modal = ({ children, arrowVisible = false, callback }) => {
 
   const handleKeyDown = (e) => {
     if (e.code === "Escape") {
-      setOpenModal(false);
+      toggleModal();
     }
   };
   const handleClick = (e) => {

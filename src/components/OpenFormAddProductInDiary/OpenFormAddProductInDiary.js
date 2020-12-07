@@ -1,22 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './OpenFormAddProductInDiary.module.css';
 import Modal from '../modal/Modal';
 import DiaryAddProductForm from '../DiaryAddProductForm/DiaryAddProductForm';
 
 const OpenFormAddProductInDiary = () => {
-  let toggleModal;
-  const toggle = () => {
-    toggleModal();
+  const [openModal, setOpenModal] = useState(false)
+
+  const toggleModal = () => {
+    setOpenModal(!openModal)
   }
 
   return (
     <>
-      <button type='button' className={styles.openAddProductForm} onClick={toggle}></button>
+      <button type='button' className={styles.openAddProductForm} onClick={toggleModal}></button>
       <Modal
-        arrowVisible={true}
-        callback={(toggle) => {
-          toggleModal = toggle;
-        }}
+        arrowVisible
+        toggleModal={toggleModal}
+        openModal={openModal}
+        callback={() => { }}
       >
         <DiaryAddProductForm />
       </Modal>

@@ -12,20 +12,20 @@ import routes from '../routes/routes';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
 import BgImage from './BgImage/BgImage'
-import DailyAddProductForm from '../components/DiaryAddProductForm/DiaryAddProductForm';
-import OpenFormAddProductInDiary from '../components/OpenFormAddProductInDiary/OpenFormAddProductInDiary';
-import Modal from '../components/modal/Modal';
+// import DailyAddProductForm from '../components/DiaryAddProductForm/DiaryAddProductForm';
+// import OpenFormAddProductInDiary from '../components/OpenFormAddProductInDiary/OpenFormAddProductInDiary';
 
 function App() {
 
   const token = useSelector(state => state.token);
-  const onlyWidth = useWindowWidth();
+  // const onlyWidth = useWindowWidth();
 
   return (
     <>
       <BgImage />
       <div className={styles.container}>
-        {onlyWidth < 768 ? <OpenFormAddProductInDiary /> : <DailyAddProductForm />}
+        {/* {onlyWidth < 768 ? <OpenFormAddProductInDiary /> : <DailyAddProductForm />} */}
+
         {/*для відображення сторінок Не видаляти! */}
         <Suspense fallback={<SpinerLoader />}>
           <Switch>

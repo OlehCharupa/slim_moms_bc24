@@ -4,14 +4,16 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PublicRoute from "./PublicRoute/PublicRoute";
 import styles from "./App.module.css";
 import BgImage from "./BgImage/BgImage";
-import DiaryProductsListItem from "./DiaryProductsListItem/DiaryProductsListItem";
+import DiaryProductsListItem from "./DiaryProductListItem/DiaryProductListItem";
+import Header from "./Header/Header";
 
 function App() {
   return (
     <>
+      {/* <Header /> */}
       <BgImage />
-      <DiaryProductsListItem />
       <div className={styles.container}>
+            <DiaryProductsListItem />
         {routes.map((route) => {
           return route.private ? (
             <PrivateRoute key={route.label} {...route} />

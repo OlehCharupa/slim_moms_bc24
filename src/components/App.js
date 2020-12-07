@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 import styles from './App.module.css';
 
-import SpinerLoader from "./SpinerLoader/SpinerLoader";
+import SpinerLoader from "./spinerLoader/SpinerLoader";
 
 import routes from '../routes/routes';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
@@ -24,7 +24,7 @@ function App() {
     <>
       <Header />
       <div className={styles.container}>
-         {/* {onlyWidth < 768 ? <OpenFormAddProductInDiary /> : <DailyAddProductForm />} */}
+        {/* {onlyWidth < 768 ? <OpenFormAddProductInDiary /> : <DailyAddProductForm />} */}
 
         {/*для відображення сторінок Не видаляти! */}
         <Suspense fallback={<SpinerLoader />}>
@@ -38,7 +38,6 @@ function App() {
             })}
           </Switch>
         </Suspense>
-        <Login/>
       </div>
     </>
   );

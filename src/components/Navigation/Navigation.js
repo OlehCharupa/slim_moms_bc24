@@ -13,7 +13,7 @@ const filterPublicRoutes = (routes) => routes.filter((route) => !route.private);
 const filterPrivateRoutes = (routes) =>
   routes.filter((route) => route.private || !route.restricted);
 
-const Navigation = () => {
+const Navigation = ({ onModalClose }) => {
   const Authenticated = useSelector((state) => isLogin(state));
 
   const filteredRoutes = useSelector(isLogin)
@@ -37,6 +37,7 @@ const Navigation = () => {
           to={route.path}
           className={styles.navList__item_link}
           activeClassName={styles.navList__item_active_link}
+          onClick={() => onModalClose()}
         >
           {route.label}
         </NavLink>

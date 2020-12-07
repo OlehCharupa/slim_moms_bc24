@@ -1,17 +1,15 @@
 import React, { Suspense } from 'react';
 import { Switch } from "react-router-dom";
 import { useSelector } from 'react-redux';
-import { useWindowWidth } from '@react-hook/window-size';
+// import { useWindowWidth } from '@react-hook/window-size';
 
 import styles from './App.module.css';
 
 import SpinerLoader from "./spinerLoader/SpinerLoader";
 
-
 import routes from '../routes/routes';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
-import BgImage from './BgImage/BgImage'
 // import Header from "./Header/Header"
 // import DailyAddProductForm from '../components/DiaryAddProductForm/DiaryAddProductForm';
 // import OpenFormAddProductInDiary from '../components/OpenFormAddProductInDiary/OpenFormAddProductInDiary';
@@ -20,9 +18,6 @@ function App() {
 
   const token = useSelector(state => state.token);
   // const onlyWidth = useWindowWidth();
-
-  <BgImage />
-
 
   return (
     <>

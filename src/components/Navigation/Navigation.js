@@ -37,7 +37,9 @@ const Navigation = ({ onModalClose }) => {
           to={route.path}
           className={styles.navList__item_link}
           activeClassName={styles.navList__item_active_link}
-          onClick={() => onModalClose()}
+          onClick={() => {
+            !viewport.isDesktop && onModalClose();
+          }}
         >
           {route.label}
         </NavLink>

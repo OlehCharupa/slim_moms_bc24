@@ -40,39 +40,44 @@ const Header = () => {
   return (
     <>
       <header className={styles.header}>
-        <Logo />
-        {!viewport.isDesktop && Authenticated ? (
-          <div className={styles.userBar}>
-            {Authenticated && viewport.isTablet && <UserInfo />}
-            <button
-              type="button"
-              className={styles.btn}
-              aria-label="menu"
-              onClick={modalHandler}
-            >
-              {!modal && (
-                <img
-                  src={burger}
-                  alt="open menu"
-                  aria-label="open menu"
-                  width="32"
-                  height="32"
-                />
-              )}
-              {modal && (
-                <img
-                  src={close}
-                  alt="close menu"
-                  aria-label="close menu"
-                  width="32"
-                  height="32"
-                />
-              )}
-            </button>
+        <div className={styles.navBar}>
+          <div className={styles.logo}>
+            <Logo />
           </div>
-        ) : (
-          showDesktopNav && <Navigation />
-        )}
+          {!viewport.isDesktop && Authenticated ? (
+            <div className={styles.userBar}>
+              {Authenticated && viewport.isTablet && <UserInfo />}
+              <button
+                type="button"
+                className={styles.btn}
+                aria-label="menu"
+                onClick={modalHandler}
+              >
+                {!modal && (
+                  <img
+                    src={burger}
+                    alt="open menu"
+                    aria-label="open menu"
+                    width="32"
+                    height="32"
+                  />
+                )}
+                {modal && (
+                  <img
+                    src={close}
+                    alt="close menu"
+                    aria-label="close menu"
+                    width="32"
+                    height="32"
+                  />
+                )}
+              </button>
+            </div>
+          ) : (
+            showDesktopNav && <Navigation />
+          )}
+        </div>
+        {Authenticated && viewport.isDesktop && <UserInfo />}
       </header>
       {viewport.isMobile && (arrow || Authenticated) && (
         <MobileNavigation

@@ -14,7 +14,7 @@ const token = {
   },
 };
 
-export const getDateInfoOperation = (requestDate,persistedToken) => async (dispatch) => {
+export const getDateInfoOperation = (requestDate, persistedToken) => async (dispatch) => {
      try {
       dispatch(loaderOn());
       const result = await axios.post("/day/info",{"date":requestDate}, token.set(persistedToken))

@@ -5,10 +5,8 @@ import PublicRoute from "./PublicRoute/PublicRoute";
 import styles from "./App.module.css";
 import SpinerLoader from "./spinerLoader/SpinerLoader";
 import { Switch } from "react-router-dom";
-
-
+import RightSideBar from './RightSideBar/RightSideBar';
 function App() {
-  const token = useSelector(state => state.token);
   
   return (
     <>
@@ -25,6 +23,7 @@ function App() {
             })}
           </Switch>
         </Suspense>
+        <RightSideBar />
       </div>
 
 

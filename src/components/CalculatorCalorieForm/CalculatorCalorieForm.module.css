@@ -28,10 +28,20 @@
 }
 .label{
     display: inline-block;
-
+    position: relative;
 }
 .label:not(:last-child){
-padding-bottom: 30px;
+padding-bottom: 50px;
+}
+.errorText{
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.214;
+    letter-spacing: 0.04em;
+    margin: 0;
+    position: absolute;
+    top: 30px;
+    color: red;
 }
 .text{
     font-weight: bold;
@@ -103,8 +113,8 @@ padding-bottom: 30px;
 }
 
 .blood__lebel .checkmark::after {
-    top: 5px;
-    left: 5px;
+    top: 4px;
+    left: 4px;
     width: 10px;
     height: 10px;
     border-radius: 50%;

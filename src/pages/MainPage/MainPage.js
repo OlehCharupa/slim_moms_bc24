@@ -5,12 +5,12 @@ import style from "./MainPage.module.css";
 
 const MainPage = () => {
   return (
-    <div className={style.main__wrapper}>
-      <div className={style.form__wrapper}>
-        <DailyCalories />
-      </div>
-      {/* <h2 className={style.main__title}>Просчитай свою суточную норму калорий прямо сейчас</h2> */}
+    
+    <div className={style.form__wrapper}>
+      <div className={style.main__background_wrapper}></div>
+      <DailyCalories />
     </div>
+      
   );
 };
 

@@ -67,6 +67,8 @@
     .right__SideBar{
         width: 330px;
         background-image: none;
+        padding-top: 0;
+        padding-bottom: 0;
     }
     .bgImageLogin{
         background-image: url("./image/Layer-desktop.png");

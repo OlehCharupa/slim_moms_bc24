@@ -85,7 +85,7 @@ const Header = () => {
       )}
       {modal && (
         <MenuModal>
-          <Navigation />
+          <Navigation onModalClose={modalHandler} />
         </MenuModal>
       )}
     </>

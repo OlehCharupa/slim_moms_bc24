@@ -7,7 +7,7 @@ const ValidationPage = () => {
   return (
     <div className={form.main__log}>
       <div className={form.TopBar}>
-        <Header />
+      
         {/* <div className={form.logoNav}>
           <Logo />
         </div> */}

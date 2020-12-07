@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './DiaryAddProductForm.module.css';
 import { useWindowWidth } from '@react-hook/window-size';
-import { addProduct } from '../../redux/operations/diaryAddProduct';
+import { addProduct, findProduct } from '../../redux/operations/diaryAddProduct';
+import { currentDateSelector } from '../../redux/selectors/dateInfoSelectors';
 
 const diaryAddProductInitialState = {
   product: '',
-  grams: ''
+  weight: ''
 }
 
 const DiaryAddProductForm = () => {
@@ -16,23 +17,28 @@ const DiaryAddProductForm = () => {
   const [formError, setFormError] = useState('Поле не заполнено. Введите граммы цифрами, Название продукта - буквами')
   const dispatch = useDispatch();
   const onlyWidth = useWindowWidth();
+  const date = useSelector(state => currentDateSelector(state));
+
+
 
   const inputHandlerDiaryAddProduct = ({ target }) => {
     const { name, value } = target;
+    dispatch(findProduct(value))
 
     setDiaryForm(state => ({ ...state, [name]: value }))
   }
 
   const submitHandlerDiaryAddProduct = (e) => {
     e.preventDefault();
-    const { product, grams } = diaryForm;
+    const { product, weight } = diaryForm;
 
     const singleProduct = {
       product,
-      grams,
+      weight,
+      date
     }
     // if (product === '' && Number(grams)) {
-    //   setFormError('Поле не заполнено. Введите граммы цифрами, Название продукта - буквами')
+    //   setFormError(formError: 'Поле не заполнено. Введите граммы цифрами, Название продукта - буквами')
     // }
 
     dispatch(addProduct(singleProduct));
@@ -61,8 +67,8 @@ const DiaryAddProductForm = () => {
             className={styles.diaryAddProductForm_inputGrams}
             placeholder='Граммы'
             type='text'
-            name='grams'
-            value={diaryForm.grams}
+            name='weight'
+            value={diaryForm.weight}
           >
           </input>
         </label>

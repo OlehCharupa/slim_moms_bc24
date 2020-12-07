@@ -1,11 +1,20 @@
 import React, { useEffect } from "react";
-
+import { useWindowWidth } from "@react-hook/window-size";
 import style from "./Modal.module.css";
 
-const Modal = ({ children, arrowVisible = false, callback, openModal, toggleModal }) => {
+const Modal = ({ children, openModal, toggleModal}) => {
+//   у компоненті, який викликає модальне вікно, потрібно стоврити локальний стейт: 
+//   const [openModal, setOpenModal]= useState(false)
+//   та прописати логіку тогла (закриття/відкриття модального вікна):
+//   const toggleModal=()=>{
+//    setOpenModal(!openModal)
+//  }
+//  та передати їх пропсами
 
+  
+  const onlyWidth = useWindowWidth();
   useEffect(() => {
-    arrowVisible && callback(toggleModal);
+ 
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
@@ -37,11 +46,11 @@ const Modal = ({ children, arrowVisible = false, callback, openModal, toggleModa
           data-name="overlay"
         >
           <div className={style.modal} data-name="modal">
-            {!arrowVisible && <button
-              className={style.closeButton}
+             <button
+              className={onlyWidth<768 ? style.arrowCloseButton : style.closeButton }
               type="button"
               onClick={toggleModal}
-            ></button>}
+            ></button>
             {children}
           </div>
         </div>

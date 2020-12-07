@@ -13,7 +13,11 @@ import PublicRoute from './PublicRoute/PublicRoute';
 import Header from "./Header/Header"
 // import DailyAddProductForm from '../components/DiaryAddProductForm/DiaryAddProductForm';
 // import OpenFormAddProductInDiary from '../components/OpenFormAddProductInDiary/OpenFormAddProductInDiary';
+<<<<<<< HEAD
 import CurrentDate from './currentDate/CurrentDate';
+=======
+import Login from './Login/Login'
+>>>>>>> dev
 
 function App() {
 
@@ -38,6 +42,7 @@ function App() {
             })}
           </Switch>
         </Suspense>
+        <Login/>
       </div>
     </>
   );

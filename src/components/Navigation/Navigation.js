@@ -13,6 +13,7 @@ const filterPublicRoutes = (routes) => routes.filter((route) => !route.private);
 const filterPrivateRoutes = (routes) =>
   routes.filter((route) => route.private || !route.restricted);
 
+console.log(isLogin);
 const Navigation = ({ onModalClose }) => {
   const Authenticated = useSelector((state) => isLogin(state));
 
@@ -26,8 +27,8 @@ const Navigation = ({ onModalClose }) => {
         viewport.isDesktop
           ? styles.nav
           : Authenticated
-          ? styles.mobileNav
-          : styles.nav
+            ? styles.mobileNav
+            : styles.nav
       }
     >
       {filteredRoutes.map((route) => (

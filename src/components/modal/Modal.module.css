@@ -1,6 +1,6 @@
 .overlay {
   position: fixed;
-  top: 0;
+  top: 80px;
   left: 0;
   height: 100vh;
   width: 100vw;
@@ -38,7 +38,7 @@
   cursor: pointer;
   transition: background-color 200ms ease-in-out;
   outline: none;
-  background-image: url("./icon-close.svg");
+  background-image: url("./image/icon-close.svg");
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
@@ -47,8 +47,28 @@
 
 .closeButton:hover,
 .closeButton:focus {
-  background-image: url("./icon-close-wite.svg");
+  background-image: url("./image/icon-close-wite.svg");
   background-color: #fc842d;
+}
+.arrowCloseButton {
+  position: absolute;
+  top: -23px;
+  left: 15px;
+  width: 14px;
+  height: 9px;
+  padding: 10px 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out;
+  outline: none;
+  background-image: url("./image/arrow-close.svg");
+  background-repeat: no-repeat;
+  transition: all 300ms ease-in;
+}
+.arrowCloseButton:hover,
+.arrowCloseButton:focus {
+  background-image: url("./image/arrow-close-orange.svg");
 }
 
 @media (max-width: 767px) {
@@ -74,8 +94,6 @@
     padding: 0 90px;
   }
 }
-
-
 
 /* =======чи потрібний brackpoint 480?================================ */
 /* 

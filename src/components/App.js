@@ -13,6 +13,7 @@ import PublicRoute from './PublicRoute/PublicRoute';
 import Header from "./Header/Header"
 // import DailyAddProductForm from '../components/DiaryAddProductForm/DiaryAddProductForm';
 // import OpenFormAddProductInDiary from '../components/OpenFormAddProductInDiary/OpenFormAddProductInDiary';
+import Login from './Login/Login'
 
 function App() {
 
@@ -32,8 +33,8 @@ function App() {
               return route.private ? (
                 <PrivateRoute key={route.label} {...route} />
               ) : (
-                  <PublicRoute key={route.label} {...route} />
-                );
+                <PublicRoute key={route.label} {...route} />
+              );
             })}
           </Switch>
         </Suspense>

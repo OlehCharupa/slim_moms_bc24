@@ -19,6 +19,7 @@ const Navigation = ({ onModalClose }) => {
   const filteredRoutes = useSelector(isLogin)
     ? filterPrivateRoutes(routes)
     : filterPublicRoutes(routes);
+    
 
   return (
     <nav
@@ -26,8 +27,8 @@ const Navigation = ({ onModalClose }) => {
         viewport.isDesktop
           ? styles.nav
           : Authenticated
-          ? styles.mobileNav
-          : styles.nav
+            ? styles.mobileNav
+            : styles.nav
       }
     >
       {filteredRoutes.map((route) => (

@@ -1,0 +1,32 @@
+.mainInfo{
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.userInfoLink{
+  display: table-cell;
+  vertical-align: middle;
+  padding: 11px 22px;
+  color: #212121;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 13px;
+  text-align: right;
+  letter-spacing: 0.04em;
+}
+
+.exitInfoLink{
+  display: table-cell;
+  vertical-align: middle;
+  padding: 11px 22px;
+  color: #9B9FAA;
+  border-left: 2px solid #E0E0E0;
+  text-decoration: none;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 13px;
+  letter-spacing: 0.04em;
+  font-weight: bold;
+}

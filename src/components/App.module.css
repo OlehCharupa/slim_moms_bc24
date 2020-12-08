@@ -1,5 +1,5 @@
 .container {
-  margin: 0 auto;
+  /* margin: 0 auto; */
   padding-left: 15px;
   padding-right: 15px;
   width: 100%;
@@ -21,8 +21,10 @@
 
 @media screen and (min-width: 1280px) {
   .container {
-    padding-left: 90px;
-    padding-right: 90px;
+    padding-left: 115px; /*замінила згідно макету*/
+    padding-right: 115px; /*замінила згідно макету*/
+    /* padding-left: 90px;
+    padding-right: 90px; */
     width: 1280px;
   }
 }

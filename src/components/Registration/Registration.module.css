@@ -3,15 +3,14 @@
     flex-direction: column;
 }
 
-.label + .label{
-margin-top: 40px;
+.label{
+margin-bottom: 40px;
+
 }
 
 .title{
 
-    font-family: "Gotham Pro";
-    font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 14px;
     line-height: 13px;
     text-align: center;
@@ -27,10 +26,10 @@ margin-top: 40px;
     margin-top: 60px;
 }
 .input__title{
+    margin: 0 0 7px 0;
 
-    font-family: Verdana;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.04em;
@@ -50,15 +49,31 @@ margin-top: 40px;
     width: 100%;
 }
 
+
 .contaner__err{
     position: relative;
 }
 .err__message{
     position: absolute;
-
+    top: -47px;
+    left: 0;
     font-family: Verdana;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+
+    color: red;
+}
+
+.err__message__state{
+    position: absolute;
+    top: -2px;
+    left: 21px;
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: 400;
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.04em;

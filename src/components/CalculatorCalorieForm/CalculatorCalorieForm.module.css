@@ -1,0 +1,174 @@
+.form{
+    position: relative;
+    display: block;
+    width: 240px;
+}
+.input{
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.214;
+    letter-spacing: 0.04em;
+    border: none;
+    border-bottom: 1px solid #E0E0E0;
+    padding-bottom: 10px;
+    outline: none;
+}
+.input:focus{
+    border-bottom: 1px solid #9B9FAA;
+
+}
+.input::placeholder{
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.214;
+    letter-spacing: 0.04em;
+    
+    color: #9B9FAA;
+}
+.label{
+    display: inline-block;
+
+}
+.label:not(:last-child){
+padding-bottom: 30px;
+}
+.text{
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.214;
+    letter-spacing: 0.04em;
+    margin: 0;
+    color: #9B9FAA;
+    padding-bottom: 15px;
+}
+.list{
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 57px;
+}
+.item{
+    padding-right: 28px;
+}   
+.blood__lebel{
+    display: flex;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.4em;
+    font-weight: bold;
+    font-style: normal;
+    -webkit-user-select: none;
+    user-select: none;
+    align-items: center;
+    justify-content: center;
+    color: #9B9FAA;
+}
+.bloodInput{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #E0E0E0;
+    border-radius: 50%;
+  }
+.number{
+    margin-left: 30px;
+}
+.blood__lebel:hover .bloodInput ~ .checkmark{
+    border: 1px solid #E0E0E0;
+}
+.blood__lebel .bloodInput:checked ~ .checkmark {
+    background-color: #ffffff;
+    color:  #FC842D;
+}
+
+.checkmark::after{
+    content: "";
+    position: absolute;
+    display: none;
+}
+.blood__lebel .bloodInput:checked ~ .checkmark::after{
+    display: block;
+}
+
+.blood__lebel .checkmark::after {
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #FC842D;
+}
+.bloodInput:checked ~ .number .checkmark::after{
+    color:  #FC842D;
+}
+
+.btn{
+    display: block;
+    padding: 13px 48px;
+
+    border: none;
+    background: #FC842D;
+    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    border-radius: 30px;
+
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.214;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.btn:focus,
+.btn:hover{
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+@media screen and (min-width: 768px) {
+    .block{
+        width: 565px;
+        margin-left: 87px;
+    }
+    .title{
+        font-size: 30px;
+        line-height: 1.2;
+    }
+    .form{
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 410px;
+    }
+    .label{
+        margin-right: 30px;
+    }
+    .box{
+        position: absolute;
+        display: flex;
+        flex-wrap: wrap;
+        width: 210px;
+        top: 0;
+        left: 260px;
+    }
+}
+@media screen and (min-width: 1280px){
+.btn{
+    float: right;
+    position: relative;
+    left: 60px;
+}
+}

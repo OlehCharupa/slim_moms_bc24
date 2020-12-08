@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react"
-// import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import style from './../Registration/Registration.module.css'
-
+import { loginOperations } from "./../../redux/operations/loginOperations";
+import { useHistory } from "react-router-dom";
+import { resetErrorRequest } from "../../redux/slice/errorRequestSlice";
 const Login = () => {
 
 	const logState = {
@@ -12,10 +14,12 @@ const Login = () => {
 	const [logForm, setLogForm] = useState(logState)
 	const [emailDirty, setEmailDirty] = useState(false)
 	const [passwordDirty, setPasswordDirty] = useState(false)
-	const [emailError, setEmailError] = useState("Емейл не может быть пустым")
+	const [emailError, setEmailError] = useState("Поле email не может быть пустым")
 	const [passwordError, setPasswordError] = useState("Пароль не может быть пустым")
 	const [formValid, setFormValid] = useState(false)
-	// const dispatch = useDispatch()
+	const stateError = useSelector(state => state.errorRequest)
+	const dispatch = useDispatch()
+	const history = useHistory()
 
 	useEffect(() => {
 		if (emailError || passwordError) {
@@ -23,7 +27,7 @@ const Login = () => {
 		} else {
 			setFormValid(true)
 		}
-	})
+	}, [emailError, passwordError])
 
 	const emailHandler = (e) => {
 		setLogForm((prev) => ({ ...prev, email: e.target.value }))
@@ -32,9 +36,9 @@ const Login = () => {
 		}
 		const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 		if (!e.target.value) {
-			setEmailError("Емейл не может быть пустым")
+			setEmailError("Поле email не может быть пустым")
 		} else if (!re.test(String(e.target.value).toLowerCase())) {
-			setEmailError("Некорректный емейл")
+			setEmailError("Некорректный email")
 		} else {
 			setEmailError("")
 		}
@@ -55,6 +59,7 @@ const Login = () => {
 	}
 
 	const handleBlur = ({ target }) => {
+		dispatch(resetErrorRequest());
 		switch (target.name) {
 			case "email":
 				setEmailDirty(true)
@@ -69,19 +74,28 @@ const Login = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 
-		// dispatch(authOperations.logIn(logForm)); //отправлять на функцию запросна на бэк
+		dispatch(loginOperations(logForm)); //отправлять на функцию запросна на бэк
 		setLogForm(logState)
 	}
 
 	const { email, password } = logForm
 
+	const openPage = () => {
+		// history.push('/reg') // путь джедая
+	}
+	console.log(stateError.indexOf('409') + 1);
+
 	return (
-		<section className={style.section}>
+		<div className={style.section}>
 			<h2 className={style.title}>Вход</h2>
+			<div className={style.contaner__err}>
+				{!!(stateError.indexOf('403') + 1) && <p className={style.err__message__state}>Email или пароль не верный!</p>}
+			</div>
+
 
 			<form onSubmit={handleSubmit} className={style.form}>
 				<label className={style.label}>
-					<p className={style.input__title}>Логин *</p>
+					<p className={style.input__title}>Email *</p>
 					<input
 						className={(emailDirty && emailError) ? style.input_err : style.input}
 						type="email"
@@ -116,10 +130,10 @@ const Login = () => {
 					<button disabled={!formValid} className={style.login__btn} type="submit">
 						Вход
 					</button>
-					<button className={style.registration__btn}>Регистрация</button>
+					<button className={style.registration__btn} type='button' onClick={openPage}>Регистрация</button>
 				</div>
 			</form>
-		</section>
+		</div>
 	)
 }
 

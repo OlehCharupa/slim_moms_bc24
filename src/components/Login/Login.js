@@ -81,12 +81,12 @@ const Login = () => {
 	const { email, password } = logForm
 
 	const openPage = () => {
-		// history.push('/reg') // путь джедая
+		history.push('/registration')
 	}
 	console.log(stateError.indexOf('409') + 1);
 
 	return (
-		<div className={style.section}>
+		<section className={style.section}>
 			<h2 className={style.title}>Вход</h2>
 			<div className={style.contaner__err}>
 				{!!(stateError.indexOf('403') + 1) && <p className={style.err__message__state}>Email или пароль не верный!</p>}
@@ -133,7 +133,7 @@ const Login = () => {
 					<button className={style.registration__btn} type='button' onClick={openPage}>Регистрация</button>
 				</div>
 			</form>
-		</div>
+		</section>
 	)
 }
 

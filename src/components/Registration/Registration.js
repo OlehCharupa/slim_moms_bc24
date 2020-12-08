@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { resetErrorRequest } from "../../redux/slice/errorRequestSlice";
 import { registrationOperations } from "./../../redux/operations/registrationOperations";
 
-import style from './Registration.module.css'
+import style from "./Registration.module.css";
 
 const Registration = () => {
 	const regState = {
@@ -96,10 +96,10 @@ const Registration = () => {
 	const { username, email, password } = regForm
 
 	const openPage = () => {
-		// history.push('/login') // путь джедая
+		history.push('/login')
 	}
 	return (
-		<div className={style.section}>
+		<section className={style.section}>
 			<h2 className={style.title}>Регистрация</h2>
 			<div className={style.contaner__err}>
 				{!!(stateError.indexOf('409') + 1) && <p className={style.err__message__state}>Такой email уже зарегестрирован!</p>}
@@ -165,7 +165,7 @@ const Registration = () => {
 					</button>
 				</div>
 			</form>
-		</div >
+		</section >
 	)
 }
 

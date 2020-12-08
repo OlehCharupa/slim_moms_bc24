@@ -1,6 +1,7 @@
 .section{
     display: flex;
     flex-direction: column;
+    max-width: 427px;
 }
 
 .label{
@@ -146,6 +147,15 @@ margin-bottom: 40px;
     .con__btns{
         flex-direction: row;
         justify-content: space-between;
+        
+    }
+    .section{
+max-width: 382px;
+    }
+   
+    
+    .registration__btn{
+margin: 0;
     }
 }
 

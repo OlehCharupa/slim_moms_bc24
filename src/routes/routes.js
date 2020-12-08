@@ -24,7 +24,7 @@ const routes = [
     path: paths.registration,
     label: 'Регистрация',
     exact: false,
-    component: lazy(() => import('../components/Registration/Registration')), //раскомментировать,  в импорт внести место и имя своего компонента
+    component: lazy(() => import('../pages/Registration-page/index.js')), //раскомментировать,  в импорт внести место и имя своего компонента
     // component: () => <h2>Регистрация</h2>, // удалить, когда будет корректный импорт
     private: false,
     restricted: true,
@@ -33,7 +33,7 @@ const routes = [
     path: paths.login,
     label: 'Вход',
     exact: false,
-    component: lazy(() => import('../components/Login/Login')), //раскомментировать,  в импорт внести место и имя своего компонента
+    component: lazy(() => import('../pages/Login-page/index.js')), //раскомментировать,  в импорт внести место и имя своего компонента
     // component: () => <h2>Вход</h2>, // удалить, когда будет корректный импорт
     private: false,
     restricted: true,

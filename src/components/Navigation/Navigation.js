@@ -13,13 +13,13 @@ const filterPublicRoutes = (routes) => routes.filter((route) => !route.private);
 const filterPrivateRoutes = (routes) =>
   routes.filter((route) => route.private || !route.restricted);
 
-console.log(isLogin);
 const Navigation = ({ onModalClose }) => {
   const Authenticated = useSelector((state) => isLogin(state));
 
   const filteredRoutes = useSelector(isLogin)
     ? filterPrivateRoutes(routes)
     : filterPublicRoutes(routes);
+    
 
   return (
     <nav

@@ -26,11 +26,11 @@ function App() {
       <Header />
       <div className={styles.container}>
         {/* {onlyWidth < 768 ? <OpenFormAddProductInDiary /> : <DailyAddProductForm />} */}
-        <Registration />
-        <Login />
+        {/* <Registration />
+        <Login /> */}
         {/*для відображення сторінок Не видаляти! */}
-        {/* <Suspense fallback={<SpinerLoader />}>
-           <Switch>
+        <Suspense fallback={<SpinerLoader />}>
+          <Switch>
             {routes.map((route) => {
               return route.private ? (
                 <PrivateRoute key={route.label} {...route} />
@@ -39,7 +39,7 @@ function App() {
                 );
             })}
           </Switch>
-        </Suspense> */}
+        </Suspense>
       </div>
     </>
   );

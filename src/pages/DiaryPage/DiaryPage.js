@@ -15,10 +15,10 @@ const DiaryPage = () => {
                 {onlyWidth<768?<OpenFormAddProductInDiary/>: <DiaryAddProductForm/>}
                 
             </div>
-            <div className={style.sideBar__wrapper}>
-                <div className={style.sideBar__bg}></div>
                 <RightSideBar/>
-            </div>
+                <div className={style.sideBar__bg}></div>
+            {/* <div className={style.sideBar__wrapper}>
+            </div> */}
         </div>
     );
 };

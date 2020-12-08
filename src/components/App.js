@@ -1,7 +1,5 @@
 import React, { Suspense } from 'react';
 import { Switch } from "react-router-dom";
-import { useSelector } from 'react-redux';
-// import { useWindowWidth } from '@react-hook/window-size';
 
 import styles from './App.module.css';
 
@@ -11,25 +9,14 @@ import routes from '../routes/routes';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
 import Header from "./Header/Header"
-// import DailyAddProductForm from '../components/DiaryAddProductForm/DiaryAddProductForm';
-// import OpenFormAddProductInDiary from '../components/OpenFormAddProductInDiary/OpenFormAddProductInDiary';
-<<<<<<< HEAD
-import CurrentDate from './currentDate/CurrentDate';
-=======
-import Login from './Login/Login'
->>>>>>> dev
 
 function App() {
-
-  const token = useSelector(state => state.token);
-  // const onlyWidth = useWindowWidth();
 
   return (
     <>
       <Header />
       <div className={styles.container}>
-        {/* {onlyWidth < 768 ? <OpenFormAddProductInDiary /> : <DailyAddProductForm />} */}
-        <CurrentDate />
+
         {/*для відображення сторінок Не видаляти! */}
         <Suspense fallback={<SpinerLoader />}>
           <Switch>
@@ -42,7 +29,7 @@ function App() {
             })}
           </Switch>
         </Suspense>
-        <Login/>
+
       </div>
     </>
   );

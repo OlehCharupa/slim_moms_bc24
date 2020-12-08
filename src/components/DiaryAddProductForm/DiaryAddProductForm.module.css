@@ -56,6 +56,10 @@ padding-top: 50px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
+.searchProducts_wrapper {
+  height: 200px;
+}
+
 
 
 @media screen and (max-width: 767px) {

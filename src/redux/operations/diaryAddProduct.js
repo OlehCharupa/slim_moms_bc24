@@ -1,37 +1,30 @@
-import { createAction } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { resetErrorRequest, setErrorRequest } from '../slice/errorRequestSlice';
+import { setErrorRequest, resetErrorRequest } from '../slice/errorRequestSlice';
 import { loaderOff, loaderOn } from '../slice/loaderSlice';
-
-const addProductRequest = createAction('product/addRequest');
-const addProductSuccess = createAction('product/addSuccess');
+import { addProductSuccess, addProductRequest } from '../slice/currentDateInfoSlice';
 
 axios.defaults.baseURL = "http://slimmom-backend.herokuapp.com";
 
 const setToken = (token) => {
-  axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZmNjNTViMDViMjBlNjAwMDQzNGUyNTciLCJzaWQiOiI1ZmNlNTAzZWRjOWQ3NjAwMDQxODcwMWUiLCJpYXQiOjE2MDczNTY0NzgsImV4cCI6MTYwNzM2MDA3OH0.fLyeDzcp5WgfGc8y1XrdJnjIGEYTzYjrwJ5Df0KfXUY`;
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 }
 
 export const addProduct = (singleProduct) => async (dispatch, getState) => {
   try {
-    dispatch(loaderOn)
+    if (getState.errorRequest) {
+      dispatch(resetErrorRequest())
+    }
+    dispatch(loaderOn);
     dispatch(addProductRequest());
     const { token } = getState();
 
-    const result = await axios.post('/day', singleProduct, setToken(token))
-    dispatch(addProductSuccess(result));
+    const result = await axios.post('/day', singleProduct, setToken(token));
+    dispatch(addProductSuccess(result.data));
   } catch (error) {
     dispatch(setErrorRequest(error.message));
   } finally {
-    dispatch(loaderOff())
-    dispatch(resetErrorRequest());
+    dispatch(loaderOff());
 
   }
 }
 
-export const findProduct = (value) => async (dispatch, getState) => {
-  const { token } = getState();
-
-  axios.get(`/product?search=${value}`, setToken(token))
-    .then(data => console.log(data))
-}

@@ -1,10 +1,11 @@
 import React, { Suspense } from 'react';
 import { Switch } from "react-router-dom";
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
 import styles from './App.module.css';
-
 import SpinerLoader from "./spinerLoader/SpinerLoader";
-
 import routes from '../routes/routes';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
@@ -12,6 +13,10 @@ import Header from "./Header/Header"
 
 function App() {
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
   return (
     <>
       <Header />
@@ -29,7 +34,10 @@ function App() {
             })}
           </Switch>
         </Suspense>
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
       </div>
     </>
   );

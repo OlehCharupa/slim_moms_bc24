@@ -8,12 +8,11 @@ import { paths } from '../../routes/routes';
 
 const PublicRoute = ({ component: Component, ...routeProps }) => {
   const isLoginState = useSelector(isLogin);
-
   return (<Route
     {...routeProps}
     render={props => {
       return isLoginState && routeProps.restricted ? (
-        <Redirect to={paths.home} />
+        <Redirect to={paths.diary} />
       ) : (
           <Component {...props} />
         );

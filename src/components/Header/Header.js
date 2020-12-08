@@ -74,8 +74,8 @@ const Header = () => {
               </button>
             </div>
           ) : (
-            showDesktopNav && <Navigation />
-          )}
+              showDesktopNav && <Navigation />
+            )}
         </div>
         {Authenticated && viewport.isDesktop && <UserInfo />}
       </header>

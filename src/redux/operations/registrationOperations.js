@@ -16,8 +16,7 @@ axios.defaults.baseURL = "http://slimmom-backend.herokuapp.com";
 export const registrationOperations = (obj) => async (dispatch) => {
     try {
         dispatch(loaderOn());
-        const result = await axios.post("/auth/register", { ...obj });
-        console.log('reg', result);
+        await axios.post("/auth/register", { ...obj });
         dispatch(loginOperations({ email: obj.email, password: obj.password }))
 
     } catch (error) {

@@ -11,7 +11,7 @@ const currentDateInfoSlice = createSlice({
   initialState,
   reducers: {
     getCurrentDay(state, { payload }) {
-      return { ...state, "currentDate": payload }
+      return { ...state, "currentDate": payload}
     },
     setDateInfo(state, { payload }) {
       return { ...state, "eatenProducts": payload.eatenProducts, "daySummary": payload.daySummary }

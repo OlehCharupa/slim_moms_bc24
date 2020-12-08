@@ -5,6 +5,7 @@ import OpenFormAddProductInDiary from '../../components/OpenFormAddProductInDiar
 import RightSideBar from '../../components/RightSideBar/RightSideBar';
 import style from './DiaryPage.module.css'
 import { useWindowWidth } from "@react-hook/window-size";
+
 const DiaryPage = () => {
     const onlyWidth = useWindowWidth();
     return (
@@ -13,10 +14,9 @@ const DiaryPage = () => {
                 <CurrentDate />
                 {/* <DiaryAddProductForm/> */}
                 {onlyWidth < 768 ? <OpenFormAddProductInDiary /> : <DiaryAddProductForm />}
-
             </div>
             <RightSideBar />
-            <div className={style.sideBar__bg}></div>
+            {/* <div className={style.sideBar__bg}></div> */}
             {/* <div className={style.sideBar__wrapper}>
             </div> */}
         </div>

@@ -51,8 +51,8 @@ const routes = [
     path: paths.calculator,
     label: 'Калькулятор',
     exact: false,
-    // component: lazy(() => import('./components/Calculator')), //раскомментировать,  в импорт внести место и имя своего компонента
-    component: () => <h2>Калькулятор</h2>, // удалить, когда будет корректный импорт
+    component: lazy(() => import('../components/DailyCalories/DailyCalories')), //раскомментировать,  в импорт внести место и имя своего компонента
+    // component: () => <h2>Калькулятор</h2>, // удалить, когда будет корректный импорт
     private: true,
     restricted: true,
   },

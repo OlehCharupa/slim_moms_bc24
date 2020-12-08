@@ -4,17 +4,18 @@ import { useSelector } from 'react-redux';
 
 import { isLogin } from '../../redux/selectors/selectors'; // тестовая логика, пока не заменят.
 
-import routes from '../../routes/routes';
+import { paths } from '../../routes/routes';
 
 const PrivateRoute = ({ component: Component, ...routeProps }) => {
   const isLoginState = useSelector(isLogin)
-
+  console.log(isLoginState);
+  console.log(paths.login);
   return (
     <Route
       {...routeProps}
       render={props => isLoginState
         ? <Component {...props} />
-        : <Redirect to={routes.login} />
+        : <Redirect to={paths.login} />
       }
     />
   )

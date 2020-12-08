@@ -9,7 +9,7 @@ import routes from "../../routes/routes";
 
 import { isLogin } from "../../redux/selectors/selectors"; // тестовая логика, пока не заменят.
 
-const filterPublicRoutes = (routes) => routes.filter((route) => !route.private);
+const filterPublicRoutes = (routes) => routes.filter((route) => !route.private && route.path !== "/");
 const filterPrivateRoutes = (routes) =>
   routes.filter((route) => route.private || !route.restricted);
 
@@ -19,7 +19,7 @@ const Navigation = ({ onModalClose }) => {
   const filteredRoutes = useSelector(isLogin)
     ? filterPrivateRoutes(routes)
     : filterPublicRoutes(routes);
-    
+
 
   return (
     <nav

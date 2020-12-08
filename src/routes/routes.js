@@ -18,7 +18,7 @@ const routes = [
     component: lazy(() => import("../pages/MainPage/MainPage"  /* webpackChunkName: "MainPage"*/)),
 
     private: false,
-    restricted: false,
+    restricted: true,
   },
   {
     path: paths.registration,

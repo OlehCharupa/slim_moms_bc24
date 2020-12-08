@@ -1,68 +1,104 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import styles from './DiaryAddProductForm.module.css';
+import React, { useState, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useWindowWidth } from '@react-hook/window-size';
-import { addProduct } from '../../redux/operations/diaryAddProduct';
+import debounce from "lodash.debounce";
+import axios from 'axios';
 
-const diaryAddProductInitialState = {
-  product: '',
-  grams: ''
+import styles from './DiaryAddProductForm.module.css';
+
+import { loaderOff, loaderOn } from '../../redux/slice/loaderSlice';
+import { resetErrorRequest, setErrorRequest } from '../../redux/slice/errorRequestSlice';
+import { addProduct } from '../../redux/operations/diaryAddProduct';
+import { currentDateSelector } from '../../redux/selectors/dateInfoSelectors';
+
+const initialState = {
+  title: '',
+  weight: '',
+
 }
 
+const useDebounce = (callback, delay) => useCallback(
+  debounce(callback, delay),
+  [delay],
+);
+
 const DiaryAddProductForm = () => {
-  const [diaryForm, setDiaryForm] = useState(diaryAddProductInitialState);
-  // const [productError, setProductError] = useState('Введите название продукта. Используйте исключительно буквы кириллицы.');
-  // const [gransError, setGramsError] = useState('Введите кол-во грамм цыфрами');
-  const [formError, setFormError] = useState('Поле не заполнено. Введите граммы цифрами, Название продукта - буквами')
+  const [products, setProducts] = useState([]);
+  const date = useSelector(state => currentDateSelector(state));
+  const token = useSelector(state => state.token);
+  const [currentValue, setCurrentValue] = useState({ ...initialState })
+
   const dispatch = useDispatch();
   const onlyWidth = useWindowWidth();
+  console.log('products', products);
+
+  const setToken = (token) => {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  }
+
+  const getProducts = async (search) => {
+    try {
+      loaderOn();
+      const { data } = await axios.get(`/product?search=${search}`, setToken(token));
+      setProducts(data);
+
+    } catch (error) {
+      setErrorRequest(error.message);
+    } finally {
+      loaderOff();
+      resetErrorRequest();
+    }
+  }
+
+  const debouncedGetProducts = useDebounce(getProducts, 500);
 
   const inputHandlerDiaryAddProduct = ({ target }) => {
     const { name, value } = target;
+    if (target.dataset.id) {
+      setCurrentValue({ ...products.find(el => el._id === target.dataset.id) });
+      return;
+    }
+    if (name === 'title' && value !== '') {
+      debouncedGetProducts(value);
+    }
 
-    setDiaryForm(state => ({ ...state, [name]: value }))
+    setCurrentValue({ ...currentValue, [name]: value })
   }
+
 
   const submitHandlerDiaryAddProduct = (e) => {
     e.preventDefault();
-    const { product, grams } = diaryForm;
 
-    const singleProduct = {
-      product,
-      grams,
-    }
-    // if (product === '' && Number(grams)) {
-    //   setFormError('Поле не заполнено. Введите граммы цифрами, Название продукта - буквами')
-    // }
+    const singleProduct = products.find(el => el.title.ru === currentValue.title)
+    dispatch(addProduct({ date, productId: singleProduct._id, weight: Number(currentValue.weight) }
+    ));
 
-    dispatch(addProduct(singleProduct));
-
-    setDiaryForm({ ...diaryAddProductInitialState });
-    // console.log(singleProduct);
   }
 
   return (
     <div>
       <form className={styles.diaryAddProductForm} onSubmit={submitHandlerDiaryAddProduct}>
         <label className={styles.diaryAddProductForm_label} >
+
           <input
             onChange={inputHandlerDiaryAddProduct}
             className={styles.diaryAddProductForm_inputProduct}
             placeholder='Введите название продукта'
             type='text'
-            name='product'
-            value={diaryForm.product}
+            name='title'
+            value={currentValue.title}
           >
           </input>
         </label>
+
         <label className={styles.diaryAddProductForm_label}>
           <input
             onChange={inputHandlerDiaryAddProduct}
             className={styles.diaryAddProductForm_inputGrams}
             placeholder='Граммы'
             type='text'
-            name='grams'
-            value={diaryForm.grams}
+            name='weight'
+            value={currentValue.weight}
           >
           </input>
         </label>
@@ -72,7 +108,14 @@ const DiaryAddProductForm = () => {
         >
           {onlyWidth <= 767 ? 'Добавить' : ''}
         </button>
+
       </form>
+      <select name='title' value={currentValue?.title?.ru} onChange={inputHandlerDiaryAddProduct}>
+        {console.log(currentValue)}
+        {products.map(product => (
+          <option data-id={product._id} value={product?.title?.ru} key={product._id} name={product?.title?.ru} >{product?.title?.ru}</option>
+        ))}
+      </select>
     </div>
   );
 };

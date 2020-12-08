@@ -1,13 +1,13 @@
 import axios from "axios";
 import { setErrorRequest } from "../slice/errorRequestSlice";
-import {DailyCaloriesInfo} from "../slice/DailyCaloriesFormInfoSlice"
+import { DailyCaloriesInfo } from "../slice/DailyCaloriesFormInfoSlice";
 import { loaderOff, loaderOn } from "../slice/loaderSlice";
+import { resetUser } from "../slice/userSlice";
 
 export const DailyCaloriesFormOperation = (requestDate) => async (dispatch) => {
   try {
     dispatch(loaderOn());
     const result = await axios.post("http://slimmom-backend.herokuapp.com/daily-rate", requestDate);
-    // console.log(result.data);
     dispatch(DailyCaloriesInfo(result.data))
   } catch (error) {
     dispatch(setErrorRequest(error.message));
@@ -25,12 +25,19 @@ const token = {
   },
 };
 
-export const DailyCaloriesFormOperationById = (requestDate, userId, userToken) => async (dispatch) => {
+export const DailyCaloriesFormOperationById = (
+  requestDate,
+  userId,
+  userToken
+) => async (dispatch) => {
   try {
     dispatch(loaderOn());
-    const result = await axios.post(`http://slimmom-backend.herokuapp.com/daily-rate/${userId}`, requestDate, token.set(userToken))
-    // console.log(result.data);
-    dispatch(DailyCaloriesInfo(result.data))
+    const result = await axios.post(
+      `http://slimmom-backend.herokuapp.com/daily-rate/${userId}`,
+      requestDate,
+      token.set(userToken)
+    );
+    dispatch(DailyCaloriesInfo(result.data));
   } catch (error) {
     dispatch(setErrorRequest(error.message));
   } finally {

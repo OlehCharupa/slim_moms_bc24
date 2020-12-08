@@ -9,12 +9,9 @@ import routes from "../../routes/routes";
 
 import { isLogin } from "../../redux/selectors/selectors"; // тестовая логика, пока не заменят.
 
-<<<<<<< Updated upstream
-const filterPublicRoutes = (routes) => routes.filter((route) => !route.private);
-=======
 const filterPublicRoutes = (routes) =>
   routes.filter((route) => !route.private && route.path !== "/");
->>>>>>> Stashed changes
+
 const filterPrivateRoutes = (routes) =>
   routes.filter((route) => route.private || !route.restricted);
 

@@ -14,8 +14,11 @@ const token = {
   },
 };
 
-export const getDateInfoOperation = (requestDate, persistedToken) => async (dispatch) => {
+export const getDateInfoOperation = (requestDate, persistedToken) => async (dispatch, getState) => {
   try {
+    if (getState.errorRequest) {
+      dispatch(resetErrorRequest())
+    }
     dispatch(loaderOn());
     const result = await axios.post("/day/info", { "date": requestDate }, token.set(persistedToken))
     // dispatch(setDateInfo({"eatenProducts":result.data.eatenProducts, "daySummary":result.data.daySummary}));
@@ -25,6 +28,5 @@ export const getDateInfoOperation = (requestDate, persistedToken) => async (disp
     dispatch(setErrorRequest(error.message));
   } finally {
     dispatch(loaderOff());
-    dispatch(resetErrorRequest());
   }
 };

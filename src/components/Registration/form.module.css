@@ -1,0 +1,341 @@
+.inp__style {
+  z-index: 10;
+  font-size: 16px;
+  padding: 10px;
+  margin-right: 5px;
+  width: 300px;
+  border: none;
+  background-color: RGBA(255, 101, 80, 0);
+  border-bottom: 3px solid rgb(223, 220, 220);
+}
+
+.inp__style:focus {
+  border: none;
+  outline: 0;
+  outline-offset: 0;
+  border-bottom: 3px solid orange;
+}
+
+.btn__in {
+  z-index: 10;
+  width: 176px;
+  height: 44px;
+  left: 115px;
+  top: 616px;
+  border-width: 0;
+  background: #fc842d;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  border-radius: 30px;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+}
+
+.btn__reg {
+  z-index: 10;
+  width: 176px;
+  height: 44px;
+  left: 321px;
+  top: 616px;
+
+  background: #ffffff;
+  border: 2px solid #fc842d;
+  box-sizing: border-box;
+  border-radius: 30px;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #fc842d;
+}
+
+.s__name {
+  margin-top: 50px;
+  z-index: 10;
+  width: 240px;
+  height: 16px;
+
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #dfe1e7;
+}
+.s__login {
+  margin-top: 24px;
+  z-index: 10;
+  width: 240px;
+  height: 16px;
+
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #9b9faa;
+}
+.s__reg {
+  z-index: 10;
+  width: 240px;
+  height: 16px;
+  margin-top: 21px;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+
+  color: #9b9faa;
+}
+.login_text {
+  z-index: 10;
+  width: 48px;
+  height: 12px;
+  left: 115px;
+  top: 362px;
+
+  font-family: Gotham Pro;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  color: #fc842d;
+}
+.form__s {
+  z-index: 10;
+  display: flex;
+  margin-top: 250px;
+  margin-left: 115px;
+  flex-direction: column;
+  width: 500px;
+  height: 500px;
+}
+.btn_block_flex {
+  width: 370px;
+  justify-content: space-between;
+  margin-top: 79px;
+  display: flex;
+}
+
+@media (max-width: 480px) {
+  .logoNav {
+    width: 162px;
+    height: 144px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    /* background-image: url(./../img/logoTablet.svg); */
+  }
+  .TopBar {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: space-around;
+  }
+  .activ__btn {
+    font-family: Gotham Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 13px;
+    text-align: right;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    color: #212121;
+  }
+  .in_nav_btn {
+    height: 100%;
+    width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .none_active_btn {
+    font-family: Gotham Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 13px;
+    text-align: right;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    color: #9b9faa;
+  }
+  .LogoImg {
+    display: none;
+  }
+  .VectorImg {
+    display: none;
+  }
+  .SBerryImg {
+    display: none;
+  }
+  .BananaImg {
+    display: none;
+  }
+  .LeafImg {
+    display: none;
+  }
+  .LogoText {
+    display: none;
+  }
+  /* стили формы */
+  .inp__style {
+    z-index: 10;
+    font-size: 16px;
+    padding: 10px;
+    margin-right: 5px;
+    width: 100%;
+    border: none;
+    background-color: RGBA(255, 101, 80, 0);
+    border-bottom: 3px solid rgb(209, 205, 205);
+  }
+  .inp__style:focus {
+    border: none;
+    outline: 0;
+    outline-offset: 0;
+    border-bottom: 3px solid orange;
+  }
+
+  .btn__in {
+    z-index: 10;
+    width: 176px;
+    height: 44px;
+    border-width: 0;
+    background: #fc842d;
+    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    border-radius: 30px;
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+  }
+  .btn__reg {
+    z-index: 10;
+    width: 176px;
+    height: 44px;
+    margin-top: 20px;
+
+    background: #ffffff;
+    border: 2px solid #fc842d;
+    box-sizing: border-box;
+    border-radius: 30px;
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+
+    color: #fc842d;
+  }
+  .s__name {
+    margin-top: 71px;
+    z-index: 10;
+    width: 85%;
+    height: 16px;
+    margin-bottom: 20px;
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    color: #9b9faa;
+  }
+  .s__login {
+    margin-top: 24px;
+    z-index: 10;
+    width: 85%;
+    height: 16px;
+    margin-bottom: 20px;
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    color: #9b9faa;
+  }
+  .s__reg {
+    z-index: 10;
+    width: 85%;
+    height: 16px;
+    margin-top: 21px;
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+
+    color: #9b9faa;
+  }
+  .login_text {
+    z-index: 10;
+    width: 48px;
+    height: 12px;
+    left: 115px;
+    top: 362px;
+    font-family: Gotham Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    color: #fc842d;
+  }
+  .login_text {
+    margin-right: 42px;
+  }
+
+  .form__s {
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 170px;
+    margin-left: 0;
+    flex-direction: column;
+    width: 100%;
+    height: 500px;
+  }
+  .btn_block_flex {
+    width: 100%;
+    /* justify-content: space-between; */
+    margin-top: 79px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  /* лого */
+  .logoNav {
+    width: 46px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* background-image: url(./../img/logo.svg); */
+  }
+}

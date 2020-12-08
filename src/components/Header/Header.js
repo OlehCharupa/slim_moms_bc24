@@ -13,7 +13,7 @@ const Header = () => {
   const Authenticated = true;
   const { pathname } = useLocation();
   const showDesktopNav =
-    pathname === "/login" || pathname === "/register" ? false : true;
+    pathname === "/login" || pathname === "/registration" ? false : true;
 
   const [modal, setModal] = useState(false);
   const [arrow, setArrow] = useState(true);
@@ -69,7 +69,7 @@ const Header = () => {
                 Вход
               </NavLink>
               <NavLink
-                to="/register"
+                to="/registration"
                 className={styles.link}
                 activeClassName={styles.activeLink}
               >
@@ -100,7 +100,7 @@ const Header = () => {
               Вход
             </NavLink>
             <NavLink
-              to="/register"
+              to="/registration"
               className={styles.link}
               activeClassName={styles.activeLink}
             >

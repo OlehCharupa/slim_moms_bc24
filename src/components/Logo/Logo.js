@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import logoStyle from "./Logo.module.css";
-// import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 import { isLogin } from "./../../redux/selectors/selectors";
 
 // импортировать
@@ -14,15 +14,13 @@ const Logo = () => {
     if (auth) {
       <Redirect to="/diary" />;
     } else {
-      <Redirect to="/login" />;
+      <Redirect to="/" />;
     }
   };
-  // useEffect(() => {
-  // получаем данные redux о авторизации в authData
-  // const authData = useSelector(isLogin)
-  // или получать данные из reselect?????????
-  // setAuth(authData)
-  // }, [isLogin]);
+  useEffect(() => {
+    const authData = useSelector(isLogin);
+    setAuth(authData);
+  }, [isLogin]);
   return (
     <div className={logoStyle.logo_pointer} onClick={redirectAuth}>
       {" "}

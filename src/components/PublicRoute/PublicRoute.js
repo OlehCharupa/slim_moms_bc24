@@ -8,7 +8,6 @@ import { paths } from '../../routes/routes';
 
 const PublicRoute = ({ component: Component, ...routeProps }) => {
   const isLoginState = useSelector(isLogin);
-
   return (<Route
     {...routeProps}
     render={props => {

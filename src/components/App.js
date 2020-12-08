@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 import styles from './App.module.css';
 
-import SpinerLoader from "./spinerLoader/SpinerLoader";
+import SpinerLoader from "./SpinerLoader/SpinerLoader";
 
 import routes from '../routes/routes';
 import PrivateRoute from './PrivateRoute/PrivateRoute';

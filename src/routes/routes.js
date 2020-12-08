@@ -42,8 +42,8 @@ const routes = [
     path: paths.diary,
     label: 'Дневник',
     exact: false,
-    // component: lazy(() => import('./components/Diary')), //раскомментировать,  в импорт внести место и имя своего компонента
-    component: () => <h2>Дневник</h2>, // удалить, когда будет корректный импорт
+    component: lazy(() => import('../pages/DiaryPage/DiaryPage')), 
+    // component: () => <h2>Дневник</h2>, // удалить, когда будет корректный импорт
     private: true,
     restricted: true,
   },

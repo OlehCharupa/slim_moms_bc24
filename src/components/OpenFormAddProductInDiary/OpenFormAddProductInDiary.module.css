@@ -1,0 +1,19 @@
+.openAddProductForm {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: #FC842D;
+  background-image: url('./images/plus1.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  border-radius: 50%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.openAddProductForm:focus,
+.openAddProductForm:hover{
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}

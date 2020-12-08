@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import style from "./Modal.module.css";
 
-const Modal = ({ children, arrowVisible=false, callback }) => {
-  const [openModal, setOpenModal] = useState(false);
-  const toggleModal = () => {
-    setOpenModal(!openModal)
-  };
+const Modal = ({ children, arrowVisible = false, callback, openModal, toggleModal }) => {
 
   useEffect(() => {
-    arrowVisible&&callback(toggleModal)
+    arrowVisible && callback(toggleModal);
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
@@ -19,7 +15,7 @@ const Modal = ({ children, arrowVisible=false, callback }) => {
 
   const handleKeyDown = (e) => {
     if (e.code === "Escape") {
-      setOpenModal(false);
+      toggleModal();
     }
   };
   const handleClick = (e) => {
@@ -31,8 +27,8 @@ const Modal = ({ children, arrowVisible=false, callback }) => {
 
   return (
     <>
-     {/* ============ button для тестування=Видалити!!!!===================== */}
-      <button type="button" onClick={toggleModal}> Modal </button> 
+      {/* ============ button для тестування=Видалити!!!!===================== */}
+      {/* <button type="button" onClick={toggleModal}> Modal </button>  */}
       {/* ================================================================= */}
       {openModal && (
         <div
@@ -41,7 +37,7 @@ const Modal = ({ children, arrowVisible=false, callback }) => {
           data-name="overlay"
         >
           <div className={style.modal} data-name="modal">
-          {!arrowVisible&&<button
+            {!arrowVisible && <button
               className={style.closeButton}
               type="button"
               onClick={toggleModal}

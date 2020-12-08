@@ -1,20 +1,40 @@
-import routes from "../routes/routes";
 import React, { Suspense } from "react";
+import { Switch } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useWindowWidth } from "@react-hook/window-size";
+
+import styles from "./App.module.css";
+
+import SpinerLoader from "./spinerLoader/SpinerLoader";
+
+import routes from "../routes/routes";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PublicRoute from "./PublicRoute/PublicRoute";
-import styles from "./App.module.css";
-import SpinerLoader from "./spinerLoader/SpinerLoader";
-import { Switch } from "react-router-dom";
 import Header from "./Header/Header";
-import DiaryProductListItem from "./DiaryProductListItem/DiaryProductListItem";
-import DiaryProductList from "./DiaryProductsList/DiaryProductsList";
+import DailyAddProductForm from "../components/DiaryAddProductForm/DiaryAddProductForm";
+import OpenFormAddProductInDiary from "../components/OpenFormAddProductInDiary/OpenFormAddProductInDiary";
+import Login from "../components/Login/Login";
+import Registration from "../components/Registration/Registration";
+import UserDateSelect from "./userDateSelect/UserDateSelect";
+import CurrentDate from "./currentDate/CurrentDate";
+
 function App() {
+  const token = useSelector((state) => state.token);
+  const onlyWidth = useWindowWidth();
+
   return (
     <>
       <Header />
-      {/* <DiaryProductListItem /> */}
+      <Registration />
+      <Login />
+      <CurrentDate />
       <div className={styles.container}>
-        <DiaryProductList />
+        {onlyWidth < 768 ? (
+          <OpenFormAddProductInDiary />
+        ) : (
+          <DailyAddProductForm />
+        )}
+
         {/*для відображення сторінок Не видаляти! */}
         <Suspense fallback={<SpinerLoader />}>
           <Switch>

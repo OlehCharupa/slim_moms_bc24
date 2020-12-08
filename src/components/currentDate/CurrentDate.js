@@ -16,7 +16,7 @@ const CurrentDate = () => {
   const dispatch = useDispatch();
   const persistedDate = useSelector((state) => currentDateSelector(state));
   // ====================не видаляти! ===============================
-  // const persistedToken=useSelector(state=>state.token)
+  const persistedToken = useSelector(state => state.token)
   // =================================================================
 
   const reguestDate = moment(startDate).format().split("T")[0];
@@ -27,13 +27,13 @@ const CurrentDate = () => {
       setStartDate(startpersistedDate);
     }
     dispatch(getCurrentDay(reguestDate));
-    // dispatch(getDateInfoOperation(reguestDate,persistedToken));
+    dispatch(getDateInfoOperation(reguestDate, persistedToken));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     dispatch(getCurrentDay(reguestDate));
-    // dispatch(getDateInfoOperation(reguestDate,persistedToken));
+    dispatch(getDateInfoOperation(reguestDate, persistedToken));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startDate]);
 

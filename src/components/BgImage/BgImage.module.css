@@ -1,3 +1,28 @@
+.bgImage{
+  z-index: -1;
+}
+/* .bgImageLogin{
+  width: 100%;
+  height: 40%;
+  background-color: #F0F1F3;
+  background-position: bottom;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+} */
+
+.bgImageLogin{
+  background-color: rgba(240, 241, 243, 1);
+  position: absolute;
+  width: 100%;
+  height: 35%;
+  /* height: 433px; */
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  padding: 0;
+}
 @media screen and (min-width: 768px) {
   .bgImage {
     background-image: url("./image/bg-laptop.png");
@@ -8,13 +33,33 @@
     height: 100%;
     right: 0;
     bottom: 0;
-    z-index: -1;
+  }
+  /* .bgImageLogin{
+    background-image: url("./image/Layer-laptop.png");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: cover;
+  } */
+  .bgImageLogin{
+    background: url("./image/Layer-laptop.png") rgba(240, 241, 243, 1) bottom right no-repeat;
+    height: 40%;
   }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1280px){
   .bgImage {
     background-image: url("./image/bg-desktop.png");
     max-width: 1400px;
     background-size: contain;
+  }
+  /* .bgImageLogin{
+    width: 535px;
+    height: 100%;
+    background-image: url("./image/Layer-desktop.png");
+    top: 0;
+  } */
+  .bgImageLogin{
+    width: 535px;
+    height: 100%;
+    background: url("./image/Layer-desktop.png")  rgba(240, 241, 243, 1) bottom right no-repeat;
   }
 }

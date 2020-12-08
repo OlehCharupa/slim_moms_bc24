@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import style from './RightSideBar.module.css';
 import { currentDateSelector } from '../../redux/selectors/dateInfoSelectors';
 import { useSelector } from 'react-redux';
 const RightSideBar = () => {
     const date = useSelector(state => currentDateSelector(state).split('-').reverse().join('.'));
+    const products = useSelector(state => state.user.userData.notAllowedProducts.slice(0, 5).join(', '));
     const daySummary = useSelector(state => state.currentDateInfo.daySummary);
     const currenDate = new Date();
+    useEffect(()=>{
+
+    },[products, date])
     return (
         <>
-            <div className={style.bgImageLogin}></div>
             <div className={style.right__SideBar}>
                 <div className={style.block__left}>
                     <h2 className={style.title}>Сводка за {date ? date : (currenDate.getDate()+'.'+(currenDate.getMonth()+1)+'.'+currenDate.getFullYear())}</h2>
@@ -54,12 +57,15 @@ const RightSideBar = () => {
                         </ul>
                     }
                 </div>
+                {/* Здесь будет отображаться Ваш рацион */}
                 <div className={style.block__right}>
                     <h3 className={style.title}>Нерекомендуемые продукты</h3>
                     <ul className={style.list}>
-                        <li className={style.list__item}>
-                            <p className={style.list__item_text}>Здесь будет отображаться Ваш рацион</p>
-                        </li>
+                <li className={style.list__item}><p className={style.list__item_text}>{products}</p></li>
+                        {/* {!!products.length ? products.map(product => <li className={style.list__item} key={product}>
+                            <p className={style.list__item_text}>{product}, </p>
+                        </li>) : <li><p>Здесь будет отображаться Ваш рацион</p></li>} */}
+                        
                     </ul>
                 </div>
             </div>

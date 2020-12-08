@@ -20,7 +20,7 @@ const DailyCalories = () => {
            </div>
             <RightSideBar />
            </div>
-           <BgImage ></BgImage>          
+           <BgImage ></BgImage>    
            </>)
            :
             (<div className={Calories.box}>

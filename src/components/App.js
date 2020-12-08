@@ -38,7 +38,7 @@ function App() {
             })}
           </Switch>
         </Suspense>
-        <RightSideBar />
+        {/* <RightSideBar /> */}
       </div>
     </>
   );

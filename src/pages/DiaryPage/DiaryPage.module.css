@@ -22,6 +22,13 @@
     bottom: 0; 
     padding: 0 15px;
 }
-@media screen and (min-width: 768px){
-    
+@media (min-width: 768px){
+    .sideBar__bg{
+       background: url("./image/diary-bg-tablet.png") rgba(240, 241, 243, 1) bottom right no-repeat;
+    }
+}
+@media(min-width:1240px){
+    .sideBar__bg{
+        background: url("./image/diary-bg-desktop.png") rgba(240, 241, 243, 1) bottom right no-repeat;
+     }
 }

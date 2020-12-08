@@ -59,7 +59,7 @@
     }
     .block__right{
         float: right;
-        width: 270px;
+        /* width: 270px; */
 
     }
 }

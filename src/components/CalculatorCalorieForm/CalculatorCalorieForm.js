@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Calorie from "./CalculatorCalorieForm.module.css";
-import {userIdSelector, userTokenSelector} from '../../redux/selectors/selectors'
+import {userIdSelector, userTokenSelector} from '../../redux/selectors/selectors';
+import DailyCalorieIntake from '../DailyCalorieIntake/DailyCalorieIntake';
 
 import { DailyCaloriesFormOperation, DailyCaloriesFormOperationById } from "../../redux/operations/DailyCaloriesFormOperation";
 
@@ -103,10 +104,19 @@ const CalculatorCalorieForm = () => {
 
   const submitHeandler = (e) => {
     e.preventDefault();
-    userToken ? dispatch(DailyCaloriesFormOperationById(values, userId, userToken)) : dispatch(DailyCaloriesFormOperation(values));
+    const VALUES = {
+      weight: Number(values.weight),
+      height: Number(values.height),
+      age: Number(values.age),
+      desiredWeight: Number(values.desiredWeight),
+      bloodType: Number(values.bloodType),
+    };
+    userToken ? dispatch(DailyCaloriesFormOperationById(VALUES, userId, userToken)) : dispatch(DailyCaloriesFormOperation(VALUES));
   };
   
   return (
+    <>
+    <DailyCalorieIntake/>
     <form className={Calorie.form} onSubmit={submitHeandler}>
       <label className={Calorie.label}>
 {(errors.height && focused.height) && <p className={Calorie.errorText}>{errors.height}</p>}
@@ -232,7 +242,7 @@ const CalculatorCalorieForm = () => {
         Похудеть
       </button>
     </form>
-  );
+  </>);
 };
 
 export default CalculatorCalorieForm;

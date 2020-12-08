@@ -9,7 +9,7 @@ const loaderSlice = createSlice({
             return payload;;
         },
         resetUser(state, { payload }) {
-            return {}
+            return initialState
         }
     }
 })

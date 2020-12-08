@@ -13,8 +13,8 @@ import PublicRoute from './PublicRoute/PublicRoute';
 import Header from "./Header/Header"
 // import DailyAddProductForm from '../components/DiaryAddProductForm/DiaryAddProductForm';
 // import OpenFormAddProductInDiary from '../components/OpenFormAddProductInDiary/OpenFormAddProductInDiary';
-import RightSideBar from './RightSideBar/RightSideBar';
-import Login from './Login/Login';
+import Login from './Login/Login'
+
 function App() {
 
   // const token = useSelector(state => state.token);
@@ -22,9 +22,7 @@ function App() {
 
   return (
     <>
-    {/* <Login /> */}
       <Header />
-<Login/>
       <div className={styles.container}>
         {/* {onlyWidth < 768 ? <OpenFormAddProductInDiary /> : <DailyAddProductForm />} */}
 

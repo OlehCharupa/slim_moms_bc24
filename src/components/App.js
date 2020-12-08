@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 import styles from './App.module.css';
 
-import SpinerLoader from "./SpinerLoader/SpinerLoader";
+import SpinerLoader from "./spinerLoader/SpinerLoader";
 
 import routes from '../routes/routes';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
@@ -33,8 +33,8 @@ function App() {
               return route.private ? (
                 <PrivateRoute key={route.label} {...route} />
               ) : (
-                <PublicRoute key={route.label} {...route} />
-              );
+                  <PublicRoute key={route.label} {...route} />
+                );
             })}
           </Switch>
         </Suspense>

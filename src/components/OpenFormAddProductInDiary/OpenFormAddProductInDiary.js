@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './OpenFormAddProductInDiary.module.css';
-import Modal from '../Modal/Modal';
+import Modal from '../modal/Modal';
 import DiaryAddProductForm from '../DiaryAddProductForm/DiaryAddProductForm';
 
 const OpenFormAddProductInDiary = () => {
@@ -17,7 +17,7 @@ const OpenFormAddProductInDiary = () => {
         arrowVisible
         toggleModal={toggleModal}
         openModal={openModal}
-        // callback={() => { }}
+      // callback={() => { }}
       >
         <DiaryAddProductForm />
       </Modal>

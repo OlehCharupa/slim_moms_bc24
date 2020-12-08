@@ -1,8 +1,5 @@
 import React, { Suspense } from 'react';
 import { Switch } from "react-router-dom";
-// import { useSelector } from 'react-redux';
-// import { useWindowWidth } from '@react-hook/window-size';
-
 import styles from './App.module.css';
 import SpinerLoader from "./spinerLoader/SpinerLoader";
 import routes from '../routes/routes';
@@ -12,15 +9,11 @@ import Header from "./Header/Header"
 
 function App() {
 
-  // const token = useSelector(state => state.token);
-  // const onlyWidth = useWindowWidth();
 
   return (
     <>
       <Header />
       <div className={styles.container}>
-
-        {/*для відображення сторінок Не видаляти! */}
         <Suspense fallback={<SpinerLoader />}>
           <Switch>
             {routes.map((route) => {
@@ -32,7 +25,6 @@ function App() {
             })}
           </Switch>
         </Suspense>
-        {/* <RightSideBar /> */}
       </div>
     </>
   );

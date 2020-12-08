@@ -6,32 +6,6 @@
   align-items: center;
 }
 
-.link {
-  display: block;
-
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.07;
-
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-decoration: none;
-
-  color: #9b9faa;
-}
-
-.link:not(:last-child) {
-  margin-right: 14px;
-}
-.activeLink {
-  color: #212121;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-}
-
 .btn {
   display: block;
   margin: 0;
@@ -43,57 +17,58 @@
   outline: none;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
   .header {
     margin-top: 82px;
+    margin-left: 90px;
+    margin-right: 115px;
+
+    align-items: center;
+    justify-content: space-between;
   }
-  .nav::before {
-    display: block;
-    content: "";
-
-    width: 1px;
-    height: 32px;
-
-    margin-left: 22px;
-    margin-right: 22px;
-
-    background-color: #e0e0e0;
+  .logo {
+    padding-bottom: 47px;
   }
 }
 
-@media screen and (max-width: 1199px) {
+@media screen and (max-width: 1279px) {
   .header {
-    /* border-bottom: 2px solid #e0e0e0; */
+    border-bottom: 2px solid #e0e0e0;
+    justify-content: space-between;
+
+    background-color: #fff;
+  }
+
+  .navBar {
+    width: 100%;
     justify-content: space-between;
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .header {
+    padding-left: 69px;
+    padding-right: 87px;
+  }
+}
+
 @media screen and (max-width: 767px) {
-  .mobileNav {
-    padding-top: 60px;
-  }
-  .mobileNav .link {
-    font-size: 18px;
-    line-height: 1.22;
-  }
-  .mobileNav .link:not(:last-child) {
-    margin-bottom: 43px;
+  .header {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
-@media screen and (min-width: 768px) {
-  .mobileNav {
-    padding-top: 108px;
-  }
-  .mobileNav .link {
-    font-size: 24px;
-    line-height: 1.2;
-  }
-  .mobileNav .link:not(:last-child) {
-    margin-bottom: 52px;
-  }
+.body {
+  overflow: hidden;
 }
 
-.mobileNav {
-  text-align: center;
+.userBar {
+  display: flex;
+}
+
+.navBar {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
 }

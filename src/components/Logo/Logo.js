@@ -17,8 +17,10 @@ const Logo = () => {
       <Redirect to="/" />;
     }
   };
+  // const authData = useSelector(state => !!state.token)
+  const authData = useSelector(isLogin);
   useEffect(() => {
-    const authData = useSelector(isLogin);
+   
     setAuth(authData);
   }, [isLogin]);
   return (

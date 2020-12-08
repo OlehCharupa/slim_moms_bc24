@@ -15,8 +15,8 @@ const routes = [
     path: paths.home,
     label: 'MainPage',
     exact: true,
-    component: lazy(() => import("../pages/MainPage/MainPage"  /* webpackChunkName: "MainPage"*/)), 
-    
+    component: lazy(() => import("../pages/MainPage/MainPage"  /* webpackChunkName: "MainPage"*/)),
+
     private: false,
     restricted: false,
   },

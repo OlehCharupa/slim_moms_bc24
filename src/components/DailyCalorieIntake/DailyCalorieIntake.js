@@ -17,10 +17,10 @@ const DailyCalorieIntake = () => {
   const error = useSelector((state) => errorRequest(state));
 
   useEffect(() => {
-    if (ccal) {
+    if (ccal || error) {
       setIsModal(true);
     }
-  }, [ccal]);
+  }, [ccal, error]);
 
   const [isModal, setIsModal] = useState(false);
 

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Calorie from "./CalculatorCalorieForm.module.css";
-import {userIdSelector, userTokenSelector} from '../../redux/selectors/selectors'
+import {userIdSelector, userTokenSelector} from '../../redux/selectors/selectors';
+import DailyCalorieIntake from '../DailyCalorieIntake/DailyCalorieIntake';
 
 import { DailyCaloriesFormOperation, DailyCaloriesFormOperationById } from "../../redux/operations/DailyCaloriesFormOperation";
 
@@ -114,6 +115,8 @@ const CalculatorCalorieForm = () => {
   };
   
   return (
+    <>
+    <DailyCalorieIntake/>
     <form className={Calorie.form} onSubmit={submitHeandler}>
 {(errors.height && focused.height) && <p>{errors.height}</p>}
       <label className={Calorie.label}>
@@ -239,7 +242,7 @@ const CalculatorCalorieForm = () => {
         Похудеть
       </button>
     </form>
-  );
+  </>);
 };
 
 export default CalculatorCalorieForm;

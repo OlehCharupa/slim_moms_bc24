@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import logoStyle from "./Logo.module.css";
 import { useSelector } from "react-redux";
 import { isLogin } from "./../../redux/selectors/selectors";

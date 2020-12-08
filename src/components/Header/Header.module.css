@@ -20,8 +20,8 @@
 @media screen and (min-width: 1280px) {
   .header {
     margin-top: 82px;
-    margin-left: 90px;
-    margin-right: 115px;
+    padding-left: 90px;
+    padding-right: 115px;
 
     align-items: center;
     justify-content: space-between;

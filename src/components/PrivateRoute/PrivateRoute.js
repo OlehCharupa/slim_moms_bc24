@@ -8,8 +8,6 @@ import { paths } from '../../routes/routes';
 
 const PrivateRoute = ({ component: Component, ...routeProps }) => {
   const isLoginState = useSelector(isLogin)
-  console.log(isLoginState);
-  console.log(paths.login);
   return (
     <Route
       {...routeProps}

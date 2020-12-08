@@ -7,7 +7,6 @@ export const DailyCaloriesFormOperation = (requestDate) => async (dispatch) => {
   try {
     dispatch(loaderOn());
     const result = await axios.post("http://slimmom-backend.herokuapp.com/daily-rate", requestDate);
-    console.log(result);
     dispatch(DailyCaloriesInfo(result.data))
   } catch (error) {
     dispatch(setErrorRequest(error.message));
@@ -37,7 +36,6 @@ export const DailyCaloriesFormOperationById = (
       requestDate,
       token.set(userToken)
     );
-    // console.log(result.data);
     dispatch(DailyCaloriesInfo(result.data));
   } catch (error) {
     dispatch(setErrorRequest(error.message));

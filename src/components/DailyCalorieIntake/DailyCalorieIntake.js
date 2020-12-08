@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import styles from "./DailyCalorieIntake.module.css";
@@ -12,10 +12,17 @@ import {
 const DailyCalorieIntake = () => {
   const history = useHistory();
   const products = useSelector((state) => notAllowedProducts(state));
+  const filtredProducts = products.filter((product, index) => index < 5);
   const ccal = useSelector((state) => dailyRate(state));
   const error = useSelector((state) => errorRequest(state));
 
-  const [isModal, setIsModal] = useState(true);
+  useEffect(() => {
+    if (ccal || error) {
+      setIsModal(true);
+    }
+  }, [ccal, error]);
+
+  const [isModal, setIsModal] = useState(false);
 
   const modalHandler = () => setIsModal(false);
   const btnSubmit = () => {
@@ -40,7 +47,7 @@ const DailyCalorieIntake = () => {
               Продукты, которые вам <br /> не рекомендуется употреблять
             </h2>
             <ol className={styles.list}>
-              {products.map((product) => (
+              {filtredProducts.map((product) => (
                 <li key={product}>{product}</li>
               ))}
             </ol>

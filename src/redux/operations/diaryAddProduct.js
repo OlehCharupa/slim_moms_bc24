@@ -1,10 +1,7 @@
-import { createAction } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { resetErrorRequest, setErrorRequest } from '../slice/errorRequestSlice';
+import { setErrorRequest, resetErrorRequest } from '../slice/errorRequestSlice';
 import { loaderOff, loaderOn } from '../slice/loaderSlice';
-
-const addProductRequest = createAction('product/addRequest');
-const addProductSuccess = createAction('product/addSuccess');
+import { addProductSuccess, addProductRequest } from '../slice/currentDateInfoSlice';
 
 axios.defaults.baseURL = "http://slimmom-backend.herokuapp.com";
 
@@ -14,17 +11,20 @@ const setToken = (token) => {
 
 export const addProduct = (singleProduct) => async (dispatch, getState) => {
   try {
-    dispatch(loaderOn)
+    if (getState.errorRequest) {
+      dispatch(resetErrorRequest())
+    }
+    dispatch(loaderOn);
     dispatch(addProductRequest());
     const { token } = getState();
 
-    const result = await axios.post('/day', singleProduct, setToken(token))
-    dispatch(addProductSuccess(result));
+    const result = await axios.post('/day', singleProduct, setToken(token));
+    dispatch(addProductSuccess(result.data));
   } catch (error) {
     dispatch(setErrorRequest(error.message));
   } finally {
-    dispatch(loaderOff())
-    dispatch(resetErrorRequest());
+    dispatch(loaderOff());
 
   }
 }
+

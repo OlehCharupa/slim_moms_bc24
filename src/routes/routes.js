@@ -18,7 +18,7 @@ const routes = [
     component: lazy(() => import("../pages/MainPage/MainPage"  /* webpackChunkName: "MainPage"*/)),
 
     private: false,
-    restricted: false,
+    restricted: true,
   },
   {
     path: paths.registration,
@@ -42,8 +42,8 @@ const routes = [
     path: paths.diary,
     label: 'Дневник',
     exact: false,
-    // component: lazy(() => import('./components/Diary')), //раскомментировать,  в импорт внести место и имя своего компонента
-    component: () => <h2>Дневник</h2>, // удалить, когда будет корректный импорт
+    component: lazy(() => import('../pages/DiaryPage/DiaryPage')), 
+    // component: () => <h2>Дневник</h2>, // удалить, когда будет корректный импорт
     private: true,
     restricted: true,
   },
@@ -51,8 +51,8 @@ const routes = [
     path: paths.calculator,
     label: 'Калькулятор',
     exact: false,
-    // component: lazy(() => import('./components/Calculator')), //раскомментировать,  в импорт внести место и имя своего компонента
-    component: () => <h2>Калькулятор</h2>, // удалить, когда будет корректный импорт
+    component: lazy(() => import('../components/DailyCalories/DailyCalories')), //раскомментировать,  в импорт внести место и имя своего компонента
+    // component: () => <h2>Калькулятор</h2>, // удалить, когда будет корректный импорт
     private: true,
     restricted: true,
   },

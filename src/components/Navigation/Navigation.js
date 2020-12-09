@@ -9,17 +9,18 @@ import routes from "../../routes/routes";
 
 import { isLogin } from "../../redux/selectors/selectors"; // тестовая логика, пока не заменят.
 
-const filterPublicRoutes = (routes) => routes.filter((route) => !route.private);
+const filterPublicRoutes = (routes) =>
+  routes.filter((route) => !route.private && route.path !== "/");
+
 const filterPrivateRoutes = (routes) =>
   routes.filter((route) => route.private || !route.restricted);
 
-const Navigation = ({ onModalClose }) => {
+const Navigation = ({ onModalClose = null }) => {
   const Authenticated = useSelector((state) => isLogin(state));
 
   const filteredRoutes = useSelector(isLogin)
     ? filterPrivateRoutes(routes)
     : filterPublicRoutes(routes);
-    
 
   return (
     <nav
@@ -27,8 +28,8 @@ const Navigation = ({ onModalClose }) => {
         viewport.isDesktop
           ? styles.nav
           : Authenticated
-            ? styles.mobileNav
-            : styles.nav
+          ? styles.mobileNav
+          : styles.nav
       }
     >
       {filteredRoutes.map((route) => (
@@ -39,7 +40,7 @@ const Navigation = ({ onModalClose }) => {
           className={styles.navList__item_link}
           activeClassName={styles.navList__item_active_link}
           onClick={() => {
-            !viewport.isDesktop && onModalClose();
+            !viewport.isDesktop && onModalClose && onModalClose();
           }}
         >
           {route.label}

@@ -107,6 +107,7 @@ const Registration = () => {
 			<h2 className={style.title}>Регистрация</h2>
 			<div className={style.contaner__err}>
 				{!!(stateError.indexOf('409') + 1) && <p className={style.err__message__state}>Такой email уже зарегестрирован!</p>}
+				{!!(stateError.indexOf('400') + 1) && <p className={style.err__message__state}>Извините, проблеммы с сервером, повторите попытку позже!</p>}
 			</div>
 			<form onSubmit={handleSubmit} className={style.form}>
 				<label className={style.label}>

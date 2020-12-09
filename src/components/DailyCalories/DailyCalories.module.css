@@ -1,7 +1,13 @@
-.block {
-  padding: 15px 0;  /*бокові паддінги дублюють стилі контейнера, тому додала 0*/
-  float: left;
-  /* margin-top: 30px; */
+.block{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+.box {
+  padding: 15px 0;
+  margin-bottom: 70px;
 }
 .title {
   font-weight: bold;
@@ -13,10 +19,15 @@
 
   padding-bottom: 30px;
 }
+
 @media screen and (min-width: 768px) {
-  .block {
+.block{
+  margin-top: 100px;
+}
+  .box {
     width: 565px;
-    /* margin-top: 180px; */
+    padding: 0;
+    margin-bottom: 160px;
   }
   .title {
     font-size: 30px;
@@ -25,10 +36,12 @@
   }
 }
 @media screen and (min-width: 1280px) {
-  .block {
-    width: 605px;
-    /* margin-top: 76px; */
+  .block{
+    margin-top: 146px;
   }
+  .box {
+    width: 605px;
+ }
   .title {
     font-size: 34px;
     line-height: 1.205;

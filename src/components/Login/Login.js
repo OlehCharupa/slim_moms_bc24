@@ -91,6 +91,7 @@ const Login = () => {
 			<h2 className={style.title}>Вход</h2>
 			<div className={style.contaner__err}>
 				{!!(stateError.indexOf('403') + 1) && <p className={style.err__message__state}>Email или пароль не верный!</p>}
+				{!!(stateError.indexOf('400') + 1) && <p className={style.err__message__state}>Извините, проблеммы с сервером, повторите попытку позже!</p>}
 			</div>
 
 

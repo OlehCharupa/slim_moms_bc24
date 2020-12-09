@@ -1,21 +1,23 @@
 .currentdate__wrapper {
-    font-family: Verdana;
+    /* font-family: Roboto; */
     font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
+    font-weight: 900;
+    font-size: 20px;
     line-height: 22px;
     color: #212121;
     display: flex;
     align-items: center;
     cursor: pointer;
     outline: none;
+    letter-spacing: 1px;
   }
   .currentdate__wrapper:hover,
   .currentdate__wrapper:focus {
     color: #fc842d;
   }
   .currentdate__value {
-    margin-right: 21px;
+    /* margin-right: 21px; */
+    margin: 0 21px 0 0
   }
   
   @media (min-width: 768px) {

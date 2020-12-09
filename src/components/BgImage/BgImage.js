@@ -7,7 +7,7 @@ const BgImage = () => {
 
   return (
     <>
-      {token ? null : <div className={style.bgImage}></div>}
+      {token ? <div className={style.bgImageLogin}></div> : <div className={style.bgImage}></div>}
     </>
   )
 };

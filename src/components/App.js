@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div>
         <Suspense fallback={<SpinerLoader />}>
           <Switch>

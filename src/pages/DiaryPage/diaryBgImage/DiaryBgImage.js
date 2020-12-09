@@ -1,16 +1,9 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import style from './DiaryBgImage.module.css';
+import React from "react";
 
-const DiaryBgImage = () => {
-  const token = useSelector(state => state.token);
+import style from "./DiaryBgImage.module.css";
 
-  return (
-    <>
-      {token ? <div className={style.bgImageLogin}></div> : <div className={style.bgImage}></div>}
-  
-    </>
-  )
+const DiaryBgImage = ({ children }) => {
+  return <div className={style.bgImageLogin}>{children}</div>;
 };
 
 export default DiaryBgImage;

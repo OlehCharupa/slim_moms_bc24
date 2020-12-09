@@ -17,7 +17,7 @@ const OpenFormAddProductInDiary = () => {
         arrowVisible
         toggleModal={toggleModal}
         openModal={openModal}
-        callback={() => { }}
+      // callback={() => { }}
       >
         <DiaryAddProductForm />
       </Modal>

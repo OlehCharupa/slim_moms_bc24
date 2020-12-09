@@ -8,6 +8,7 @@ import UserDateSelect from "../userDateSelect/UserDateSelect";
 import { getCurrentDay } from "../../redux/slice/currentDateInfoSlice";
 import { getDateInfoOperation } from "../../redux/operations/currentDateInfoOperations";
 import { currentDateSelector } from "../../redux/selectors/dateInfoSelectors";
+import style from './CurrentDate.module.css'
 
 registerLocale("ru", ru);
 
@@ -39,13 +40,16 @@ const CurrentDate = () => {
 
   const ref = React.createRef();
   return (
+    <div className={style.calendar__wrapper}>
+
     <DatePicker
       selected={startDate}
       onChange={(date) => setStartDate(date)}
       customInput={<UserDateSelect ref={ref} />}
       dateFormat="dd.MM.yyyy"
       locale="ru"
-    />
+      />
+      </div>
   );
 };
 

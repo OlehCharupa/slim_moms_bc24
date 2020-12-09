@@ -9,7 +9,7 @@ import Header from "./Header/Header";
 // import { useDispatch, useSelector } from "react-redux";
 // import { currentUser } from "../redux/operations/currentUser";
 // import { resetToken } from "../redux/slice/tokinSlice";
-// import CalculatorPage from "../pages/CalculatorPage/CalculatorPage";
+
 
 function App() {
   // const stateToken = useSelector((state) => state.token);
@@ -42,7 +42,7 @@ function App() {
             })}
           </Switch>
         </Suspense>
-        {/* <DiaryProductsList /> */}
+     
     </>
   );
 }

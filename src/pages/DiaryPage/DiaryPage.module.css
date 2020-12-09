@@ -1,7 +1,7 @@
 .forDeleteElement {
   width: 100%;
-  height: 200px;
-  background-color: rgb(241, 158, 158);
+  /* height: 200px; */
+  /* background-color: rgb(241, 158, 158); */
   margin-bottom: 70px;
 }
 
@@ -24,6 +24,7 @@
   }
   .forDeleteElement {
     order: 1;
+    margin-bottom: 0;
   }
   .diaryItems__wrapper {
     display: flex;
@@ -31,8 +32,10 @@
 
   }
   .currentDate__wrapper {
-    padding: 100px 0 60px;
+    /* padding: 100px 0 60px; */
+    padding: 100px 0 0;
   }
+ 
 }
 @media (min-width: 1280px) {
   .page__wrapper {
@@ -43,7 +46,7 @@
     padding: 292px 30px 60px 115px;
   }
 
-  .diaryItems__wrapper {
+  /* .diaryItems__wrapper {
     padding-bottom: 100px;
-  }
+  } */
 }

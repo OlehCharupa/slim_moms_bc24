@@ -38,6 +38,7 @@
         display: flex;
         justify-content: space-between;
         align-items: baseline;
+        padding-bottom: 0;
     }
     .bgImageLogin{
         width: 100%;
@@ -58,6 +59,7 @@
         flex-wrap: wrap;
         padding-left: 90px;
         padding-right: 115px;
+        /* padding-bottom: 85px; */
     }
     .block__right{
         margin-top: 60px;

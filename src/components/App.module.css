@@ -8,8 +8,6 @@
 @media screen and (min-width: 480px) {
   .container {
     width: 480px;
-  position: relative;
-
   }
 }
 
@@ -28,6 +26,5 @@
     /* padding-left: 90px;
     padding-right: 90px; */
     width: 1280px;
-    position: unset;
   }
 }

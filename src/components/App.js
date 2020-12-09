@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className={styles.container}>
+      {/* <div className={styles.container}> */}
 
         {/*для відображення сторінок Не видаляти! */}
         <Suspense fallback={<SpinerLoader />}>
@@ -33,7 +33,7 @@ function App() {
           </Switch>
         </Suspense>
         {/* <RightSideBar /> */}
-      </div>
+      {/* </div> */}
     </>
   );
 }

@@ -1,17 +1,17 @@
 .section{
     display: flex;
     flex-direction: column;
+    max-width: 427px;
 }
 
-.label + .label{
-margin-top: 40px;
+.label{
+margin-bottom: 40px;
+
 }
 
 .title{
 
-    font-family: "Gotham Pro";
-    font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 14px;
     line-height: 13px;
     text-align: center;
@@ -26,11 +26,12 @@ margin-top: 40px;
     flex-direction: column;
     margin-top: 60px;
 }
-.input__title{
 
-    font-family: Verdana;
+.input__title{
+    margin: 0 0 7px 0;
+
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.04em;
@@ -42,24 +43,41 @@ margin-top: 40px;
     border: none;
     border-bottom: 1px solid #E0E0E0;
     width: 100%;
+    outline: none;
 }
 
 .input_err {
     border: none;
     border-bottom: 1px solid red;
     width: 100%;
+    outline: none;
 }
+
 
 .contaner__err{
     position: relative;
 }
 .err__message{
     position: absolute;
-    top: -14px;
+    top: -47px;
     left: 0;
     font-family: Verdana;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+
+    color: red;
+}
+
+.err__message__state{
+    position: absolute;
+    top: -2px;
+    left: 21px;
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: 400;
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.04em;
@@ -96,6 +114,7 @@ margin-top: 40px;
     border-radius: 30px;
 
     color: white;
+    outline: none;
 }
 
 .registration__btn{
@@ -121,6 +140,7 @@ margin-top: 40px;
     letter-spacing: 0.04em;
 
     color: #FC842D;
+    outline: none;
 }
 
 
@@ -128,10 +148,19 @@ margin-top: 40px;
 768
 1280 */
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 320px) {
     .con__btns{
         flex-direction: row;
         justify-content: space-between;
+        
+    }
+    .section{
+max-width: 382px;
+    }
+   
+    
+    .registration__btn{
+margin: 0;
     }
 }
 

@@ -2,16 +2,9 @@ import axios from "axios";
 import { setErrorRequest } from "../slice/errorRequestSlice";
 import { loaderOff, loaderOn } from "../slice/loaderSlice";
 import { loginOperations } from './loginOperations'
+
 axios.defaults.baseURL = "http://slimmom-backend.herokuapp.com";
 
-// const token = {
-//     set(token) {
-//         axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-//     },
-//     unset() {
-//         axios.defaults.headers.common.Authorization = "";
-//     },
-// };
 
 export const registrationOperations = (obj) => async (dispatch) => {
     try {
@@ -21,6 +14,7 @@ export const registrationOperations = (obj) => async (dispatch) => {
 
     } catch (error) {
         console.log(error);
+        dispatch(setErrorRequest(error.message));
     } finally {
         dispatch(loaderOff());
     }

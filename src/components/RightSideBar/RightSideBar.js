@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 const RightSideBar = () => {
     const date = useSelector(state => currentDateSelector(state).split('-').reverse().join('.'));
-    const products = useSelector((state) => notAllowedProducts(state)); 
+    const products = useSelector((state) => notAllowedProducts(state));
     const filtredProducts = products.filter((product, index) => index < 5);
     const daySummary = useSelector(state => state.currentDateInfo.daySummary);
     const currenDate = new Date();
@@ -19,25 +19,25 @@ const RightSideBar = () => {
                         <li className={style.list__item}>
                             <p className={style.list__item_text}>Осталось
                             <span className={style.list__item_text_right}>
-                                    {daySummary.kcalLeft && (daySummary.kcalLeft)} ккал
+                                    {daySummary.kcalLeft ? (Math.round(daySummary.kcalLeft) + ' ккал') : '000 ккал'}
                                 </span></p>
                         </li>
                         <li className={style.list__item}>
                             <p className={style.list__item_text}>Употреблено
                             <span className={style.list__item_text_right}>
-                                    {daySummary.kcalConsumed && (daySummary.kcalConsumed)} ккал
+                                    {daySummary.kcalConsumed ? (Math.round(daySummary.kcalConsumed) + ' ккал') : '000 ккал'}
                                 </span></p>
                         </li>
                         <li className={style.list__item}>
                             <p className={style.list__item_text}>Дневная норма
                             <span className={style.list__item_text_right}>
-                                    {daySummary.dailyRate && (daySummary.dailyRate)} ккал
+                                    {daySummary.dailyRate ? (Math.round(daySummary.dailyRate) + ' ккал') : '000 ккал'}
                                 </span></p>
                         </li>
                         <li className={style.list__item}>
                             <p className={style.list__item_text}>n% от нормы
                             <span className={style.list__item_text_right}>
-                                    {daySummary.percentsOfDailyRate && (daySummary.percentsOfDailyRate)} ккал
+                                    {daySummary.percentsOfDailyRate ? (Math.round(daySummary.percentsOfDailyRate) + ' ккал') : '000 ккал'}
                                 </span></p>
                         </li>
                     </ul>

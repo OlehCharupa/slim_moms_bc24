@@ -37,12 +37,11 @@ function App() {
               return route.private ? (
                 <PrivateRoute key={route.label} {...route} />
               ) : (
-                <PublicRoute key={route.label} {...route} />
-              );
+                  <PublicRoute key={route.label} {...route} />
+                );
             })}
           </Switch>
         </Suspense>
-        <DiaryProductsList />
       </div>
     </>
   );

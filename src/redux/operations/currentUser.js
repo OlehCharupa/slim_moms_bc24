@@ -10,7 +10,7 @@ export const currentUser = () => async (dispatch) => {
         dispatch(loaderOn());
         dispatch(resetErrorRequest())
         const result = await axios.get("/user");
-        dispatch(setUser(result.data.user))
+        dispatch(setUser(result.data))
 
     } catch (error) {
         dispatch(setErrorRequest(error.message));

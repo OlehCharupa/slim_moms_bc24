@@ -1,11 +1,15 @@
 import React from 'react';
 import style from './DiaryRightSideBar.module.css';
 // import { currentDateSelector } from '../../redux/selectors/dateInfoSelectors';
+// import { notAllowedProducts } from '../../redux/selectors/selectors';
 import { useSelector } from 'react-redux';
 import { currentDateSelector } from '../../../redux/selectors/dateInfoSelectors';
+import { notAllowedProducts } from '../../../redux/selectors/selectors';
+
 const DiaryRightSideBar = () => {
     const date = useSelector(state => currentDateSelector(state).split('-').reverse().join('.'));
-    const products = useSelector(state => state.user.userData.notAllowedProducts.slice(0, 5).join(', '));
+    const products = useSelector((state) => notAllowedProducts(state)); 
+    const filtredProducts = products.filter((product, index) => index < 5);
     const daySummary = useSelector(state => state.currentDateInfo.daySummary);
     const currenDate = new Date();
     return (
@@ -58,8 +62,8 @@ const DiaryRightSideBar = () => {
                 <div className={style.block__right}>
                     <h3 className={style.title}>Нерекомендуемые продукты</h3>
                     <ul className={style.list}>
-                        {!!products ? <li className={style.list__item}><p className={style.list__item_text}>{products}</p></li> 
-                        : <li><p>Здесь будет отображаться Ваш рацион</p></li>}
+                        {!!filtredProducts ? <li className={style.list__item}><p className={style.list__item_text}>{filtredProducts}</p></li>
+                            : <li><p>Здесь будет отображаться Ваш рацион</p></li>}
                     </ul>
                 </div>
             </div>

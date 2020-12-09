@@ -9,6 +9,7 @@ import { useWindowWidth } from "@react-hook/window-size";
 import DiaryBgImage from "./diaryBgImage/DiaryBgImage";
 import DiaryRightSideBar from "./diaryRightSideBar/DiaryRightSideBar";
 import Container from "../../components/Container/Container";
+import DiaryProductsList from "../../components/DiaryProductsList/DiaryProductsList";
 
 const DiaryPage = () => {
   const onlyWidth = useWindowWidth();
@@ -19,7 +20,9 @@ const DiaryPage = () => {
           <Container>
             <div className={style.diaryItems__wrapper}>
               <CurrentDate />
-              <div className={style.forDeleteElement}></div>
+              <div className={style.forDeleteElement}>
+                  <DiaryProductsList/>
+              </div>
               {onlyWidth < 768 ? (
                 <OpenFormAddProductInDiary />
               ) : (
@@ -30,7 +33,9 @@ const DiaryPage = () => {
         ) : (
           <div className={style.diaryItems__wrapper}>
             <CurrentDate />
-            <div className={style.forDeleteElement}></div>
+            <div className={style.forDeleteElement}>
+            <DiaryProductsList/>
+            </div>
             {onlyWidth < 768 ? (
               <OpenFormAddProductInDiary />
             ) : (

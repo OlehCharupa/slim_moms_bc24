@@ -12,7 +12,7 @@ const DiaryProductsList = () => {
     <div className={styles.relative}>
       <div className={styles.container}>
         <ul className={styles.list}>
-          {items.map((item) => (
+          {items&&items.map((item) => (
             <DiaryProductsListItem {...item} key={item.id} />
           ))}
         </ul>

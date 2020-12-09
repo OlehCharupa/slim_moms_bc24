@@ -16,6 +16,7 @@ padding-top: 80px;
   border-bottom: 1px solid #E0E0E0;
   padding: 10px 0 10px 0;
   min-width: 100%;
+
 }
 
 .diaryAddProductForm_inputProduct::placeholder,
@@ -61,8 +62,65 @@ padding-top: 80px;
   height: 200px;
 }
 
+/* ================================================
+ */
+ 
+ /* * {
+  color: #6C7231;
+  font-family: Helvetica;
+  font-weight: bold;
+} */
 
+#content {
+  width: 300px;
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px dotted gray;
+}
 
+.selectWrapper {
+  position: relative;
+  width: 300px;
+  margin: 20px 0;
+  border: 1px solid #6C7231;
+  border-radius: 3px;
+}
+
+.selectWrapper:hover {
+  box-shadow: 0px 0px 3px gray;
+}
+
+.selectWrapper select {
+  width: 300px;
+  height: 28px;
+  padding: 0 20px 0 7px;
+  background: transparent;
+  border: 0;
+  appearance: none; 
+
+}
+
+/* .selectWrapper select::-ms-expand{
+    display: none;  
+} */
+
+.selectArrow_3 {
+  position: absolute;
+  z-index: -9999;
+  border: 8px solid transparent; 
+  border-bottom: 0;
+  right: 6px;
+}
+.selectArrow_3:nth-child(1) {
+  top: 11px;
+  border-top-color: #6C7231;
+}
+.selectArrow_3:nth-child(2) {
+  top: 8px;
+  border-top-color: #FFF;
+}
+
+/* =================================================== */
 @media screen and (max-width: 767px) {
   .diaryAddProductForm {
   flex-direction: column;

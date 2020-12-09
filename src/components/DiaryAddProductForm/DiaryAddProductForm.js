@@ -24,13 +24,12 @@ const useDebounce = (callback, delay) => useCallback(
 
 const DiaryAddProductForm = () => {
   const [products, setProducts] = useState([]);
+  const [currentValue, setCurrentValue] = useState({ ...initialState })
   const date = useSelector(state => currentDateSelector(state));
   const token = useSelector(state => state.token);
-  const [currentValue, setCurrentValue] = useState({ ...initialState })
 
   const dispatch = useDispatch();
   const onlyWidth = useWindowWidth();
-  console.log('products', products);
 
   const setToken = (token) => {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -87,6 +86,7 @@ const DiaryAddProductForm = () => {
             type='text'
             name='title'
             value={currentValue.title}
+            autocomplete="off"
           >
           </input>
         </label>
@@ -99,6 +99,7 @@ const DiaryAddProductForm = () => {
             type='text'
             name='weight'
             value={currentValue.weight}
+            autocomplete="off"
           >
           </input>
         </label>
@@ -110,12 +111,15 @@ const DiaryAddProductForm = () => {
         </button>
 
       </form>
-      <select name='title' value={currentValue?.title?.ru} onChange={inputHandlerDiaryAddProduct}>
-        {console.log(currentValue)}
-        {products.map(product => (
-          <option data-id={product._id} value={product?.title?.ru} key={product._id} name={product?.title?.ru} >{product?.title?.ru}</option>
-        ))}
-      </select>
+      <div className={styles.selectWrapper}>
+        <div className={styles.selectArrow_3}></div>
+        <select name='title' value={currentValue?.title?.ru} onChange={inputHandlerDiaryAddProduct}>
+          {console.log(currentValue)}
+          {products.map(product => (
+            <option data-id={product._id} value={product?.title?.ru} key={product._id} name={product?.title?.ru} >{product?.title?.ru}</option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };

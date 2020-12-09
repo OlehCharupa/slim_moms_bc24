@@ -14,7 +14,7 @@ padding-top: 80px;
   display: block;
   border: none;
   border-bottom: 1px solid #E0E0E0;
-  padding: 10px 0 10px 0;
+  padding: 10px 5px;
   min-width: 100%;
 
 }
@@ -62,32 +62,24 @@ padding-top: 80px;
   height: 200px;
 }
 
-/* ================================================
- */
- 
- /* * {
-  color: #6C7231;
-  font-family: Helvetica;
-  font-weight: bold;
-} */
 
 #content {
   width: 300px;
   margin: 20px auto;
   padding: 10px;
-  border: 1px dotted gray;
+  border: 1px dotted rgb(145, 144, 144);
 }
 
 .selectWrapper {
   position: relative;
   width: 300px;
   margin: 20px 0;
-  border: 1px solid #6C7231;
+  border: 1px solid rgb(145, 144, 144);
   border-radius: 3px;
 }
 
 .selectWrapper:hover {
-  box-shadow: 0px 0px 3px gray;
+  box-shadow: 0px 0px 3px rgb(145, 144, 144);
 }
 
 .selectWrapper select {
@@ -100,10 +92,6 @@ padding-top: 80px;
 
 }
 
-/* .selectWrapper select::-ms-expand{
-    display: none;  
-} */
-
 .selectArrow_3 {
   position: absolute;
   z-index: -9999;
@@ -113,7 +101,7 @@ padding-top: 80px;
 }
 .selectArrow_3:nth-child(1) {
   top: 11px;
-  border-top-color: #6C7231;
+  border-top-color: rgb(145, 144, 144);
 }
 .selectArrow_3:nth-child(2) {
   top: 8px;

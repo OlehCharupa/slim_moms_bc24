@@ -62,6 +62,7 @@ const DiaryAddProductForm = () => {
     }
 
     setCurrentValue({ ...currentValue, [name]: value })
+    console.log(products);
   }
 
 
@@ -71,7 +72,7 @@ const DiaryAddProductForm = () => {
     const singleProduct = products.find(el => el.title.ru === currentValue.title)
     dispatch(addProduct({ date, productId: singleProduct._id, weight: Number(currentValue.weight) }
     ));
-
+    setCurrentValue({ ...initialState });
   }
 
   return (
@@ -86,7 +87,7 @@ const DiaryAddProductForm = () => {
             type='text'
             name='title'
             value={currentValue.title}
-            autocomplete="off"
+            autoСomplete="off"
           >
           </input>
         </label>
@@ -99,7 +100,7 @@ const DiaryAddProductForm = () => {
             type='text'
             name='weight'
             value={currentValue.weight}
-            autocomplete="off"
+            autoСomplete="off"
           >
           </input>
         </label>

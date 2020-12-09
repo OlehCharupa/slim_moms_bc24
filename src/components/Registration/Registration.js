@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom";
 import { loginOperations } from "../../redux/operations/loginOperations";
+import { registrationOperations } from "../../redux/operations/registrationOperations";
 import { resetErrorRequest } from "../../redux/slice/errorRequestSlice";
 
 import style from "./Registration.module.css";
@@ -92,7 +93,7 @@ const Registration = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		console.log("hellow");
-		dispatch(loginOperations(regForm))
+		dispatch(registrationOperations(regForm))
 		setRegForm(regState)
 	}
 

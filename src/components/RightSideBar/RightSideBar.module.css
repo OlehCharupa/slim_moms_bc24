@@ -1,6 +1,7 @@
 .right__SideBar{
     width: 100%;
-    padding-top: 40px;
+     padding-top: 40px;
+    padding-bottom: 85px;
 }
 .title{
     font-style: normal;
@@ -52,9 +53,11 @@
 }
   @media screen and (min-width: 1280px) {
     .right__SideBar{
-        width: 330px;
-        padding: 0;
+        /* width: 330px; */
+        padding-top: 292px;
         flex-wrap: wrap;
+        padding-left: 90px;
+        padding-right: 115px;
     }
     .block__right{
         margin-top: 60px;

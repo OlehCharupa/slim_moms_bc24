@@ -1,0 +1,25 @@
+.block{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .currentDate__wrapper {
+    background-color: #fff;
+    padding: 40px 0 60px;
+    width: 100%;
+  }
+  @media screen and (min-width: 768px) {
+    .currentDate__wrapper {
+        padding: 100px 0 60px;
+      }
+    }
+    @media screen and (min-width: 1280px) {
+      .block{
+        flex-wrap: nowrap;
+      }
+      .currentDate__wrapper {
+        padding: 292px 30px 60px 115px;
+      }
+    }
+    

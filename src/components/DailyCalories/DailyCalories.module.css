@@ -1,13 +1,6 @@
-.block{
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 40px;
-}
 .box {
-  padding: 15px 0;
-  margin-bottom: 70px;
+  /* padding: 15px 0; */
+  /* margin-bottom: 70px; */
 }
 .title {
   font-weight: bold;
@@ -21,13 +14,10 @@
 }
 
 @media screen and (min-width: 768px) {
-.block{
-  margin-top: 100px;
-}
   .box {
     width: 565px;
     padding: 0;
-    margin-bottom: 160px;
+    /* margin-bottom: 160px; */
   }
   .title {
     font-size: 30px;
@@ -36,9 +26,6 @@
   }
 }
 @media screen and (min-width: 1280px) {
-  .block{
-    margin-top: 146px;
-  }
   .box {
     width: 605px;
  }

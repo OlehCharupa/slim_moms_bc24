@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { Switch } from "react-router-dom";
-import styles from './App.module.css';
+// import styles from './App.module.css';
 import SpinerLoader from "./spinerLoader/SpinerLoader";
 import routes from '../routes/routes';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className={styles.container}>
+      <div>
         <Suspense fallback={<SpinerLoader />}>
           <Switch>
             {routes.map((route) => {

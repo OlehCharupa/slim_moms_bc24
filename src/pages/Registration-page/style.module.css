@@ -4,6 +4,43 @@
 }
 
 .bgImg {
+  z-index: -1;
+  position: absolute;
+  background-size: cover;
+  width: 900px;
+  height: 100vh;
+  background-position: right bottom;
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-image: url(./img/PhotoForDesktop.png);
+}
+
+@media (max-width: 768px) {
+  .bgImg {
+    z-index: -1;
+    position: absolute;
+    /* background-size: 100%; */
+    width: 720px;
+    height: 100vh;
+    /* background-size: 100%; */
+    right: 0;
+    background-image: url(./img/PhotoForTablet.png);
+  }
+}
+
+@media (max-width: 480px) {
+  .bgImg {
+    display: none;
+  }
+}
+
+/* .main__log {
+  overflow: hidden;
+  width: 100%;
+}
+
+.bgImg {
   z-index: 1;
   position: absolute;
   background-size: 100%;
@@ -32,4 +69,9 @@
   .bgImg {
     display: none;
   }
-}
+} */
+
+/* .reg{
+  margin-top: 16px;
+  margin-left: 60px;
+} */

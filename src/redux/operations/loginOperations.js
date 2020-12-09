@@ -12,9 +12,10 @@ export const loginOperations = (obj) => async (dispatch) => {
         const result = await axios.post("/auth/login", { ...obj });
         dispatch(setToken(result.data.accessToken))
         dispatch(setUser(result.data.user))
+        console.log(result.data.user);
 
     } catch (error) {
-        console.log(error);
+        dispatch(setErrorRequest(error.message));
     } finally {
         dispatch(loaderOff());
     }

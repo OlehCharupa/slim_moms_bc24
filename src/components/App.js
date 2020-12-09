@@ -13,10 +13,8 @@ import PublicRoute from "./PublicRoute/PublicRoute";
 import Header from "./Header/Header";
 import DailyAddProductForm from "../components/DiaryAddProductForm/DiaryAddProductForm";
 import OpenFormAddProductInDiary from "../components/OpenFormAddProductInDiary/OpenFormAddProductInDiary";
-import Login from "../components/Login/Login";
-import Registration from "../components/Registration/Registration";
-import UserDateSelect from "./userDateSelect/UserDateSelect";
-import CurrentDate from "./currentDate/CurrentDate";
+import Login from "./Login/Login";
+import DiaryProductsList from "./DiaryProductsList/DiaryProductsList";
 
 function App() {
   const token = useSelector((state) => state.token);
@@ -25,15 +23,16 @@ function App() {
   return (
     <>
       <Header />
-      <Registration />
-      <Login />
-      <CurrentDate />
+      {/* <Registration /> */}
+      {/* <Login /> */}
+      {/* <CurrentDate /> */}
       <div className={styles.container}>
-        {onlyWidth < 768 ? (
+        <DiaryProductsList />
+        {/* {onlyWidth < 768 ? (
           <OpenFormAddProductInDiary />
         ) : (
           <DailyAddProductForm />
-        )}
+        )} */}
 
         {/*для відображення сторінок Не видаляти! */}
         <Suspense fallback={<SpinerLoader />}>

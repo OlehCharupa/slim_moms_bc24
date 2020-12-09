@@ -15,33 +15,33 @@ const routes = [
     path: paths.home,
     label: 'MainPage',
     exact: true,
-    component: lazy(() => import("../pages/MainPage/MainPage"  /* webpackChunkName: "MainPage"*/)), 
-    
+    component: lazy(() => import("../pages/MainPage/MainPage"  /* webpackChunkName: "MainPage"*/)),
+
     private: false,
     restricted: false,
   },
   {
     path: paths.registration,
     label: 'Регистрация',
-    exact: true,
-    // component: lazy(() => import('./components/Registration')), //раскомментировать,  в импорт внести место и имя своего компонента
-    component: () => <h2>Регистрация</h2>, // удалить, когда будет корректный импорт
+    exact: false,
+    component: lazy(() => import('../components/Registration/Registration')), //раскомментировать,  в импорт внести место и имя своего компонента
+    // component: () => <h2>Регистрация</h2>, // удалить, когда будет корректный импорт
     private: false,
     restricted: true,
   },
   {
     path: paths.login,
     label: 'Вход',
-    exact: true,
-    // component: lazy(() => import('./components/Registration')), //раскомментировать,  в импорт внести место и имя своего компонента
-    component: () => <h2>Вход</h2>, // удалить, когда будет корректный импорт
+    exact: false,
+    component: lazy(() => import('../components/Login/Login')), //раскомментировать,  в импорт внести место и имя своего компонента
+    // component: () => <h2>Вход</h2>, // удалить, когда будет корректный импорт
     private: false,
     restricted: true,
   },
   {
     path: paths.diary,
     label: 'Дневник',
-    exact: true,
+    exact: false,
     // component: lazy(() => import('./components/Diary')), //раскомментировать,  в импорт внести место и имя своего компонента
     component: () => <h2>Дневник</h2>, // удалить, когда будет корректный импорт
     private: true,
@@ -50,7 +50,7 @@ const routes = [
   {
     path: paths.calculator,
     label: 'Калькулятор',
-    exact: true,
+    exact: false,
     // component: lazy(() => import('./components/Calculator')), //раскомментировать,  в импорт внести место и имя своего компонента
     component: () => <h2>Калькулятор</h2>, // удалить, когда будет корректный импорт
     private: true,

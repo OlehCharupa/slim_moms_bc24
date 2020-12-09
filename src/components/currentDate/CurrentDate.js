@@ -4,7 +4,7 @@ import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ru from "date-fns/locale/ru";
 import moment from "moment";
-import UserDateSelect from "../userDateSelect/UserDateSelect";
+import UserDateSelect from "../UserDateSelect/UserDateSelect";
 import { getCurrentDay } from "../../redux/slice/currentDateInfoSlice";
 import { getDateInfoOperation } from "../../redux/operations/currentDateInfoOperations";
 import { currentDateSelector } from "../../redux/selectors/dateInfoSelectors";
@@ -18,7 +18,7 @@ const CurrentDate = () => {
   // ====================не видаляти! ===============================
   // const persistedToken=useSelector(state=>state.token)
   // =================================================================
-  // const persistedToken='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZmM4YTc5N2ZhOTBhYTAwMDQ0NTVjOWMiLCJzaWQiOiI1ZmNhMWFjOWZiYTk3MjAwMDQwZDFhMDkiLCJpYXQiOjE2MDcwODA2NDksImV4cCI6MTYwNzA4NDI0OX0.HcfO3qf1cK50BboGhLmF4xCxrXR269qyuWFEzEqUqNU'
+ 
   const reguestDate = moment(startDate).format().split("T")[0];
   const startpersistedDate = new Date(persistedDate);
 
@@ -26,15 +26,13 @@ const CurrentDate = () => {
     if (persistedDate) {
       setStartDate(startpersistedDate);
     }
-    console.log(reguestDate);
-    dispatch(getCurrentDay(reguestDate));
+       dispatch(getCurrentDay(reguestDate));
     // dispatch(getDateInfoOperation(reguestDate,persistedToken));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   useEffect(() => {
-    console.log(reguestDate);
-    dispatch(getCurrentDay(reguestDate));
+      dispatch(getCurrentDay(reguestDate));
     // dispatch(getDateInfoOperation(reguestDate,persistedToken));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startDate]);

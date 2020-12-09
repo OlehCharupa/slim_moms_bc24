@@ -26,8 +26,8 @@ const Navigation = ({ onModalClose }) => {
         viewport.isDesktop
           ? styles.nav
           : Authenticated
-          ? styles.mobileNav
-          : styles.nav
+            ? styles.mobileNav
+            : styles.nav
       }
     >
       {filteredRoutes.map((route) => (

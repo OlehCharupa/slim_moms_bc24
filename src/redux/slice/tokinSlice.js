@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = null
+const initialState = ""
 
 const loaderSlice = createSlice({
     name: "token",
@@ -9,7 +9,7 @@ const loaderSlice = createSlice({
             return payload
         },
         resetToken(state, { payload }) {
-            return null
+            return initialState
         }
     }
 })

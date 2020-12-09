@@ -30,6 +30,7 @@ const CalculatorCalorieForm = () => {
   });
 
   const [disable, setDisable] = useState(true);
+  const [modalToggle, setModalToggle] = useState(false);
 
   const dispatch = useDispatch();
   const userId = useSelector(state => userIdSelector(state))
@@ -98,6 +99,10 @@ const CalculatorCalorieForm = () => {
     }
   };
 
+  const modalToggler = () => {
+    setModalToggle(true)
+  }
+
   useEffect(()=>{
     Object.values(errors).every(item => item === false) ? setDisable(false) : setDisable(true)
   },[errors])
@@ -111,12 +116,12 @@ const CalculatorCalorieForm = () => {
       desiredWeight: Number(values.desiredWeight),
       bloodType: Number(values.bloodType),
     };
-    userToken ? dispatch(DailyCaloriesFormOperationById(VALUES, userId, userToken)) : dispatch(DailyCaloriesFormOperation(VALUES));
+    userToken ? dispatch(DailyCaloriesFormOperationById(VALUES, userId, userToken, modalToggler)) : dispatch(DailyCaloriesFormOperation(VALUES, modalToggler));
   };
   
   return (
     <>
-    <DailyCalorieIntake/>
+    {modalToggle && <DailyCalorieIntake/>}
     <form className={Calorie.form} onSubmit={submitHeandler}>
       <label className={Calorie.label}>
 {(errors.height && focused.height) && <p className={Calorie.errorText}>{errors.height}</p>}

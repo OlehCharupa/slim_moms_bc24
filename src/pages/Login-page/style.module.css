@@ -4,27 +4,28 @@
 }
 
 .bgImg {
-  z-index: 1;
+  z-index: -1;
   position: absolute;
-  background-size: 100%;
+  background-size: cover;
   width: 900px;
   height: 100vh;
-  background-size: 1006px 100%;
+  background-position: right bottom;
   right: 0;
   bottom: 0;
-  background-image: url(./img/main-img.svg);
+  background-repeat: no-repeat;
+  background-image: url(./img/PhotoForDesktop.png);
 }
 
 @media (max-width: 768px) {
   .bgImg {
-    z-index: 1;
+    z-index: -1;
     position: absolute;
-    background-size: 100%;
+    /* background-size: 100%; */
     width: 720px;
     height: 100vh;
-    background-size: 752px 1024px;
+    /* background-size: 100%; */
     right: 0;
-    background-image: url(./img/bg-tablet.svg);
+    background-image: url(./img/PhotoForTablet.png);
   }
 }
 

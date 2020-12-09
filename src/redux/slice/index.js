@@ -8,6 +8,7 @@ import errorRequestSlice from "./errorRequestSlice";
 import tokinSlice from './tokinSlice'
 import userSlice from './userSlice'
 import DailyCaloriesFormInfoSlice from './DailyCaloriesFormInfoSlice'
+import deleteItems from "./deleteElemSlice";
 
 
 const dateInfoPersistConfig = {
@@ -20,11 +21,12 @@ const dateInfoPersistConfig = {
 
 const rootReducer = combineReducers({
   loader: loaderSlice,
-  currentDateInfo: persistReducer(dateInfoPersistConfig,currentDateInfoSlice),
+  currentDateInfo: persistReducer(dateInfoPersistConfig, currentDateInfoSlice),
   errorRequest: errorRequestSlice,
   token: tokinSlice,
   user: userSlice,
   DailyCaloriesFormInfo: DailyCaloriesFormInfoSlice,
+  delete: deleteItems,
 });
 
 export default rootReducer;

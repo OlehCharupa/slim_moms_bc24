@@ -1,0 +1,209 @@
+.list{
+  display: flex;
+  align-items: center;
+  list-style: none;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+}
+
+.listName{
+  display: inline-block;
+  /* width: 137px; */
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-right:10px;
+  border-bottom: 1px solid #E0E0E0;
+  white-space: nowrap;
+  overflow: scroll;
+  flex: 3;
+}
+
+.listWeight{
+  text-align: center;
+  display: inline-block;
+  /* width: 49.67px; */
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-right: 10px;
+  border-bottom: 1px solid #E0E0E0;
+  white-space: nowrap;
+  overflow: scroll;
+  flex: 1;
+}
+
+.listCalories{
+  text-align: center;
+  display: inline-block;
+  /* width: 60px; */
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-right: 10px;
+  border-bottom: 1px solid #E0E0E0;
+  white-space: nowrap;
+  overflow: scroll;
+  flex: 1;
+}
+.ccal{
+  font-size: 12px;
+}
+
+.listButton{
+  /* height: max-content; */
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.img{
+  width: 14px;
+  height: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .list{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+  }
+  
+  .listName{
+    display: inline-block;
+    width: 137px;
+    padding-top: 15px;
+    padding-bottom: 19px;
+    margin-right:31px;
+    border-bottom: 1px solid #E0E0E0;
+    white-space: nowrap;
+    overflow: scroll;
+  }
+  
+  .listWeight{
+    text-align: right;
+    display: inline-block;
+    width: 49.67px;
+    padding-top: 15px;
+    padding-bottom: 19px;
+    margin-right: 31px;
+    border-bottom: 1px solid #E0E0E0;
+    white-space: nowrap;
+    overflow: scroll;
+  }
+  
+  .listCalories{
+    text-align: right;
+    display: inline-block;
+    width: 60px;
+    padding-top: 15px;
+    padding-bottom: 19px;
+    margin-right: 31px;
+    border-bottom: 1px solid #E0E0E0;
+    white-space: nowrap;
+    overflow: scroll;
+  }
+  .ccal{
+    font-size: 14px;
+  }
+  
+  .listButton{
+    height: max-content;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+  }
+  .img{
+    width: 14px;
+    height: 14px;
+  }
+}
+
+
+@media screen and (min-width: 1280px) {
+  .list{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+  }
+  
+  .listName{
+    display: inline-block;
+    width: 239px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-right:10px;
+    border-bottom: 1px solid #E0E0E0;
+    white-space: nowrap;
+    overflow: scroll;
+
+  }
+  
+  .listWeight{
+    text-align: center;
+    display: inline-block;
+    width: 104.36px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-right: 10px;
+    border-bottom: 1px solid #E0E0E0;
+    white-space: nowrap;
+    overflow: scroll;
+
+  }
+  
+  .listCalories{
+    text-align: center;
+    display: inline-block;
+    width: 104.36px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-right: 10px;
+    border-bottom: 1px solid #E0E0E0;
+    white-space: nowrap;
+    overflow: scroll;
+  }
+  .ccal{
+    font-size: 12px;
+  }
+  
+  .listButton{
+    height: max-content;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+  }
+  
+  .img{
+    width: 12px;
+    height: 12px;
+  }
+}
+
+
+

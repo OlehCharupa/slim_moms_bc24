@@ -20,7 +20,6 @@ const Header = () => {
     pathname === "/login" || pathname === "/registration" ? false : true;
 
   const [modal, setModal] = useState(false);
-  const [arrow, setArrow] = useState(true);
 
   const body = document.querySelector("body");
 
@@ -29,12 +28,6 @@ const Header = () => {
       body.classList.add(styles.body);
     } else body.classList.remove(styles.body);
     setModal(!modal);
-  };
-
-  const arrowToggle = () => setArrow(!arrow);
-
-  const arrowCallback = (callback) => {
-    return callback;
   };
 
   return (
@@ -79,12 +72,8 @@ const Header = () => {
         </div>
         {Authenticated && viewport.isDesktop && <UserInfo />}
       </header>
-      {viewport.isMobile && (arrow || Authenticated) && (
-        <MobileNavigation
-          isArrow={arrow}
-          callback={arrowCallback}
-          arrowToggle={arrowToggle}
-        >
+      {viewport.isMobile && Authenticated && (
+        <MobileNavigation>
           <UserInfo />
         </MobileNavigation>
       )}

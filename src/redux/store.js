@@ -16,7 +16,7 @@ const persistConfig = {
     key: "root",
     version: 1,
     storage,
-    whitelist: ['token', 'user']
+    whitelist: ['token', 'user', 'DailyCaloriesFormInfo']
 }
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 

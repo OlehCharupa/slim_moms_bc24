@@ -17,16 +17,11 @@ const Logo = () => {
       <Redirect to="/" />;
     }
   };
-  // const authData = useSelector(state => !!state.token)
+
   const authData = useSelector(isLogin);
   useEffect(() => {
-   
     setAuth(authData);
   }, [isLogin]);
-  return (
-    <div className={logoStyle.logo_pointer} onClick={redirectAuth}>
-      {" "}
-    </div>
-  );
+  return <div className={logoStyle.logo_pointer} onClick={redirectAuth}></div>;
 };
 export default Logo;

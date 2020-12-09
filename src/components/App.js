@@ -22,7 +22,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className={styles.container}>
         {/* {onlyWidth < 768 ? <OpenFormAddProductInDiary /> : <DailyAddProductForm />} */}
 

@@ -13,7 +13,7 @@ export const registrationOperations = (obj) => async (dispatch) => {
         dispatch(loginOperations({ email: obj.email, password: obj.password }))
 
     } catch (error) {
-
+        console.log(error);
         dispatch(setErrorRequest(error.message));
     } finally {
         dispatch(loaderOff());

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom";
+import { loginOperations } from "../../redux/operations/loginOperations";
 import { resetErrorRequest } from "../../redux/slice/errorRequestSlice";
-import { registrationOperations } from "./../../redux/operations/registrationOperations";
 
 import style from "./Registration.module.css";
 
@@ -34,6 +34,7 @@ const Registration = () => {
 
 	}, [emailError, passwordError, stateError])
 	const nameHandler = (e) => {
+		dispatch(resetErrorRequest());
 		setRegForm((prev) => ({ ...prev, username: e.target.value }))
 		if (emailDirty) {
 			setEmailDirty(false)
@@ -45,6 +46,7 @@ const Registration = () => {
 		}
 	}
 	const emailHandler = (e) => {
+		dispatch(resetErrorRequest());
 		setRegForm((prev) => ({ ...prev, email: e.target.value }))
 		if (emailDirty) {
 			setEmailDirty(false)
@@ -60,6 +62,7 @@ const Registration = () => {
 	}
 
 	const passwordHandler = (e) => {
+		dispatch(resetErrorRequest());
 		setRegForm((prev) => ({ ...prev, password: e.target.value }))
 		if (passwordDirty) {
 			setPasswordDirty(false)
@@ -73,7 +76,6 @@ const Registration = () => {
 		}
 	}
 	const handleBlur = ({ target }) => {
-		dispatch(resetErrorRequest());
 		switch (target.name) {
 			case "username":
 				setNameDirty(true)
@@ -89,10 +91,12 @@ const Registration = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
+		console.log("hellow");
+		dispatch(loginOperations(regForm))
 		setRegForm(regState)
 	}
 
-	dispatch(registrationOperations(regForm));
+
 	const { username, email, password } = regForm
 
 	const openPage = () => {

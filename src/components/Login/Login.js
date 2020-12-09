@@ -30,6 +30,7 @@ const Login = () => {
 	}, [emailError, passwordError])
 
 	const emailHandler = (e) => {
+		dispatch(resetErrorRequest());
 		setLogForm((prev) => ({ ...prev, email: e.target.value }))
 		if (emailDirty) {
 			setEmailDirty(false)
@@ -45,6 +46,7 @@ const Login = () => {
 	}
 
 	const passwordHandler = (e) => {
+		dispatch(resetErrorRequest());
 		setLogForm((prev) => ({ ...prev, password: e.target.value }))
 		if (passwordDirty) {
 			setPasswordDirty(false)
@@ -59,7 +61,6 @@ const Login = () => {
 	}
 
 	const handleBlur = ({ target }) => {
-		dispatch(resetErrorRequest());
 		switch (target.name) {
 			case "email":
 				setEmailDirty(true)
@@ -83,7 +84,7 @@ const Login = () => {
 	const openPage = () => {
 		history.push('/registration')
 	}
-	console.log(stateError.indexOf('409') + 1);
+
 
 	return (
 		<section className={style.section}>

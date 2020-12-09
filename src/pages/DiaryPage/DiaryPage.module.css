@@ -4,7 +4,7 @@
 }
 
 .sideBar__wrapper {
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   height: auto;
   right: 0;
@@ -17,7 +17,7 @@
     flex-wrap: wrap;
   }
   .diaryItems__wrapper {
-    padding-bottom: 460px;
+    /* padding-bottom: 460px; */
   }
 }
 @media (min-width: 1280px) {

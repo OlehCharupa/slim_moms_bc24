@@ -8,6 +8,7 @@ const DiaryBgImage = () => {
   return (
     <>
       {token ? <div className={style.bgImageLogin}></div> : <div className={style.bgImage}></div>}
+  
     </>
   )
 };

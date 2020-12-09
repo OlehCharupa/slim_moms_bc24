@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.3.0",
     "axios": "^0.21.0",
     "css-modules": "^0.3.0",
+    "lodash.debounce": "^4.0.8",
     "moment": "^2.29.1",
     "persist": "^0.2.7",
     "react": "^17.0.1",

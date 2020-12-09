@@ -1,29 +1,28 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import logoStyle from "./Logo.module.css";
-// импортировать
-import { Redirect } from 'react-router-dom'
 import { useSelector } from "react-redux";
+import { isLogin } from "./../../redux/selectors/selectors";
+
+// импортировать
+import { Link } from "react-router-dom";
 
 const Logo = () => {
-  const [auth, setAuth] = useState(false);
+  const islogin = useSelector(isLogin);
 
-  // проверка на логин в функции redirectAuth
-  const redirectAuth = () => {
-    if (auth) {
-      <Redirect to="/diary" />
-    } else {
-      <Redirect to="/" />
-    }
-  };
-  const authData = useSelector(state => !!state.token)
-  useEffect(() => {
-    // получаем данные redux о авторизации в authData
-    setAuth(authData)
-  }, []);
   return (
-    <div className={logoStyle.logo_pointer} onClick={redirectAuth}>
-      {" "}
-    </div>
+    <>
+      {islogin
+        ? <Link to="/diary">
+          <div className={logoStyle.logo_pointer} >
+            {" "}
+          </div>
+        </Link >
+        : <Link to="/">
+          <div className={logoStyle.logo_pointer} >
+            {" "}
+          </div>
+        </Link >}
+    </>
   );
 };
 export default Logo;

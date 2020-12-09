@@ -7,7 +7,6 @@ import { logOut } from "../../redux/operations/logoutOperations";
 const UserInfo = () => {
   const token = useSelector((state) => state.token);
   const user = useSelector((state) => state.user?.username);
-  // console.log(user);
   const dispatch = useDispatch();
 
   const logout = () => {

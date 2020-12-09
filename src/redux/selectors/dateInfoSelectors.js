@@ -1,1 +1,1 @@
-export const currentDateSelector=(state)=>state.currentDateInfo.currentDate
+export const currentDateSelector=(state)=>state.currentDateInfo.currentDate;

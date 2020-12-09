@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import style from './../Registration/Registration.module.css'
 import { loginOperations } from "./../../redux/operations/loginOperations";
+import { useHistory } from "react-router-dom";
+import { resetErrorRequest } from "../../redux/slice/errorRequestSlice";
 const Login = () => {
 
 	const logState = {
@@ -15,7 +17,9 @@ const Login = () => {
 	const [emailError, setEmailError] = useState("Поле email не может быть пустым")
 	const [passwordError, setPasswordError] = useState("Пароль не может быть пустым")
 	const [formValid, setFormValid] = useState(false)
+	const stateError = useSelector(state => state.errorRequest)
 	const dispatch = useDispatch()
+	const history = useHistory()
 
 	useEffect(() => {
 		if (emailError || passwordError) {
@@ -26,6 +30,7 @@ const Login = () => {
 	}, [emailError, passwordError])
 
 	const emailHandler = (e) => {
+		dispatch(resetErrorRequest());
 		setLogForm((prev) => ({ ...prev, email: e.target.value }))
 		if (emailDirty) {
 			setEmailDirty(false)
@@ -41,6 +46,7 @@ const Login = () => {
 	}
 
 	const passwordHandler = (e) => {
+		dispatch(resetErrorRequest());
 		setLogForm((prev) => ({ ...prev, password: e.target.value }))
 		if (passwordDirty) {
 			setPasswordDirty(false)
@@ -75,9 +81,19 @@ const Login = () => {
 
 	const { email, password } = logForm
 
+	const openPage = () => {
+		history.push('/registration')
+	}
+
+
 	return (
 		<section className={style.section}>
 			<h2 className={style.title}>Вход</h2>
+			<div className={style.contaner__err}>
+				{!!(stateError.indexOf('403') + 1) && <p className={style.err__message__state}>Email или пароль не верный!</p>}
+				{!!(stateError.indexOf('400') + 1) && <p className={style.err__message__state}>Извините, проблеммы с сервером, повторите попытку позже!</p>}
+			</div>
+
 
 			<form onSubmit={handleSubmit} className={style.form}>
 				<label className={style.label}>
@@ -116,7 +132,7 @@ const Login = () => {
 					<button disabled={!formValid} className={style.login__btn} type="submit">
 						Вход
 					</button>
-					<button className={style.registration__btn}>Регистрация</button>
+					<button className={style.registration__btn} type='button' onClick={openPage}>Регистрация</button>
 				</div>
 			</form>
 		</section>

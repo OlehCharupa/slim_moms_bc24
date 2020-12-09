@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Calorie from "./CalculatorCalorieForm.module.css";
-import {userIdSelector, userTokenSelector} from '../../redux/selectors/selectors'
+import {userIdSelector, userTokenSelector} from '../../redux/selectors/selectors';
+import DailyCalorieIntake from '../DailyCalorieIntake/DailyCalorieIntake';
 
 import { DailyCaloriesFormOperation, DailyCaloriesFormOperationById } from "../../redux/operations/DailyCaloriesFormOperation";
 
@@ -114,9 +115,11 @@ const CalculatorCalorieForm = () => {
   };
   
   return (
+    <>
+    <DailyCalorieIntake/>
     <form className={Calorie.form} onSubmit={submitHeandler}>
-{(errors.height && focused.height) && <p>{errors.height}</p>}
       <label className={Calorie.label}>
+{(errors.height && focused.height) && <p className={Calorie.errorText}>{errors.height}</p>}
         <input
           type="text"
           name="height"
@@ -128,8 +131,8 @@ const CalculatorCalorieForm = () => {
           className={Calorie.input}
         />
       </label>
-{(errors.age && focused.age) && <p>{errors.age}</p>}
       <label className={Calorie.label}>
+{(errors.age && focused.age) && <p className={Calorie.errorText}>{errors.age}</p>}
         <input
           type="text"
           name="age"
@@ -141,8 +144,8 @@ const CalculatorCalorieForm = () => {
           className={Calorie.input}
         />
       </label>
-{(errors.weight && focused.weight) && <p>{errors.weight}</p>}
       <label className={Calorie.label}>
+{(errors.weight && focused.weight) && <p className={Calorie.errorText}>{errors.weight}</p>}
         <input
           type="text"
           name="weight"
@@ -155,8 +158,8 @@ const CalculatorCalorieForm = () => {
         />
       </label>
       <div className={Calorie.box}>
-{(errors.desiredWeight && focused.desiredWeight) && <p>{errors.desiredWeight}</p>}
         <label className={Calorie.label}>
+{(errors.desiredWeight && focused.desiredWeight) && <p className={Calorie.errorText}>{errors.desiredWeight}</p>}
           <input
             type="text"
             name="desiredWeight"
@@ -239,7 +242,7 @@ const CalculatorCalorieForm = () => {
         Похудеть
       </button>
     </form>
-  );
+  </>);
 };
 
 export default CalculatorCalorieForm;

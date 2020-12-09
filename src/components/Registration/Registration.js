@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react"
-import { useDispatch } from "react-redux"
-import { registrationOperations } from "./../../redux/operations/registrationOperations";
+import { useDispatch, useSelector } from "react-redux"
+import { useHistory } from "react-router-dom";
+import { loginOperations } from "../../redux/operations/loginOperations";
+import { resetErrorRequest } from "../../redux/slice/errorRequestSlice";
 
-import style from './Registration.module.css'
+import style from "./Registration.module.css";
 
 const Registration = () => {
 	const regState = {
@@ -19,7 +21,9 @@ const Registration = () => {
 	const [passwordError, setPasswordError] = useState("Пароль не может быть пустым")
 	const [nameError, setNameError] = useState("Поле 'Имя' не может быть пустым")
 	const [formValid, setFormValid] = useState(false)
+	const stateError = useSelector(state => state.errorRequest)
 	const dispatch = useDispatch()
+	const history = useHistory()
 
 	useEffect(() => {
 		if (nameError || emailError || passwordError) {
@@ -27,17 +31,22 @@ const Registration = () => {
 		} else {
 			setFormValid(true)
 		}
-	}, [emailError, passwordError])
+
+	}, [emailError, passwordError, stateError])
 	const nameHandler = (e) => {
+		dispatch(resetErrorRequest());
 		setRegForm((prev) => ({ ...prev, username: e.target.value }))
+		if (emailDirty) {
+			setEmailDirty(false)
+		}
 		if (!e.target.value) {
-			setNameDirty(true)
 			setNameError("Поле 'Имя' не может быть пустым")
 		} else {
 			setNameError("")
 		}
 	}
 	const emailHandler = (e) => {
+		dispatch(resetErrorRequest());
 		setRegForm((prev) => ({ ...prev, email: e.target.value }))
 		if (emailDirty) {
 			setEmailDirty(false)
@@ -53,6 +62,7 @@ const Registration = () => {
 	}
 
 	const passwordHandler = (e) => {
+		dispatch(resetErrorRequest());
 		setRegForm((prev) => ({ ...prev, password: e.target.value }))
 		if (passwordDirty) {
 			setPasswordDirty(false)
@@ -67,30 +77,38 @@ const Registration = () => {
 	}
 	const handleBlur = ({ target }) => {
 		switch (target.name) {
+			case "username":
+				setNameDirty(true)
+				break
 			case "email":
 				setEmailDirty(true)
 				break
 			case "password":
 				setPasswordDirty(true)
 				break
-			case "name":
-				setNameDirty(true)
-				break
 		}
 	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		dispatch(registrationOperations(regForm));
+		console.log("hellow");
+		dispatch(loginOperations(regForm))
 		setRegForm(regState)
 	}
 
+
 	const { username, email, password } = regForm
 
+	const openPage = () => {
+		history.push('/login')
+	}
 	return (
 		<section className={style.section}>
 			<h2 className={style.title}>Регистрация</h2>
-
+			<div className={style.contaner__err}>
+				{!!(stateError.indexOf('409') + 1) && <p className={style.err__message__state}>Такой email уже зарегестрирован!</p>}
+				{!!(stateError.indexOf('400') + 1) && <p className={style.err__message__state}>Извините, проблеммы с сервером, повторите попытку позже!</p>}
+			</div>
 			<form onSubmit={handleSubmit} className={style.form}>
 				<label className={style.label}>
 					<p className={style.input__title}>Имя *</p>
@@ -140,7 +158,7 @@ const Registration = () => {
 				</div>
 
 				<div className={style.con__btns}>
-					<button className={style.login__btn} type="button">
+					<button className={style.login__btn} type="button" onClick={openPage}>
 						Вход
 					</button>
 

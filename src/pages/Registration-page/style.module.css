@@ -18,7 +18,7 @@
 
 @media (max-width: 768px) {
   .bgImg {
-    z-index: 1;
+    z-index: -1;
     position: absolute;
     /* background-size: 100%; */
     width: 720px;
@@ -34,7 +34,6 @@
     display: none;
   }
 }
-
 
 /* .main__log {
   overflow: hidden;

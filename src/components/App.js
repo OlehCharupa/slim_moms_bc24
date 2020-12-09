@@ -10,6 +10,7 @@ import Header from "./Header/Header";
 // import { currentUser } from "../redux/operations/currentUser";
 // import { resetToken } from "../redux/slice/tokinSlice";
 
+
 function App() {
   // const stateToken = useSelector((state) => state.token);
   // const stateUser = useSelector((state) => state.user);
@@ -25,27 +26,23 @@ function App() {
   //       history.push("/login");
   //     }
   //   }
-  
-  
-  // },[]);
+  // }, []);
 
   return (
     <>
       <Header />
-  
         <Suspense fallback={<SpinerLoader />}>
           <Switch>
             {routes.map((route) => {
               return route.private ? (
                 <PrivateRoute key={route.label} {...route} />
               ) : (
-                <PublicRoute key={route.label} {...route} />
-              );
+                  <PublicRoute key={route.label} {...route} />
+                );
             })}
           </Switch>
         </Suspense>
-    
-   
+     
     </>
   );
 }

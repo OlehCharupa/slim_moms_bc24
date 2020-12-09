@@ -1,5 +1,5 @@
 .form__wrapper {
-  padding-top: 20px;
+  padding-top: 40px;
   /* padding-top: 15px; */
   margin: 0 auto;
 }
@@ -21,7 +21,7 @@
     z-index: -1;
   }
   .form__wrapper {
-    padding-top: 85px;
+    padding-top: 100px;
   }
 }
 @media (min-width: 1280px) {
@@ -29,7 +29,7 @@
     background: url("./image/main-bg-desktop.png") top right no-repeat;
   }
   .form__wrapper {
-    padding-top: 129px;
+    padding-top: 292px;
     width: 630px;
     margin: 0;
   }

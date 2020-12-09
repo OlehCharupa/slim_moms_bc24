@@ -25,7 +25,7 @@ function App() {
         history.push("/login");
       }
     }
-  });
+  }, []);
 
   return (
     <>

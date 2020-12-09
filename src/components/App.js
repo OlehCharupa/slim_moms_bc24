@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import { Switch } from "react-router-dom";
 // import styles from './App.module.css';
 import SpinerLoader from "./spinerLoader/SpinerLoader";
@@ -6,8 +6,20 @@ import routes from "../routes/routes";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PublicRoute from "./PublicRoute/PublicRoute";
 import Header from "./Header/Header";
+import { useDispatch, useSelector } from "react-redux";
+import { currentUser } from "../redux/operations/currentUser";
+import DiaryProductsList from "./DiaryProductsList/DiaryProductsList";
 
 function App() {
+  const stateToken = useSelector((state) => state.token);
+  const stateUser = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (stateToken && !stateUser) {
+      dispatch(currentUser());
+    }
+  });
+
   return (
     <>
       <Header />
@@ -23,6 +35,7 @@ function App() {
             })}
           </Switch>
         </Suspense>
+        <DiaryProductsList />
       </div>
     </>
   );

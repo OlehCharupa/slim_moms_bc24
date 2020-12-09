@@ -1,6 +1,5 @@
-
 import { createSlice } from "@reduxjs/toolkit";
-const initialState=false
+const initialState = false
 
 const loaderSlice=createSlice({
     name:"loader",

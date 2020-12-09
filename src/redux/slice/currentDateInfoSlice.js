@@ -3,7 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   "eatenProducts": [],
   "currentDate": '',
-  "daySummary": {}
+  "daySummary": {},
+  "dayID":''
+  
 }
 
 const currentDateInfoSlice = createSlice({
@@ -11,7 +13,7 @@ const currentDateInfoSlice = createSlice({
   initialState,
   reducers: {
     getCurrentDay(state, { payload }) {
-      return { ...state, "currentDate": payload }
+      return { ...state, "currentDate": payload}
     },
     setDateInfo(state, { payload }) {
       return { ...state, "eatenProducts": payload.eatenProducts, "daySummary": payload.daySummary }
@@ -20,8 +22,9 @@ const currentDateInfoSlice = createSlice({
       return state
     },
     addProductSuccess(state, { payload }) {
-      return { ...state, "eatenProducts": [...state.eatenProducts, payload.eatenProduct], "daySummary": payload.daySummary }
+      return { ...state, "eatenProducts": [...state.eatenProducts, payload.eatenProduct], "daySummary": payload.daySummary, "dayID":payload.day.id  }
     },
+
   }
 })
 

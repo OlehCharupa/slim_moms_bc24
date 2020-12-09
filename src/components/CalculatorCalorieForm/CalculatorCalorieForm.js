@@ -30,6 +30,7 @@ const CalculatorCalorieForm = () => {
   });
 
   const [disable, setDisable] = useState(true);
+  const [modalToggle, setModalToggle] = useState(false);
 
   const dispatch = useDispatch();
   const userId = useSelector(state => userIdSelector(state))
@@ -98,6 +99,10 @@ const CalculatorCalorieForm = () => {
     }
   };
 
+  const modalToggler = () => {
+    setModalToggle(true)
+  }
+
   useEffect(()=>{
     Object.values(errors).every(item => item === false) ? setDisable(false) : setDisable(true)
   },[errors])
@@ -111,15 +116,15 @@ const CalculatorCalorieForm = () => {
       desiredWeight: Number(values.desiredWeight),
       bloodType: Number(values.bloodType),
     };
-    userToken ? dispatch(DailyCaloriesFormOperationById(VALUES, userId, userToken)) : dispatch(DailyCaloriesFormOperation(VALUES));
+    userToken ? dispatch(DailyCaloriesFormOperationById(VALUES, userId, userToken, modalToggler)) : dispatch(DailyCaloriesFormOperation(VALUES, modalToggler));
   };
   
   return (
     <>
-    <DailyCalorieIntake/>
+    {modalToggle && <DailyCalorieIntake/>}
     <form className={Calorie.form} onSubmit={submitHeandler}>
-{(errors.height && focused.height) && <p>{errors.height}</p>}
       <label className={Calorie.label}>
+{(errors.height && focused.height) && <p className={Calorie.errorText}>{errors.height}</p>}
         <input
           type="text"
           name="height"
@@ -131,8 +136,8 @@ const CalculatorCalorieForm = () => {
           className={Calorie.input}
         />
       </label>
-{(errors.age && focused.age) && <p>{errors.age}</p>}
       <label className={Calorie.label}>
+{(errors.age && focused.age) && <p className={Calorie.errorText}>{errors.age}</p>}
         <input
           type="text"
           name="age"
@@ -144,8 +149,8 @@ const CalculatorCalorieForm = () => {
           className={Calorie.input}
         />
       </label>
-{(errors.weight && focused.weight) && <p>{errors.weight}</p>}
       <label className={Calorie.label}>
+{(errors.weight && focused.weight) && <p className={Calorie.errorText}>{errors.weight}</p>}
         <input
           type="text"
           name="weight"
@@ -158,8 +163,8 @@ const CalculatorCalorieForm = () => {
         />
       </label>
       <div className={Calorie.box}>
-{(errors.desiredWeight && focused.desiredWeight) && <p>{errors.desiredWeight}</p>}
         <label className={Calorie.label}>
+{(errors.desiredWeight && focused.desiredWeight) && <p className={Calorie.errorText}>{errors.desiredWeight}</p>}
           <input
             type="text"
             name="desiredWeight"

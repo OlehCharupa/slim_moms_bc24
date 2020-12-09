@@ -15,7 +15,7 @@ export const logOut = (token) => async (dispatch) => {
     dispatch(resetToken());
     dispatch(resetUser());
   } catch (error) {
-    dispatch(setErrorRequest(error));
+    console.log(error);
   } finally {
     dispatch(loaderOff());
   }

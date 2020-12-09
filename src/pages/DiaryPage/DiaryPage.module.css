@@ -1,61 +1,49 @@
-.sideBar__bg{
+.forDeleteElement {
+  width: 100%;
+  height: 200px;
+  background-color: rgb(241, 158, 158);
+  margin-bottom: 70px;
+}
 
-    background-color: rgba(240, 241, 243, 1);
-    position: absolute;
-    width: 100%;
-    height: 50%;
-    /* height: 433px; */
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    padding: 0;
+.page__wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
 }
-.page__wrapper{
-    padding: 40px 0;
-   
+.currentDate__wrapper {
+  background-color: #fff;
+  padding: 40px 0 60px;
+  width: 100%;
 }
-.sideBar__wrapper{
-    position: absolute;
-    width: 100%;
-    height: auto;
-    /* height: 433px; */
-    right: 0;
-    bottom: 0; 
-    padding: 0 15px;
-}
-@media (min-width: 768px){
-    .page__wrapper{
-       display: flex;
-       flex-wrap: wrap;
-       
-    }
-    
-    .sideBar__bg{
-        /* height: 50%; */
 
-       background: url("./image/diary-bg-tablet.png") rgba(240, 241, 243, 1) bottom right no-repeat;
-    }
+
+@media (min-width: 768px) {
+  .page__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .forDeleteElement {
+    order: 1;
+  }
+  .diaryItems__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+  .currentDate__wrapper {
+    padding: 100px 0 60px;
+  }
 }
-@media(min-width:1280px){
-    
-    .page__wrapper{
-      justify-content: space-between;
-      flex-wrap: nowrap;
-        
-     }
-    .sideBar__bg{
-        background: url("./image/diary-bg-desktop.png") rgba(240, 241, 243, 1) bottom right no-repeat;
-     }
-     .sideBar__bg{
-/* 
-        background-color: rgba(240, 241, 243, 1);
-        position: absolute; */
-        width: 535px;
-        height: 100%;
-        /* height: 433px; */
-        /* right: 0;
-        bottom: 0;
-        z-index: -1;
-        padding: 0; */
-    }
+@media (min-width: 1280px) {
+  .page__wrapper {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+  .currentDate__wrapper {
+    padding: 292px 30px 60px 115px;
+  }
+
+  .diaryItems__wrapper {
+    padding-bottom: 100px;
+  }
 }

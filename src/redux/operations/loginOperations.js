@@ -14,7 +14,7 @@ export const loginOperations = (obj) => async (dispatch) => {
         dispatch(setUser(result.data.user))
 
     } catch (error) {
-        console.log(error);
+        dispatch(setErrorRequest(error.message));
     } finally {
         dispatch(loaderOff());
     }

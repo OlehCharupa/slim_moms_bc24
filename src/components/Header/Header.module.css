@@ -22,6 +22,7 @@
     margin-top: 82px;
     padding-left: 90px;
     padding-right: 115px;
+    position: fixed;
 
     align-items: center;
     justify-content: space-between;

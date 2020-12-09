@@ -9,7 +9,7 @@ import Header from "./Header/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { currentUser } from "../redux/operations/currentUser";
 import { resetToken } from "../redux/slice/tokinSlice";
-
+import DiaryProductsList from './DiaryProductsList/DiaryProductsList';
 function App() {
   const stateToken = useSelector((state) => state.token);
   const stateUser = useSelector((state) => state.user);
@@ -17,15 +17,15 @@ function App() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  useEffect(() => {
-    if (stateToken && Object.keys(stateUser).length == 0) {
-      dispatch(currentUser());
-      if (!!(errToken.indexOf("404") + 1)) {
-        dispatch(resetToken());
-        history.push("/login");
-      }
-    }
-  });
+  // useEffect(() => {
+  //   if (stateToken && Object.keys(stateUser).length == 0) {
+  //     dispatch(currentUser());
+  //     if (!!(errToken.indexOf("404") + 1)) {
+  //       dispatch(resetToken());
+  //       history.push("/login");
+  //     }
+  //   }
+  // });
 
   return (
     <>
@@ -37,12 +37,12 @@ function App() {
               return route.private ? (
                 <PrivateRoute key={route.label} {...route} />
               ) : (
-                <PublicRoute key={route.label} {...route} />
-              );
+                  <PublicRoute key={route.label} {...route} />
+                );
             })}
           </Switch>
         </Suspense>
-        <DiaryProductsList />
+        {/* <DiaryProductsList /> */}
       </div>
     </>
   );

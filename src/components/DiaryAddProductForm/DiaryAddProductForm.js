@@ -14,7 +14,6 @@ import { currentDateSelector } from '../../redux/selectors/dateInfoSelectors';
 const initialState = {
   title: '',
   weight: '',
-
 }
 
 const useDebounce = (callback, delay) => useCallback(
@@ -53,6 +52,7 @@ const DiaryAddProductForm = () => {
 
   const inputHandlerDiaryAddProduct = ({ target }) => {
     const { name, value } = target;
+
     if (target.dataset.id) {
       setCurrentValue({ ...products.find(el => el._id === target.dataset.id) });
       return;
@@ -60,23 +60,42 @@ const DiaryAddProductForm = () => {
     if (name === 'title' && value !== '') {
       debouncedGetProducts(value);
     }
-
-    setCurrentValue({ ...currentValue, [name]: value })
-    console.log(products);
+    setCurrentValue({ ...currentValue, [name]: value });
   }
 
+  const selectHandler = ({ target }) => {
+    setProducts([]);
+    setCurrentValue({ ...currentValue, title: target.value });
+  }
 
   const submitHandlerDiaryAddProduct = (e) => {
     e.preventDefault();
+    const { title, weight } = currentValue;
+    // if (title === '' || weight === '') {
+    //   alert("заполни все поля")
+    //   return
+    // }
+    // if (weight !== Number(weight)) {
+    //   alert("введите числа")
+    //   return
+    // }
 
-    const singleProduct = products.find(el => el.title.ru === currentValue.title)
-    dispatch(addProduct({ date, productId: singleProduct._id, weight: Number(currentValue.weight) }
+    const singleProduct = products.find(el => el.title.ru === title)
+    dispatch(addProduct({ date, productId: singleProduct._id, weight: Number(weight) }
     ));
     setCurrentValue({ ...initialState });
   }
 
+  const clearInputProduct = () => {
+    setCurrentValue({ ...currentValue, title: '' });
+  }
+
+  const clearInputWeight = () => {
+    setCurrentValue({ ...currentValue, weight: '' });
+  }
+
   return (
-    <div>
+    <div className={styles.diaryAddProductForm_wrapper}>
       <form className={styles.diaryAddProductForm} onSubmit={submitHandlerDiaryAddProduct}>
         <label className={styles.diaryAddProductForm_label} >
 
@@ -87,9 +106,8 @@ const DiaryAddProductForm = () => {
             type='text'
             name='title'
             value={currentValue.title}
-            autoСomplete="off"
-          >
-          </input>
+          />
+          <span className={styles.clearInputText} onClick={clearInputProduct}>&#215;</span>
         </label>
 
         <label className={styles.diaryAddProductForm_label}>
@@ -100,9 +118,10 @@ const DiaryAddProductForm = () => {
             type='text'
             name='weight'
             value={currentValue.weight}
-            autoСomplete="off"
           >
           </input>
+          <span className={styles.clearInputText} onClick={clearInputWeight}>&#215;</span>
+
         </label>
         <button
           type='submit'
@@ -112,16 +131,13 @@ const DiaryAddProductForm = () => {
         </button>
 
       </form>
-      <div className={styles.selectWrapper}>
-        <div className={styles.selectArrow_3}></div>
-        <select name='title' value={currentValue?.title?.ru} onChange={inputHandlerDiaryAddProduct}>
-          {console.log(currentValue)}
+      {products.length !== 0 ? (<div className={styles.selectWrapper}>
+        <select name='title' value={currentValue?.title?.ru} onChange={selectHandler}>
           {products.map(product => (
             <option data-id={product._id} value={product?.title?.ru} key={product._id} name={product?.title?.ru} >{product?.title?.ru}</option>
           ))}
         </select>
-      </div>
-
+      </div>) : null}
     </div>
   );
 };

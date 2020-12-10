@@ -1,7 +1,7 @@
 .right__SideBar{
     width: 100%;
-     padding-top: 40px;
-    padding-bottom: 85px;
+     /* padding-top: 40px;
+    padding-bottom: 85px; */
 }
 .title{
     font-style: normal;
@@ -23,9 +23,10 @@
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
-    line-height: 1.214;
+    line-height: 2.142;
     letter-spacing: 0.04em;
     color: #9B9FAA;
+    margin: 0;
 }
 .list__item_text_right{
     float: right;
@@ -55,10 +56,10 @@
   @media screen and (min-width: 1280px) {
     .right__SideBar{
         /* width: 330px; */
-        padding-top: 292px;
+        /* padding-top: 292px; */
         flex-wrap: wrap;
-        padding-left: 90px;
-        padding-right: 115px;
+        /* padding-left: 90px;
+        padding-right: 115px; */
         /* padding-bottom: 85px; */
     }
     .block__right{

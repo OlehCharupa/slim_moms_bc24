@@ -15,7 +15,7 @@ const dateInfoPersistConfig = {
   key: 'currentDate',
   version: 1,
   storage,
-  whitelist: ['currentDate', 'daySummary']
+  whitelist: ['currentDate']
 }
 
 
@@ -26,7 +26,7 @@ const rootReducer = combineReducers({
   token: tokinSlice,
   user: userSlice,
   DailyCaloriesFormInfo: DailyCaloriesFormInfoSlice,
-  
+
 });
 
 export default rootReducer;

@@ -2,7 +2,7 @@ import axios from "axios";
 import { setErrorRequest } from "../slice/errorRequestSlice";
 import { DailyCaloriesInfo } from "../slice/DailyCaloriesFormInfoSlice";
 import { loaderOff, loaderOn } from "../slice/loaderSlice";
-import { resetUser } from "../slice/userSlice";
+// import { resetUser } from "../slice/userSlice";
 
 
 export const DailyCaloriesFormOperation = (requestDate, modalToggler) => async (dispatch) => {

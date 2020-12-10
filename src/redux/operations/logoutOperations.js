@@ -11,7 +11,7 @@ export const logOut = (token) => async (dispatch) => {
     dispatch(resetErrorRequest())
     dispatch(loaderOn());
     await axios({
-      url: "http://slimmom-backend.herokuapp.com/auth/logout",
+      url: "https://slimmom-backend.herokuapp.com/auth/logout",
       method: "post",
       headers: { Authorization: `Bearer ${token}` },
     });

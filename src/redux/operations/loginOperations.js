@@ -4,7 +4,7 @@ import { loaderOff, loaderOn } from "../slice/loaderSlice";
 import { setToken } from './../slice/tokinSlice'
 import { setUser } from './../slice/userSlice'
 
-axios.defaults.baseURL = "http://slimmom-backend.herokuapp.com";
+axios.defaults.baseURL = "https://slimmom-backend.herokuapp.com";
 
 export const loginOperations = (obj) => async (dispatch) => {
     try {

@@ -9,7 +9,7 @@ export const DailyCaloriesFormOperation = (requestDate, modalToggler) => async (
 
   try {
     dispatch(loaderOn());
-    const result = await axios.post("http://slimmom-backend.herokuapp.com/daily-rate", requestDate);
+    const result = await axios.post("https://slimmom-backend.herokuapp.com/daily-rate", requestDate);
     dispatch(DailyCaloriesInfo(result.data))
   } catch (error) {
     dispatch(setErrorRequest(error.message));
@@ -37,7 +37,7 @@ export const DailyCaloriesFormOperationById = (
   try {
     dispatch(loaderOn());
     const result = await axios.post(
-      `http://slimmom-backend.herokuapp.com/daily-rate/${userId}`,
+      `https://slimmom-backend.herokuapp.com/daily-rate/${userId}`,
       requestDate,
       token.set(userToken)
     );

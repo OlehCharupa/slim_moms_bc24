@@ -3,7 +3,7 @@ import { setErrorRequest, resetErrorRequest } from '../slice/errorRequestSlice';
 import { loaderOff, loaderOn } from '../slice/loaderSlice';
 import { addProductSuccess, addProductRequest } from '../slice/currentDateInfoSlice';
 
-axios.defaults.baseURL = "http://slimmom-backend.herokuapp.com";
+axios.defaults.baseURL = "https://slimmom-backend.herokuapp.com";
 
 const setToken = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;

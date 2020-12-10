@@ -14,12 +14,13 @@ export const deleteElement = (id, dayId, token) => async (dispatch) => {
     dispatch(resetErrorRequest());
     dispatch(loaderOn());
 
-    await axios.delete("https://slimmom-backend.herokuapp.com/day", {
+    const result=await axios.delete("https://slimmom-backend.herokuapp.com/day", {
       data: { dayId: dayId, eatenProductId: id },
       ...options(token),
     });
-
-    dispatch(deleteItems(id));
+    const newDaySummary=result.data.newDaySummary
+// console.log('result',newDaySummary);
+    dispatch(deleteItems({id,newDaySummary}));
   } catch (error) {
     dispatch(setErrorRequest(error.message));
   } finally {

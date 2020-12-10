@@ -1,18 +1,24 @@
 .bgImageLogin {
   background-color: rgba(240, 241, 243, 1);
+
   width: 100%;
+  padding: 40px 0 85px;
 }
 @media screen and (min-width: 768px) {
   .bgImageLogin {
+  
     background: url("./image/Layer-laptop.png") rgba(240, 241, 243, 1) bottom
       right no-repeat;
+      padding: 90px 0;
+      height: 100%;
   }
 }
 @media screen and (min-width: 1280px) {
   
   .bgImageLogin {
     width: 535px;
-
+    height: auto;
+   
     background: url("./image/Layer-desktop.png") rgba(240, 241, 243, 1) bottom
       right no-repeat;
   }

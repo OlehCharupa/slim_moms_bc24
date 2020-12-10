@@ -1,4 +1,4 @@
-.forDeleteElement {
+.productsList__wrapper {
   width: 100%;
   /* height: 200px; */
   /* background-color: rgb(241, 158, 158); */
@@ -9,6 +9,7 @@
   min-height: 100vh;
   display: flex;
   flex-wrap: wrap;
+  min-height: 100vh;
 }
 .currentDate__wrapper {
   background-color: #fff;
@@ -16,12 +17,21 @@
   width: 100%;
 }
 
+/* @media (max-width: 767px){
+  .page__wrapper {
+   
+  
+    min-height: 100vh;
+  }
+} */
+
 @media (min-width: 768px) {
   .page__wrapper {
     display: flex;
     flex-wrap: wrap;
+    
   }
-  .forDeleteElement {
+  .productsList__wrapper {
     order: 1;
     margin-bottom: 0;
   }
@@ -39,6 +49,7 @@
   .page__wrapper {
     justify-content: space-between;
     flex-wrap: nowrap;
+   
   }
   .currentDate__wrapper {
     padding: 292px 30px 60px 115px;

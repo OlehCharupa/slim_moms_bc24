@@ -81,8 +81,10 @@
 
 .clearInputText {
   position: absolute;
-  top:0;
-  right: -13px;
+  /* top:0;
+  right: -13px; */
+  top: 7px;
+  right: 3px;
   color: #9B9FAA;
 }
 
@@ -125,6 +127,13 @@
     justify-content: space-between;
     min-width: 473px;
     padding-top: 0; /* додала для перегляду*/
+    margin-bottom: 60px;
+  }
+  .clearInputText {
+  
+    top:0;
+    right: -13px;
+   
   }
   
 

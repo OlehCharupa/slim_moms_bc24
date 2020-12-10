@@ -7,14 +7,18 @@ import { isLogin } from '../../redux/selectors/selectors'; // тестовая �
 import { paths } from '../../routes/routes';
 
 const PublicRoute = ({ component: Component, ...routeProps }) => {
+  const checkPath = () => (
+    routeProps.location.pathname === '/registration'
+      ? <Redirect to={paths.calculator} />
+      : <Redirect to={paths.diary} />
+  )
   const isLoginState = useSelector(isLogin);
+
   return (<Route
     {...routeProps}
     render={props => {
       return isLoginState && routeProps.restricted ? (
-        // <Redirect to={paths.diary} />
-        <Redirect to={paths.calculator} />
-
+        checkPath()
       ) : (
           <Component {...props} />
         );

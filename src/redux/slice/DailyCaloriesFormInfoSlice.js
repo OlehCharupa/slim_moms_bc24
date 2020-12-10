@@ -10,12 +10,15 @@ const DailyCaloriesFormInfoSlice = createSlice({
   reducers: {
     DailyCaloriesInfo(state, { payload }) {
       const { dailyRate, notAllowedProducts } = payload;
-      return { dailyRate, notAllowedProducts};
+      return { dailyRate, notAllowedProducts };
     },
+    resetDailyCaloriesInfo(state, { payload }) {
+      return initialState
+    }
   },
 });
 
 const { actions, reducer } = DailyCaloriesFormInfoSlice;
-export const { DailyCaloriesInfo } = actions;
+export const { DailyCaloriesInfo, resetDailyCaloriesInfo } = actions;
 
 export default reducer;

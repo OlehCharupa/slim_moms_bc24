@@ -13,10 +13,11 @@ import {
 
 
 const persistConfig = {
-  key: "root",
-  version: 1,
-  storage,
-  whitelist: ['token', 'DailyCaloriesFormInfo', 'user']
+    key: "root",
+    version: 1,
+    storage,
+    whitelist: ['token', 'DailyCaloriesFormInfo']
+    
 }
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 

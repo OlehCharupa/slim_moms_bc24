@@ -17,7 +17,7 @@
   margin-right:10px;
   border-bottom: 1px solid #E0E0E0;
   white-space: nowrap;
-  overflow: scroll;
+  overflow: auto;
   flex: 3;
 }
 
@@ -30,7 +30,7 @@
   margin-right: 10px;
   border-bottom: 1px solid #E0E0E0;
   white-space: nowrap;
-  overflow: scroll;
+  overflow: auto;
   flex: 1;
 }
 
@@ -43,7 +43,7 @@
   margin-right: 10px;
   border-bottom: 1px solid #E0E0E0;
   white-space: nowrap;
-  overflow: scroll;
+  overflow: auto;
   flex: 1;
 }
 .ccal{
@@ -87,7 +87,7 @@
     margin-right:31px;
     border-bottom: 1px solid #E0E0E0;
     white-space: nowrap;
-    overflow: scroll;
+    overflow: auto;
   }
   
   .listWeight{
@@ -99,7 +99,7 @@
     margin-right: 31px;
     border-bottom: 1px solid #E0E0E0;
     white-space: nowrap;
-    overflow: scroll;
+    overflow: auto;
   }
   
   .listCalories{
@@ -111,7 +111,7 @@
     margin-right: 31px;
     border-bottom: 1px solid #E0E0E0;
     white-space: nowrap;
-    overflow: scroll;
+    overflow: auto;
   }
   .ccal{
     font-size: 14px;
@@ -155,7 +155,7 @@
     margin-right:10px;
     border-bottom: 1px solid #E0E0E0;
     white-space: nowrap;
-    overflow: scroll;
+    overflow: auto;
 
   }
   
@@ -168,7 +168,7 @@
     margin-right: 10px;
     border-bottom: 1px solid #E0E0E0;
     white-space: nowrap;
-    overflow: scroll;
+    overflow: auto;
 
   }
   
@@ -181,7 +181,7 @@
     margin-right: 10px;
     border-bottom: 1px solid #E0E0E0;
     white-space: nowrap;
-    overflow: scroll;
+    overflow: auto;
   }
   .ccal{
     font-size: 12px;

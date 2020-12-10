@@ -22,6 +22,7 @@ export const getDateInfoOperation = (requestDate, persistedToken) => async (disp
     dispatch(loaderOn());
     const result = await axios.post("/day/info", { "date": requestDate }, token.set(persistedToken))
     // dispatch(setDateInfo({"eatenProducts":result.data.eatenProducts, "daySummary":result.data.daySummary}));
+ 
     dispatch(setDateInfo(result.data))
 
   } catch (error) {

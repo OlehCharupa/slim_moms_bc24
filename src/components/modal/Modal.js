@@ -2,25 +2,28 @@ import React, { useEffect } from "react";
 import { useWindowWidth } from "@react-hook/window-size";
 import style from "./Modal.module.css";
 
-const Modal = ({ children, openModal, toggleModal}) => {
-//   у компоненті, який викликає модальне вікно, потрібно стоврити локальний стейт: 
-//   const [openModal, setOpenModal]= useState(false)
-//   та прописати логіку тогла (закриття/відкриття модального вікна):
-//   const toggleModal=()=>{
-//    setOpenModal(!openModal)
-//  }
-//  та передати їх пропсами
+const Modal = ({ children, openModal, toggleModal }) => {
+  //   у компоненті, який викликає модальне вікно, потрібно стоврити локальний стейт:
+  //   const [openModal, setOpenModal]= useState(false)
+  //   та прописати логіку тогла (закриття/відкриття модального вікна):
+  //   const toggleModal=()=>{
+  //    setOpenModal(!openModal)
+  //  }
+  //  та передати їх пропсами
 
-  
   const onlyWidth = useWindowWidth();
   useEffect(() => {
- 
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    document.body.className = openModal ? style.open : style.close;
+    //  document.body.style.overflow=openModal?"hidden":"visible";
+  }, [openModal]);
 
   const handleKeyDown = (e) => {
     if (e.code === "Escape") {
@@ -46,8 +49,10 @@ const Modal = ({ children, openModal, toggleModal}) => {
           data-name="overlay"
         >
           <div className={style.modal} data-name="modal">
-             <button
-              className={onlyWidth<768 ? style.arrowCloseButton : style.closeButton }
+            <button
+              className={
+                onlyWidth < 768 ? style.arrowCloseButton : style.closeButton
+              }
               type="button"
               onClick={toggleModal}
             ></button>

@@ -6,8 +6,6 @@ import RightSideBar from '../../components/RightSideBar/RightSideBar';
 import style from "./DiaryPage.module.css";
 import { useWindowWidth } from "@react-hook/window-size";
 import BgImage from '../../components/BgImage/BgImage';
-// import DiaryBgImage from "./diaryBgImage/DiaryBgImage";
-// import DiaryRightSideBar from "./diaryRightSideBar/DiaryRightSideBar";
 import Container from "../../components/Container/Container";
 import DiaryProductsList from "../../components/DiaryProductsList/DiaryProductsList";
 

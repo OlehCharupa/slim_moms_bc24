@@ -16,10 +16,11 @@ export const addProduct = (singleProduct) => async (dispatch, getState) => {
       dispatch(resetErrorRequest())
     }
     dispatch(loaderOn);
-    dispatch(addProductRequest());
+    // dispatch(addProductRequest());
     const { token } = getState();
 
     const result = await axios.post('/day', singleProduct, setToken(token));
+
     dispatch(addProductSuccess(result.data));
   } catch (error) {
     dispatch(setErrorRequest(error.message));
@@ -28,4 +29,19 @@ export const addProduct = (singleProduct) => async (dispatch, getState) => {
 
   }
 }
+
+// export const getProducts =(search,setProducts) => async(dispatch, getState) =>{
+//   try {
+//     const { token } = getState();
+//     dispatch(resetErrorRequest())
+//     dispatch(loaderOn());
+//     const { data } = await axios.get(`/product?search=${search}`, setToken(token));
+//     setProducts(data);
+
+//   } catch (error) {
+//     dispatch(setErrorRequest(error.message));
+//   } finally {
+//     dispatch(loaderOff());
+//     }
+// }
 

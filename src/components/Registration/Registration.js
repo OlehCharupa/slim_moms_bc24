@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom";
-import { loginOperations } from "../../redux/operations/loginOperations";
 import { registrationOperations } from "../../redux/operations/registrationOperations";
 import { resetErrorRequest } from "../../redux/slice/errorRequestSlice";
 
@@ -87,12 +86,13 @@ const Registration = () => {
 			case "password":
 				setPasswordDirty(true)
 				break
+				default: return
 		}
 	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		console.log("hellow");
+	
 		dispatch(registrationOperations(regForm))
 		setRegForm(regState)
 	}

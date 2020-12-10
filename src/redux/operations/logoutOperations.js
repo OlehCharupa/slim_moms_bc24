@@ -15,13 +15,13 @@ export const logOut = (token) => async (dispatch) => {
       method: "post",
       headers: { Authorization: `Bearer ${token}` },
     });
-    dispatch(resetToken());
-    dispatch(resetcurrentDateInfoSlice())
-    dispatch(resetDailyCaloriesInfo())
-    dispatch(resetUser());
   } catch (error) {
     dispatch(setErrorRequest(error.message));
   } finally {
+    dispatch(resetDailyCaloriesInfo())
+    dispatch(resetUser());
+    dispatch(resetToken());
+    dispatch(resetcurrentDateInfoSlice())
     dispatch(loaderOff());
   }
 };

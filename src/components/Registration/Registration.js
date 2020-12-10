@@ -36,6 +36,7 @@ const Registration = () => {
 			setFormValid(true)
 		}
 
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [emailError, passwordError, stateError])
 	const nameHandler = (e) => {
 		dispatch(resetErrorRequest());
@@ -55,6 +56,7 @@ const Registration = () => {
 		if (emailDirty) {
 			setEmailDirty(false)
 		}
+		// eslint-disable-next-line no-useless-escape
 		const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 		if (!e.target.value) {
 			setEmailError("Поле еmail не может быть пустым")

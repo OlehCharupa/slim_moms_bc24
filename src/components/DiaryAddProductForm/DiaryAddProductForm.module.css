@@ -85,8 +85,10 @@
 
 .clearInputText {
   position: absolute;
-  top:0;
-  right: -13px;
+  /* top:0;
+  right: -13px; */
+  top: 7px;
+  right: 3px;
   color: #9B9FAA;
 }
 
@@ -140,6 +142,13 @@
     /* justify-content: space-between; */
     width: 524px;
     padding-top: 0; /* додала для перегляду*/
+    
+  }
+  .clearInputText {
+  
+    top:0;
+    right: -13px;
+   
   }
 
   .diaryAddProductForm_wrapper{

@@ -15,6 +15,7 @@ const DailyCalorieIntake = () => {
   const filtredProducts = products.filter((product, index) => index < 5);
   const ccal = useSelector((state) => dailyRate(state));
   const error = useSelector((state) => errorRequest(state));
+  const token = useSelector((state) => state.token);
 
   useEffect(() => {
     if (ccal || error) {
@@ -27,7 +28,7 @@ const DailyCalorieIntake = () => {
   const modalHandler = () => setIsModal(false);
   const btnSubmit = () => {
     modalHandler();
-    history.push("/registration");
+    history.push((token ? "/diary" : "/registration"));
   };
 
   return (

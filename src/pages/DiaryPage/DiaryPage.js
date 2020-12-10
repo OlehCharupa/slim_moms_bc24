@@ -18,7 +18,7 @@ const DiaryPage = () => {
           <Container>
             <div className={style.diaryItems__wrapper}>
               <CurrentDate />
-              <div className={style.forDeleteElement}>
+              <div className={style.productsList__wrapper}>
                   <DiaryProductsList/>
               </div>
               {onlyWidth < 768 ? (
@@ -31,7 +31,7 @@ const DiaryPage = () => {
         ) : (
           <div className={style.diaryItems__wrapper}>
             <CurrentDate />
-            <div className={style.forDeleteElement}>
+            <div className={style.productsList__wrapper}>
             <DiaryProductsList/>
             </div>
             {onlyWidth < 768 ? (

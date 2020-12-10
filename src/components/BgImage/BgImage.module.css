@@ -6,18 +6,16 @@
 }
 @media screen and (min-width: 768px) {
   .bgImageLogin {
-  
     background: url("./image/Layer-laptop.png") rgba(240, 241, 243, 1) bottom
       right no-repeat;
-      padding: 90px 0;
-      height: 100%;
+    padding: 90px 0;
+    height: 100%;
   }
 }
 @media screen and (min-width: 1280px) {
-  
   .bgImageLogin {
     width: 535px;
-    padding-top: 202px;
+    padding-top: 292px;
     padding-left: 90px;
     padding-right: 115px;
     background: url("./image/Layer-desktop.png") rgba(240, 241, 243, 1) bottom

@@ -6,10 +6,8 @@
 }
 
 .page__wrapper {
-  min-height: 100vh;
   display: flex;
   flex-wrap: wrap;
-  min-height: 100vh;
 }
 .currentDate__wrapper {
   background-color: #fff;
@@ -29,7 +27,6 @@
   .page__wrapper {
     display: flex;
     flex-wrap: wrap;
-    
   }
   .productsList__wrapper {
     order: 1;
@@ -49,7 +46,7 @@
   .page__wrapper {
     justify-content: space-between;
     flex-wrap: nowrap;
-   
+    height: 100vh;
   }
   .currentDate__wrapper {
     padding: 292px 30px 60px 115px;

@@ -15,7 +15,7 @@ const currentDateInfoSlice = createSlice({
       return { ...state, currentDate: payload };
     },
     setDateInfo(state, { payload }) {
-    
+
       return {
         ...state,
         eatenProducts: payload.eatenProducts ? payload.eatenProducts : [],
@@ -25,14 +25,14 @@ const currentDateInfoSlice = createSlice({
     },
 
     addProductSuccess(state, { payload }) {
-   
+
       return {
         ...state,
         eatenProducts: [...state.eatenProducts, payload.eatenProduct],
         daySummary: payload.daySummary,
         dayID: payload.day ? payload.day.id : payload.newDay.id,
       };
-   
+
     },
     deleteItems(state, { payload }) {
       return {
@@ -42,7 +42,7 @@ const currentDateInfoSlice = createSlice({
         ),
       };
     },
-    resetDate(){
+    resetcurrentDateInfoSlice(state, { payload }) {
       return initialState
     }
   },
@@ -55,7 +55,7 @@ export const {
   addProductRequest,
   addProductSuccess,
   deleteItems,
-  resetDate
+  resetcurrentDateInfoSlice
 } = actions;
 
 export default reducer;

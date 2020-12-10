@@ -26,7 +26,7 @@ const rootReducer = combineReducers({
   token: tokinSlice,
   user: userSlice,
   DailyCaloriesFormInfo: DailyCaloriesFormInfoSlice,
-  
+
 });
 
 export default rootReducer;

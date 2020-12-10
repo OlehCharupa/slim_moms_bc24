@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-    'username':''
+    'username': ''
 };
 
 const loaderSlice = createSlice({
@@ -8,12 +8,9 @@ const loaderSlice = createSlice({
     initialState,
     reducers: {
         setUser(state, { payload }) {
-          
-            return {...state, ...payload};
+            return { ...state, ...payload };
         },
-        // resetUser(state, { payload }) {
-        resetUser() {
-       
+        resetUser(state, { payload }) {
             return initialState
         }
     }

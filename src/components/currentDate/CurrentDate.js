@@ -22,6 +22,7 @@ const CurrentDate = () => {
   // =================================================================
 
   const reguestDate = moment(startDate).format().split("T")[0];
+
   useEffect(() => {
     if (persistedToken) {
       dispatch(getCurrentDay(reguestDate));

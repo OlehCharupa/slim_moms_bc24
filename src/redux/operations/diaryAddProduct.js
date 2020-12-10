@@ -9,6 +9,7 @@ const setToken = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 }
 
+
 export const addProduct = (singleProduct) => async (dispatch, getState) => {
   try {
     if (getState.errorRequest) {

@@ -16,7 +16,6 @@
   width: 100%;
 }
 
-
 @media (min-width: 768px) {
   .page__wrapper {
     display: flex;
@@ -28,14 +27,13 @@
   }
   .diaryItems__wrapper {
     display: flex;
-    flex-wrap: wrap;
-
+    /* flex-wrap: wrap; */
+    flex-direction: column;
   }
   .currentDate__wrapper {
     /* padding: 100px 0 60px; */
     padding: 100px 0 0;
   }
- 
 }
 @media (min-width: 1280px) {
   .page__wrapper {

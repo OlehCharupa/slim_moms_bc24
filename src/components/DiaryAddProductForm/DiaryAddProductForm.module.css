@@ -1,11 +1,12 @@
 .diaryAddProductForm {
- display: flex;
-/* padding-top: 50px; */
-padding-top: 80px;
+  position: relative;
+  display: flex;
+  padding-top: 80px;
 
 }
 
 .diaryAddProductForm_label {
+  position: relative;
   display: block;
 }
 
@@ -14,8 +15,14 @@ padding-top: 80px;
   display: block;
   border: none;
   border-bottom: 1px solid #E0E0E0;
-  padding: 10px 0 10px 0;
+  padding: 10px 5px;
   min-width: 100%;
+ 
+}
+
+.diaryAddProductForm_inputProduct {
+  position: relative;
+  text-overflow: ellipsis;
 }
 
 .diaryAddProductForm_inputProduct::placeholder,
@@ -27,17 +34,9 @@ padding-top: 80px;
   line-height: 17px;
   letter-spacing: 0.04em;
   color: #9B9FAA;
-}
-
-.diaryAddProductForm_inputProduct {
-  width: 239px;
-}
-
-.diaryAddProductForm_inputGrams {
-  width: 105px;
+ text-overflow: clip;
 
 }
-
 
 .diaryAddProductForm_button {
   display: block;
@@ -61,6 +60,31 @@ padding-top: 80px;
   height: 200px;
 }
 
+.selectWrapper {
+  position: absolute;
+  border: 1px solid rgb(145, 144, 144);
+  border-radius: 3px;
+}
+
+.selectWrapper:hover {
+  box-shadow: 0px 0px 3px rgb(145, 144, 144);
+}
+
+.selectWrapper select {
+  width: 300px;
+  height: 28px;
+  padding: 0 20px 0 7px;
+  border: 0;
+  background: transparent;
+
+}
+
+.clearInputText {
+  position: absolute;
+  top:0;
+  right: -13px;
+  color: #9B9FAA;
+}
 
 
 @media screen and (max-width: 767px) {
@@ -83,6 +107,16 @@ padding-top: 80px;
   .diaryAddProductForm_label {
     padding-bottom: 30px;
   }
+
+  .diaryAddProductForm_inputGrams,
+  .diaryAddProductForm_inputProduct {
+    width: 289px;
+    font-size: 14px;
+  }
+  .selectWrapper {
+    top: 118px
+  }
+
 }
 
 @media screen and (min-width: 768px) {
@@ -106,9 +140,25 @@ padding-top: 80px;
   }
 
   .diaryAddProductForm_inputGrams {
-    text-align: end;
-
+    text-align: center;
+    width: 105px;
+    font-size: 16px;
   }
 
+  .diaryAddProductForm_inputGrams::placeholder{
+    text-align: end;
+  }
 
+  .diaryAddProductForm_inputProduct{
+    width: 239px;
+    font-size: 16px;
+  }
+
+}
+
+@media screen and (min-width: 1280px) {
+  .diaryAddProductForm_inputProduct,
+  .diaryAddProductForm_inputGrams{
+    font-size: 18px;
+  }
 }

@@ -14,7 +14,7 @@ import { currentDateSelector } from '../../redux/selectors/dateInfoSelectors';
 const initialState = {
   title: '',
   weight: '',
-
+  id: '',
 }
 
 const useDebounce = (callback, delay) => useCallback(
@@ -22,15 +22,14 @@ const useDebounce = (callback, delay) => useCallback(
   [delay],
 );
 
-const DiaryAddProductForm = () => {
+const DiaryAddProductForm = ({ toggleModal }) => {
   const [products, setProducts] = useState([]);
+  const [currentValue, setCurrentValue] = useState({ ...initialState })
   const date = useSelector(state => currentDateSelector(state));
   const token = useSelector(state => state.token);
-  const [currentValue, setCurrentValue] = useState({ ...initialState })
 
   const dispatch = useDispatch();
   const onlyWidth = useWindowWidth();
- 
 
   const setToken = (token) => {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -47,36 +46,61 @@ const DiaryAddProductForm = () => {
       dispatch(setErrorRequest(error.message));
     } finally {
       dispatch(loaderOff());
-      }
+
+    }
   }
 
+  // console.log("products", products);
   const debouncedGetProducts = useDebounce(getProducts, 500);
 
   const inputHandlerDiaryAddProduct = ({ target }) => {
     const { name, value } = target;
-    if (target.dataset.id) {
-      setCurrentValue({ ...products.find(el => el._id === target.dataset.id) });
-      return;
-    }
+
     if (name === 'title' && value !== '') {
       debouncedGetProducts(value);
     }
 
-    setCurrentValue({ ...currentValue, [name]: value })
+    setCurrentValue({ ...currentValue, [name]: value });
   }
 
+  const selectHandler = ({ target }) => {
+    setProducts([]);
+    const { id } = target.firstElementChild.dataset;
+    setCurrentValue({ ...currentValue, title: target.value, id });
+  }
 
   const submitHandlerDiaryAddProduct = (e) => {
     e.preventDefault();
+    const { title, weight, id } = currentValue;
+    if (title === '' || weight === '') {
+      alert("заполни все поля")
+      return
+    }
+    if (isNaN(Number(weight))) {
+      alert("введите числа")
+      return
+    }
 
-    const singleProduct = products.find(el => el.title.ru === currentValue.title)
-    dispatch(addProduct({ date, productId: singleProduct._id, weight: Number(currentValue.weight) }
-    ));
+    dispatch(addProduct({ date, productId: id, weight: Number(weight) }));
 
+    if (onlyWidth <= 767) {
+      toggleModal();
+      return;
+    }
+
+    setCurrentValue({ ...initialState });
+  }
+
+  const clearInputProduct = () => {
+    setCurrentValue({ ...currentValue, title: '' });
+  }
+
+  const clearInputWeight = () => {
+    setCurrentValue({ ...currentValue, weight: '' });
   }
 
   return (
-    <div>
+    <div className={styles.diaryAddProductForm_wrapper}>
       <form className={styles.diaryAddProductForm} onSubmit={submitHandlerDiaryAddProduct}>
         <label className={styles.diaryAddProductForm_label} >
 
@@ -87,8 +111,8 @@ const DiaryAddProductForm = () => {
             type='text'
             name='title'
             value={currentValue.title}
-          >
-          </input>
+          />
+          <span className={styles.clearInputText} onClick={clearInputProduct}>&#215;</span>
         </label>
 
         <label className={styles.diaryAddProductForm_label}>
@@ -101,6 +125,8 @@ const DiaryAddProductForm = () => {
             value={currentValue.weight}
           >
           </input>
+          <span className={styles.clearInputText} onClick={clearInputWeight}>&#215;</span>
+
         </label>
         <button
           type='submit'
@@ -110,12 +136,13 @@ const DiaryAddProductForm = () => {
         </button>
 
       </form>
-      <select name='title' value={currentValue?.title?.ru} onChange={inputHandlerDiaryAddProduct}>
-  
-        {products.map(product => (
-          <option data-id={product._id} value={product?.title?.ru} key={product._id} name={product?.title?.ru} >{product?.title?.ru}</option>
-        ))}
-      </select>
+      {products.length !== 0 ? (<div className={styles.selectWrapper}>
+        <select name='title' value={currentValue?.title?.ru} onChange={selectHandler}>
+          {products.map(product => (
+            <option data-id={product._id} value={product?.title?.ru} key={product._id} name={product?.title?.ru} >{product?.title?.ru}</option>
+          ))}
+        </select>
+      </div>) : null}
     </div>
   );
 };

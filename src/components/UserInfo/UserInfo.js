@@ -22,6 +22,6 @@ const UserInfo = () => {
       </NavLink>
     </div>
   );
-};;;;;;
+};//;;;;;
 
 export default UserInfo;

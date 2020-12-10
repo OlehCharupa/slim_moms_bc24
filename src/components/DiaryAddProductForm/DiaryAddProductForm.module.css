@@ -8,6 +8,7 @@
 .diaryAddProductForm_label {
   position: relative;
   display: block;
+  margin-right: 31px;
 }
 
 .diaryAddProductForm_inputProduct,
@@ -102,10 +103,22 @@
     margin-top: 30px;
   }
 
-  .diaryAddProductForm_label {
-    padding-bottom: 30px;
-  }
+.diaryAddProductForm_label {
+  padding-bottom: 30px;
+}
 
+.diaryAddProductForm_button {
+  margin: 0 auto;
+  padding: 13px 46px;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  width: 176px;
+  height: 44px;
+  border-radius: 30px;
+  margin-top: 30px;
+  
+}
   .diaryAddProductForm_inputGrams,
   .diaryAddProductForm_inputProduct {
     width: 289px;
@@ -120,11 +133,14 @@
 @media screen and (min-width: 768px) {
   .diaryAddProductForm {
     align-items: self-start;
-    justify-content: space-between;
-    min-width: 473px;
+    /* justify-content: space-between; */
+    width: 524px;
     padding-top: 0; /* додала для перегляду*/
   }
-  
+
+  .diaryAddProductForm_wrapper{
+    margin-bottom: 60px;
+  }
 
   .diaryAddProductForm_button {
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
@@ -148,7 +164,7 @@
   }
 
   .diaryAddProductForm_inputProduct{
-    width: 239px;
+    width: 292px;
     font-size: 16px;
   }
 
@@ -158,5 +174,9 @@
   .diaryAddProductForm_inputProduct,
   .diaryAddProductForm_inputGrams{
     font-size: 18px;
+  }
+
+  .diaryAddProductForm_inputProduct{
+    width: 305px;
   }
 }

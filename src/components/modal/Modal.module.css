@@ -1,3 +1,11 @@
+.open {
+  overflow: hidden;
+
+}
+.close {
+  overflow: visible;
+
+}
 .overlay {
   position: fixed;
   top: 80px;

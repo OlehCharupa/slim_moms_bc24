@@ -14,6 +14,7 @@ import { currentDateSelector } from '../../redux/selectors/dateInfoSelectors';
 const initialState = {
   title: '',
   weight: '',
+  id: '',
 }
 
 const useDebounce = (callback, delay) => useCallback(
@@ -21,7 +22,7 @@ const useDebounce = (callback, delay) => useCallback(
   [delay],
 );
 
-const DiaryAddProductForm = () => {
+const DiaryAddProductForm = ({ toggleModal }) => {
   const [products, setProducts] = useState([]);
   const [currentValue, setCurrentValue] = useState({ ...initialState })
   const date = useSelector(state => currentDateSelector(state));
@@ -36,53 +37,57 @@ const DiaryAddProductForm = () => {
 
   const getProducts = async (search) => {
     try {
-      loaderOn();
+      dispatch(resetErrorRequest())
+      dispatch(loaderOn());
       const { data } = await axios.get(`/product?search=${search}`, setToken(token));
       setProducts(data);
 
     } catch (error) {
-      setErrorRequest(error.message);
+      dispatch(setErrorRequest(error.message));
     } finally {
-      loaderOff();
-      resetErrorRequest();
+      dispatch(loaderOff());
+
     }
   }
 
+  // console.log("products", products);
   const debouncedGetProducts = useDebounce(getProducts, 500);
 
   const inputHandlerDiaryAddProduct = ({ target }) => {
     const { name, value } = target;
 
-    if (target.dataset.id) {
-      setCurrentValue({ ...products.find(el => el._id === target.dataset.id) });
-      return;
-    }
     if (name === 'title' && value !== '') {
       debouncedGetProducts(value);
     }
+
     setCurrentValue({ ...currentValue, [name]: value });
   }
 
   const selectHandler = ({ target }) => {
     setProducts([]);
-    setCurrentValue({ ...currentValue, title: target.value });
+    const { id } = target.firstElementChild.dataset;
+    setCurrentValue({ ...currentValue, title: target.value, id });
   }
 
   const submitHandlerDiaryAddProduct = (e) => {
     e.preventDefault();
-    const { title, weight } = currentValue;
-    // if (title === '' || weight === '') {
-    //   alert("заполни все поля")
-    //   return
-    // }
-    // if (weight !== Number(weight)) {
-    //   alert("введите числа")
-    //   return
-    // }
+    const { title, weight, id } = currentValue;
+    if (title === '' || weight === '') {
+      alert("заполни все поля")
+      return
+    }
+    if (isNaN(Number(weight))) {
+      alert("введите числа")
+      return
+    }
 
-    const singleProduct = products.find(el => el.title.ru === title)
-    dispatch(addProduct({ date, productId: singleProduct._id, weight: Number(weight) }
-    ));
+    dispatch(addProduct({ date, productId: id, weight: Number(weight) }));
+
+    if (onlyWidth < 767) {
+      toggleModal();
+      return;
+    }
+
     setCurrentValue({ ...initialState });
   }
 

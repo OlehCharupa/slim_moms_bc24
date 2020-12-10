@@ -15,31 +15,33 @@ registerLocale("ru", ru);
 const CurrentDate = () => {
   const persistedDate = useSelector((state) => currentDateSelector(state));
   const startpersistedDate = new Date(persistedDate);
-  const [startDate, setStartDate] = useState(persistedDate? startpersistedDate: new Date());
+  const [startDate, setStartDate] = useState(persistedDate ? startpersistedDate : new Date());
   const dispatch = useDispatch();
   // ====================не видаляти! ===============================
   const persistedToken = useSelector(state => state.token)
   // =================================================================
 
   const reguestDate = moment(startDate).format().split("T")[0];
-    useEffect(() => {
-    dispatch(getCurrentDay(reguestDate));
-    dispatch(getDateInfoOperation(reguestDate, persistedToken));
+  useEffect(() => {
+    if (persistedToken) {
+      dispatch(getCurrentDay(reguestDate));
+      dispatch(getDateInfoOperation(reguestDate, persistedToken));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [startDate]);
+  }, [startDate, getDateInfoOperation, persistedToken, dispatch]);
 
   const ref = React.createRef();
   return (
     <div className={style.calendar__wrapper}>
 
-    <DatePicker
-      selected={startDate}
-      onChange={(date) => setStartDate(date)}
-      customInput={<UserDateSelect ref={ref} />}
-      dateFormat="dd.MM.yyyy"
-      locale="ru"
+      <DatePicker
+        selected={startDate}
+        onChange={(date) => setStartDate(date)}
+        customInput={<UserDateSelect ref={ref} />}
+        dateFormat="dd.MM.yyyy"
+        locale="ru"
       />
-      </div>
+    </div>
   );
 };
 

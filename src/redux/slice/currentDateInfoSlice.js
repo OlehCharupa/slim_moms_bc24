@@ -42,6 +42,9 @@ const currentDateInfoSlice = createSlice({
         ),
       };
     },
+    resetDate(){
+      return initialState
+    }
   },
 });
 
@@ -52,6 +55,7 @@ export const {
   addProductRequest,
   addProductSuccess,
   deleteItems,
+  resetDate
 } = actions;
 
 export default reducer;

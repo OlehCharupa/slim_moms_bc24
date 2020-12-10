@@ -138,8 +138,7 @@ padding-bottom: 50px;
     font-weight: bold;
     font-size: 14px;
     line-height: 1.214;
-    align-items: center;
-    text-align: center;
+    margin: 0 auto;
     letter-spacing: 0.04em;
 
     color: #FFFFFF;
@@ -173,6 +172,9 @@ padding-bottom: 50px;
         width: 210px;
         top: 0;
         left: 260px;
+    }
+    .btn{
+        margin: 0;
     }
 }
 @media screen and (min-width: 1280px){

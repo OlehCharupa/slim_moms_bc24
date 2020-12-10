@@ -30,7 +30,7 @@ const DiaryAddProductForm = () => {
 
   const dispatch = useDispatch();
   const onlyWidth = useWindowWidth();
-  console.log('products', products);
+ 
 
   const setToken = (token) => {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -38,16 +38,16 @@ const DiaryAddProductForm = () => {
 
   const getProducts = async (search) => {
     try {
-      loaderOn();
+      dispatch(resetErrorRequest())
+      dispatch(loaderOn());
       const { data } = await axios.get(`/product?search=${search}`, setToken(token));
       setProducts(data);
 
     } catch (error) {
-      setErrorRequest(error.message);
+      dispatch(setErrorRequest(error.message));
     } finally {
-      loaderOff();
-      resetErrorRequest();
-    }
+      dispatch(loaderOff());
+      }
   }
 
   const debouncedGetProducts = useDebounce(getProducts, 500);
@@ -111,7 +111,7 @@ const DiaryAddProductForm = () => {
 
       </form>
       <select name='title' value={currentValue?.title?.ru} onChange={inputHandlerDiaryAddProduct}>
-        {console.log(currentValue)}
+  
         {products.map(product => (
           <option data-id={product._id} value={product?.title?.ru} key={product._id} name={product?.title?.ru} >{product?.title?.ru}</option>
         ))}

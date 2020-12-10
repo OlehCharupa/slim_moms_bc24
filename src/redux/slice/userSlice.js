@@ -1,14 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = {};
+const initialState = {
+    'username':''
+};
 
 const loaderSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
         setUser(state, { payload }) {
-            return payload;;
+          
+            return {...state, ...payload};
         },
         resetUser(state, { payload }) {
+       
             return initialState
         }
     }

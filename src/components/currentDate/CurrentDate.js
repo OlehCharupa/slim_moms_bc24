@@ -13,26 +13,16 @@ import style from './CurrentDate.module.css'
 registerLocale("ru", ru);
 
 const CurrentDate = () => {
-  const [startDate, setStartDate] = useState(new Date());
-  const dispatch = useDispatch();
   const persistedDate = useSelector((state) => currentDateSelector(state));
+  const startpersistedDate = new Date(persistedDate);
+  const [startDate, setStartDate] = useState(persistedDate? startpersistedDate: new Date());
+  const dispatch = useDispatch();
   // ====================не видаляти! ===============================
   const persistedToken = useSelector(state => state.token)
   // =================================================================
 
   const reguestDate = moment(startDate).format().split("T")[0];
-  const startpersistedDate = new Date(persistedDate);
-
-  useEffect(() => {
-    if (persistedDate) {
-      setStartDate(startpersistedDate);
-    }
-    dispatch(getCurrentDay(reguestDate));
-    dispatch(getDateInfoOperation(reguestDate, persistedToken));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
+    useEffect(() => {
     dispatch(getCurrentDay(reguestDate));
     dispatch(getDateInfoOperation(reguestDate, persistedToken));
     // eslint-disable-next-line react-hooks/exhaustive-deps

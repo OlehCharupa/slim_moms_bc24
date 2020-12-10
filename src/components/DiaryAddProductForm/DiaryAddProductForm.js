@@ -83,7 +83,7 @@ const DiaryAddProductForm = ({ toggleModal }) => {
 
     dispatch(addProduct({ date, productId: id, weight: Number(weight) }));
 
-    if (onlyWidth < 767) {
+    if (onlyWidth <= 767) {
       toggleModal();
       return;
     }

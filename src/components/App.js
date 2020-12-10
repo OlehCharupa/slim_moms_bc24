@@ -6,16 +6,17 @@ import routes from "../routes/routes";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PublicRoute from "./PublicRoute/PublicRoute";
 import Header from "./Header/Header";
-import { useDispatch, useSelector } from "react-redux";
-import { currentUser } from "../redux/operations/currentUser";
-import { resetToken } from "../redux/slice/tokinSlice";
-import DiaryProductsList from './DiaryProductsList/DiaryProductsList';
+// import { useDispatch, useSelector } from "react-redux";
+// import { currentUser } from "../redux/operations/currentUser";
+// import { resetToken } from "../redux/slice/tokinSlice";
+
+
 function App() {
-  const stateToken = useSelector((state) => state.token);
-  const stateUser = useSelector((state) => state.user);
-  const errToken = useSelector((state) => state.errorRequest);
-  const dispatch = useDispatch();
-  const history = useHistory();
+  // const stateToken = useSelector((state) => state.token);
+  // const stateUser = useSelector((state) => state.user);
+  // const errToken = useSelector((state) => state.errorRequest);
+  // const dispatch = useDispatch();
+  // const history = useHistory();
 
   // useEffect(() => {
   //   if (stateToken && Object.keys(stateUser).length == 0) {
@@ -25,25 +26,23 @@ function App() {
   //       history.push("/login");
   //     }
   //   }
-  // });
+  // }, []);
 
   return (
     <>
       <Header />
-      <div>
-        <Suspense fallback={<SpinerLoader />}>
-          <Switch>
-            {routes.map((route) => {
-              return route.private ? (
-                <PrivateRoute key={route.label} {...route} />
-              ) : (
-                  <PublicRoute key={route.label} {...route} />
-                );
-            })}
-          </Switch>
-        </Suspense>
-        {/* <DiaryProductsList /> */}
-      </div>
+      <Suspense fallback={<SpinerLoader />}>
+        <Switch>
+          {routes.map((route) => {
+            return route.private ? (
+              <PrivateRoute key={route.label} {...route} />
+            ) : (
+                <PublicRoute key={route.label} {...route} />
+              );
+          })}
+        </Switch>
+      </Suspense>
+
     </>
   );
 }

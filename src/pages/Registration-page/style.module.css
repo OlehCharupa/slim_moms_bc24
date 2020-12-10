@@ -1,77 +1,49 @@
+
 .main__log {
-  overflow: hidden;
+  /* overflow: hidden; */
   width: 100%;
+  padding-top: 40px;
 }
+/* .bgImg {
+  display: none;
+ 
+} */
 
-.bgImg {
-  z-index: -1;
-  position: absolute;
-  background-size: cover;
-  width: 900px;
-  height: 100vh;
-  background-position: right bottom;
-  right: 0;
-  bottom: 0;
-  background-repeat: no-repeat;
-  background-image: url(./img/PhotoForDesktop.png);
-}
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
+  .main__log {
+    /* overflow: hidden; */
+    width: 100%;
+    padding-top: 190px;
+  }
   .bgImg {
+    /* z-index: -1;
+    position: absolute; */
+    /* background-size: 100%; */
+    /* width: 720px;
+    height: 100vh; */
+    /* background-size: 100%; */
+    /* right: 0; */
+    background-image: url(./img/PhotoForTablet.png);
     z-index: -1;
     position: absolute;
-    /* background-size: 100%; */
-    width: 720px;
-    height: 100vh;
-    /* background-size: 100%; */
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    background-position: right bottom;
     right: 0;
-    background-image: url(./img/PhotoForTablet.png);
+    bottom: 0;
+    background-repeat: no-repeat;
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 1280px) {
+  .main__log {
+    /* overflow: hidden; */
+    width: 100%;
+    padding-top: 244px;
+  }
   .bgImg {
-    display: none;
+    background-image: url(./img/PhotoForDesktop.png);
   }
 }
-
-/* .main__log {
-  overflow: hidden;
-  width: 100%;
-}
-
-.bgImg {
-  z-index: 1;
-  position: absolute;
-  background-size: 100%;
-  width: 900px;
-  height: 100vh;
-  background-size: 1006px 100%;
-  right: 0;
-  bottom: 0;
-  background-image: url(./img/main-img2.svg);
-}
-
-@media (max-width: 768px) {
-  .bgImg {
-    z-index: 1;
-    position: absolute;
-    background-size: 100%;
-    width: 720px;
-    height: 100vh;
-    background-size: 752px 1024px;
-    right: 0;
-    background-image: url(./img/bg-tablet.svg);
-  }
-}
-
-@media (max-width: 480px) {
-  .bgImg {
-    display: none;
-  }
-} */
-
-/* .reg{
-  margin-top: 16px;
-  margin-left: 60px;
-} */

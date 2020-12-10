@@ -124,6 +124,7 @@
     align-items: self-start;
     justify-content: space-between;
     min-width: 473px;
+    padding-top: 0; /* додала для перегляду*/
   }
   
 

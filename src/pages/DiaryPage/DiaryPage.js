@@ -2,13 +2,14 @@ import React from "react";
 import CurrentDate from "../../components/currentDate/CurrentDate";
 import DiaryAddProductForm from "../../components/DiaryAddProductForm/DiaryAddProductForm";
 import OpenFormAddProductInDiary from "../../components/OpenFormAddProductInDiary/OpenFormAddProductInDiary";
-// import RightSideBar from '../../components/RightSideBar/RightSideBar';
+import RightSideBar from '../../components/RightSideBar/RightSideBar';
 import style from "./DiaryPage.module.css";
 import { useWindowWidth } from "@react-hook/window-size";
-// import BgImage from '../../components/BgImage/BgImage';
-import DiaryBgImage from "./diaryBgImage/DiaryBgImage";
-import DiaryRightSideBar from "./diaryRightSideBar/DiaryRightSideBar";
+import BgImage from '../../components/BgImage/BgImage';
+// import DiaryBgImage from "./diaryBgImage/DiaryBgImage";
+// import DiaryRightSideBar from "./diaryRightSideBar/DiaryRightSideBar";
 import Container from "../../components/Container/Container";
+import DiaryProductsList from "../../components/DiaryProductsList/DiaryProductsList";
 
 const DiaryPage = () => {
   const onlyWidth = useWindowWidth();
@@ -19,7 +20,9 @@ const DiaryPage = () => {
           <Container>
             <div className={style.diaryItems__wrapper}>
               <CurrentDate />
-              <div className={style.forDeleteElement}></div>
+              <div className={style.forDeleteElement}>
+                  <DiaryProductsList/>
+              </div>
               {onlyWidth < 768 ? (
                 <OpenFormAddProductInDiary />
               ) : (
@@ -30,7 +33,9 @@ const DiaryPage = () => {
         ) : (
           <div className={style.diaryItems__wrapper}>
             <CurrentDate />
-            <div className={style.forDeleteElement}></div>
+            <div className={style.forDeleteElement}>
+            <DiaryProductsList/>
+            </div>
             {onlyWidth < 768 ? (
               <OpenFormAddProductInDiary />
             ) : (
@@ -39,16 +44,16 @@ const DiaryPage = () => {
           </div>
         )}
       </div>
-      <DiaryBgImage>
+      <BgImage>
         {onlyWidth < 1279 ? (
           <Container>
-            <DiaryRightSideBar />
+            <RightSideBar />
           </Container>
         ) : (
-          <DiaryRightSideBar />
+          <RightSideBar />
         )}
      
-      </DiaryBgImage>
+      </BgImage>
     </div>
   );
 };

@@ -22,11 +22,15 @@ const Login = () => {
 	const history = useHistory()
 
 	useEffect(() => {
+		return () => dispatch(resetErrorRequest());
+	}, [])
+	useEffect(() => {
 		if (emailError || passwordError) {
 			setFormValid(false)
 		} else {
 			setFormValid(true)
 		}
+
 	}, [emailError, passwordError])
 
 	const emailHandler = (e) => {

@@ -44,6 +44,9 @@
   outline: none;
   background: transparent;
 }
+.input:focus{
+  border-bottom: 1px solid #9B9FAA;
+}
 
 .input_err {
   border: none;
@@ -215,7 +218,7 @@
     border: 2px solid #FC842D;
     box-sizing: border-box;
     border-radius: 30px;
-    margin-top: 20px;
+    margin-top: 0;
     padding: 13px 30px;
 
     font-weight: 700;
@@ -249,7 +252,9 @@
     max-width: 382px;
     }
    
-    
+    .registration__cursor__btn{
+      margin-top: 20px;
+    }
     .registration__btn{
       margin-top: 20px;
     }

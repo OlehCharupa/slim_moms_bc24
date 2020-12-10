@@ -18,7 +18,11 @@
   border-bottom: 1px solid #E0E0E0;
   padding: 10px 5px;
   min-width: 100%;
- 
+  outline: none;
+}
+.diaryAddProductForm_inputProduct:focus,
+.diaryAddProductForm_inputGrams:focus{
+  border-bottom: 1px solid #9B9FAA;
 }
 
 .diaryAddProductForm_inputProduct {

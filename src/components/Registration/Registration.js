@@ -26,6 +26,10 @@ const Registration = () => {
 	const location = useLocation()
 
 	useEffect(() => {
+		return () => dispatch(resetErrorRequest());
+	}, [])
+
+	useEffect(() => {
 		if (nameError || emailError || passwordError) {
 			setFormValid(false)
 		} else {

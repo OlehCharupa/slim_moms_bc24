@@ -5,7 +5,13 @@ import {userIdSelector, userTokenSelector} from '../../redux/selectors/selectors
 import DailyCalorieIntake from '../DailyCalorieIntake/DailyCalorieIntake';
 
 import { DailyCaloriesFormOperation, DailyCaloriesFormOperationById } from "../../redux/operations/DailyCaloriesFormOperation";
-
+const initialState = {
+  weight: "",
+  height: "",
+  age: "",
+  desiredWeight: "",
+  bloodType: "1",
+}
 const CalculatorCalorieForm = () => {
   const [values, setValues] = useState({
     weight: "",
@@ -97,6 +103,7 @@ const CalculatorCalorieForm = () => {
         setErrors(prev=>({...prev, [name]: false }));
       }
     }
+   
   };
 
   const modalToggler = () => {
@@ -117,13 +124,7 @@ const CalculatorCalorieForm = () => {
       bloodType: Number(values.bloodType),
     };
     userToken ? dispatch(DailyCaloriesFormOperationById(VALUES, userId, userToken, modalToggler)) : dispatch(DailyCaloriesFormOperation(VALUES, modalToggler));
-    setValues({
-      weight: "",
-      height: "",
-      age: "",
-      desiredWeight: "",
-      bloodType: "1",
-    });
+    setValues(initialState)
   };
   
   return (

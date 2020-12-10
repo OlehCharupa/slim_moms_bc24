@@ -1,4 +1,5 @@
 import axios from "axios";
+import { resetDate } from "../slice/currentDateInfoSlice";
 import { resetErrorRequest, setErrorRequest } from "../slice/errorRequestSlice";
 import { loaderOff, loaderOn } from "../slice/loaderSlice";
 import { resetToken } from "../slice/tokinSlice";
@@ -15,6 +16,7 @@ export const logOut = (token) => async (dispatch) => {
     });
     dispatch(resetToken());
     dispatch(resetUser());
+    dispatch(resetDate())
   } catch (error) {
     dispatch(setErrorRequest(error.message));
   } finally {

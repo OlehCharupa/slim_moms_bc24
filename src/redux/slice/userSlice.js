@@ -11,7 +11,8 @@ const loaderSlice = createSlice({
           
             return {...state, ...payload};
         },
-        resetUser(state, { payload }) {
+        // resetUser(state, { payload }) {
+        resetUser() {
        
             return initialState
         }

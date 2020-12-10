@@ -22,11 +22,15 @@ const Login = () => {
 	const history = useHistory()
 
 	useEffect(() => {
+		return () => dispatch(resetErrorRequest());
+	}, [])
+	useEffect(() => {
 		if (emailError || passwordError) {
 			setFormValid(false)
 		} else {
 			setFormValid(true)
 		}
+
 	}, [emailError, passwordError])
 
 	const emailHandler = (e) => {
@@ -74,9 +78,8 @@ const Login = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-
 		dispatch(loginOperations(logForm)); //отправлять на функцию запросна на бэк
-		setLogForm(logState)
+
 	}
 
 	const { email, password } = logForm
@@ -129,10 +132,10 @@ const Login = () => {
 				</div>
 
 				<div className={style.con__btns}>
-					<button disabled={!formValid} className={style.login__btn} type="submit">
+					<button disabled={!formValid} className={!formValid ? style.login_white__btn : style.login__btn} type="submit">
 						Вход
 					</button>
-					<button className={style.registration__btn} type='button' onClick={openPage}>Регистрация</button>
+					<button className={style.registration__cursor__btn} type='button' onClick={openPage}>Регистрация</button>
 				</div>
 			</form>
 		</section>

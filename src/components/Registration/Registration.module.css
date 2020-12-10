@@ -44,6 +44,9 @@
   outline: none;
   background: transparent;
 }
+.input:focus{
+  border-bottom: 1px solid #9B9FAA;
+}
 
 .input_err {
   border: none;
@@ -91,78 +94,171 @@
   align-items: center;
 }
 
-.login__btn {
-  width: 176px;
-  height: 44px;
+.login__btn{
+    width: 176px;
+    height: 44px;
+    cursor: pointer;
+    padding: 13px 63px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
 
-  padding: 13px 63px;
-  font-family: Verdana;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 17px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.04em;
+    background: #FC842D;
+    border: 2px solid #FC842D;
+    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    border-radius: 30px;
 
-  background: #fc842d;
-  border: 2px solid #fc842d;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  border-radius: 30px;
-
-  color: white;
-  outline: none;
+    color: white;
+    outline: none;
 }
 
-.registration__btn {
-  width: 176px;
-  height: 44px;
-  margin-left: 30px;
+.registration__btn{
+    width: 176px;
+    height: 44px;
 
-  background: #ffffff;
-  border: 2px solid #fc842d;
-  box-sizing: border-box;
-  border-radius: 30px;
+    background: #FFFFFF;
+    border: 2px solid gray;
+    box-sizing: border-box;
+    border-radius: 30px;
 
-  padding: 13px 34px;
+    padding: 13px 40px;
 
-  font-family: Verdana;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 17px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.04em;
 
-  color: #fc842d;
-  outline: none;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+
+    color: gray;
+    outline: none;
 }
 
-@media screen and (max-width: 767px) {
-  .title {
+.reg__btn{
+     width: 176px;
+    height: 44px;
+    margin-left: 30px;
+
+
+    background: #FC842D;
+    border: 2px solid #FC842D;
+    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    border-radius: 30px;
+
+    padding: 14px 40px;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    color: white;
+    outline: none;
+}
+
+.login_white__btn{
+    width: 176px;
+    height: 44px;
+
+    padding: 13px 63px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+
+    background: #FFFFFF;
+    border: 2px solid gray;
+    box-sizing: border-box;
+    border-radius: 30px;
+    
+   color: gray;
+    outline: none;
+}
+
+
+.login_white__cursor__btn{
+    width: 176px;
+    height: 44px;
+    cursor: pointer;
+    padding: 13px 63px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+
+    background: #FFFFFF;
+    border: 2px solid #FC842D;
+    box-sizing: border-box;
+    border-radius: 30px;
+    
+   color: #FC842D;
+    outline: none;
+}
+.registration__cursor__btn{
+    width: 176px;
+    height: 44px;
+
+    cursor: pointer;
+    background: #FFFFFF;
+    border: 2px solid #FC842D;
+    box-sizing: border-box;
+    border-radius: 30px;
+    margin-top: 0;
+    padding: 13px 30px;
+
     font-weight: 700;
     font-size: 14px;
     line-height: 13px;
     text-align: center;
     letter-spacing: 0.04em;
-    text-transform: uppercase;
 
     color: #fc842d;
   }
 
   .con__btns {
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
   }
   .section {
     max-width: 382px;
   }
 
-  .registration__btn {
-    margin-top: 20px;
-    margin-left: 0;
-  }
+
+@media screen and (max-width: 767px) {
+    .con__btns{
+        flex-direction: column;
+        justify-content: space-between;
+        
+    }
+    .title {
+    text-align: center;
+    } 
+    .section{
+    max-width: 382px;
+    }
+   
+    .registration__cursor__btn{
+      margin-top: 20px;
+    }
+    .registration__btn{
+      margin-top: 20px;
+    }
+    .reg__btn{
+      margin-top: 20px;
+    }
 }

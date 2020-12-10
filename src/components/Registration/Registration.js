@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { registrationOperations } from "../../redux/operations/registrationOperations";
 import { resetErrorRequest } from "../../redux/slice/errorRequestSlice";
 
@@ -12,7 +12,6 @@ const Registration = () => {
 		email: "",
 		password: "",
 	}
-
 	const [regForm, setRegForm] = useState(regState)
 	const [emailDirty, setEmailDirty] = useState(false)
 	const [passwordDirty, setPasswordDirty] = useState(false)
@@ -24,6 +23,7 @@ const Registration = () => {
 	const stateError = useSelector(state => state.errorRequest)
 	const dispatch = useDispatch()
 	const history = useHistory()
+	const location = useLocation()
 
 	useEffect(() => {
 		if (nameError || emailError || passwordError) {
@@ -86,15 +86,22 @@ const Registration = () => {
 			case "password":
 				setPasswordDirty(true)
 				break
-				default: return
+			default: return
 		}
 	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-	
 		dispatch(registrationOperations(regForm))
-		setRegForm(regState)
+		if (stateError) {
+			// console.log("hellow");
+			// history.push('/calculator');
+
+			// history.push({ pathname: '/calculator' });
+			// location.push({ pathname: '/calculator' });
+			// history.push(location({ pathname: '/calculator' }));
+		}
+		setRegForm((prev) => ({ ...prev, password: "" }))
 	}
 
 
@@ -102,6 +109,7 @@ const Registration = () => {
 
 	const openPage = () => {
 		history.push('/login')
+
 	}
 	return (
 		<section className={style.section}>
@@ -159,13 +167,13 @@ const Registration = () => {
 				</div>
 
 				<div className={style.con__btns}>
-					<button className={style.login__btn} type="button" onClick={openPage}>
+					<button className={style.login_white__cursor__btn} type="button" onClick={openPage}>
 						Вход
 					</button>
 
 					<button
 						disabled={!formValid}
-						className={style.registration__btn}
+						className={!formValid ? style.registration__btn : style.reg__btn}
 						type="submit">
 						Регистрация
 					</button>

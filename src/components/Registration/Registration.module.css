@@ -98,11 +98,9 @@ margin-bottom: 40px;
 .login__btn{
     width: 176px;
     height: 44px;
-
+cursor: pointer;
     padding: 13px 63px;
-    font-family: Verdana;
-    font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 14px;
     line-height: 17px;
     display: flex;
@@ -125,15 +123,108 @@ margin-bottom: 40px;
     margin-top: 20px;
 
     background: #FFFFFF;
+    border: 2px solid gray;
+    box-sizing: border-box;
+    border-radius: 30px;
+
+    padding: 13px 40px;
+
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+
+    color: gray;
+    outline: none;
+}
+
+.reg__btn{
+     width: 176px;
+    height: 44px;
+    margin-top: 20px;
+
+
+    background: #FC842D;
+    border: 2px solid #FC842D;
+    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    border-radius: 30px;
+
+    padding: 14px 40px;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+cursor: pointer;
+    color: white;
+    outline: none;
+}
+
+.login_white__btn{
+    width: 176px;
+    height: 44px;
+
+    padding: 13px 63px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+
+    background: #FFFFFF;
+    border: 2px solid gray;
+    box-sizing: border-box;
+    border-radius: 30px;
+    
+   color: gray;
+    outline: none;
+}
+
+
+.login_white__cursor__btn{
+    width: 176px;
+    height: 44px;
+cursor: pointer;
+    padding: 13px 63px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+
+    background: #FFFFFF;
+    border: 2px solid #FC842D;
+    box-sizing: border-box;
+    border-radius: 30px;
+    
+   color: #FC842D;
+    outline: none;
+}
+.registration__cursor__btn{
+    width: 176px;
+    height: 44px;
+
+    cursor: pointer;
+    background: #FFFFFF;
     border: 2px solid #FC842D;
     box-sizing: border-box;
     border-radius: 30px;
 
-    padding: 13px 34px;
+    padding: 13px 40px;
 
-    font-family: Verdana;
-    font-style: normal;
-    font-weight: bold;
+
+    font-weight: 700;
     font-size: 14px;
     line-height: 17px;
     display: flex;
@@ -163,6 +254,9 @@ max-width: 382px;
     
     .registration__btn{
 margin: 0;
+    }
+    .reg__btn{
+       margin: 0; 
     }
 }
 

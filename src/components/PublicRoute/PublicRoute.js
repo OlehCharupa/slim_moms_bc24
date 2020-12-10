@@ -12,7 +12,9 @@ const PublicRoute = ({ component: Component, ...routeProps }) => {
     {...routeProps}
     render={props => {
       return isLoginState && routeProps.restricted ? (
-        <Redirect to={paths.diary} />
+        // <Redirect to={paths.diary} />
+        <Redirect to={paths.calculator} />
+
       ) : (
           <Component {...props} />
         );

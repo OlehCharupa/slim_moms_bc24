@@ -117,6 +117,13 @@ const CalculatorCalorieForm = () => {
       bloodType: Number(values.bloodType),
     };
     userToken ? dispatch(DailyCaloriesFormOperationById(VALUES, userId, userToken, modalToggler)) : dispatch(DailyCaloriesFormOperation(VALUES, modalToggler));
+    setValues({
+      weight: "",
+      height: "",
+      age: "",
+      desiredWeight: "",
+      bloodType: "1",
+    });
   };
   
   return (

@@ -31,18 +31,18 @@ function App() {
   return (
     <>
       <Header />
-        <Suspense fallback={<SpinerLoader />}>
-          <Switch>
-            {routes.map((route) => {
-              return route.private ? (
-                <PrivateRoute key={route.label} {...route} />
-              ) : (
-                  <PublicRoute key={route.label} {...route} />
-                );
-            })}
-          </Switch>
-        </Suspense>
-     
+      <Suspense fallback={<SpinerLoader />}>
+        <Switch>
+          {routes.map((route) => {
+            return route.private ? (
+              <PrivateRoute key={route.label} {...route} />
+            ) : (
+                <PublicRoute key={route.label} {...route} />
+              );
+          })}
+        </Switch>
+      </Suspense>
+
     </>
   );
 }

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { persistor } from "../store";
 import { resetcurrentDateInfoSlice } from "../slice/currentDateInfoSlice";
 import { resetDailyCaloriesInfo } from "../slice/DailyCaloriesFormInfoSlice";
 import { resetErrorRequest, setErrorRequest } from "../slice/errorRequestSlice";

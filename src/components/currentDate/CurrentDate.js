@@ -22,18 +22,14 @@ const CurrentDate = () => {
   // =================================================================
 
   const reguestDate = moment(startDate).format().split("T")[0];
-  // useEffect(() => {
-  //   dispatch(getCurrentDay(reguestDate));
-  //   if (persistedToken) dispatch(getDateInfoOperation(reguestDate, persistedToken))
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [startDate]);
+
   useEffect(() => {
     if (persistedToken) {
       dispatch(getCurrentDay(reguestDate));
       dispatch(getDateInfoOperation(reguestDate, persistedToken));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [startDate, getDateInfoOperation, persistedToken]);
+  }, [startDate, getDateInfoOperation, persistedToken, dispatch]);
 
   const ref = React.createRef();
   return (

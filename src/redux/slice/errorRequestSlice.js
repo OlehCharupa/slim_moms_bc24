@@ -9,7 +9,8 @@ const initialState=''
         setErrorRequest(state,{payload}){
             return payload
         },
-        resetErrorRequest(state,{payload}){
+        // resetErrorRequest(state,{payload}){
+        resetErrorRequest(){
             return initialState
         }
     }

@@ -16,7 +16,7 @@
   margin-right: 14px;
 }
 .navList__item_active_link {
-  color: #212121;
+  color: #ffffff;
 }
 
 .nav {
@@ -36,6 +36,9 @@
     margin-right: 22px;
 
     background-color: #e0e0e0;
+  }
+  .navList__item_active_link {
+    color: #212121;
   }
 }
 

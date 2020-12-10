@@ -8,7 +8,8 @@ const loaderSlice = createSlice({
         setToken(state, { payload }) {
             return payload
         },
-        resetToken(state, { payload }) {
+        // resetToken(state, { payload }) {
+        resetToken() {
             return initialState
         }
     }

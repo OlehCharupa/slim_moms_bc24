@@ -21,7 +21,7 @@ export const currentUser = (userToken) => async (dispatch) => {
         const result = await axios.get("/user", token.set(userToken));
    
         dispatch(setUser(result.data))
-        console.log(result.data);
+        // console.log(result.data);
 
     } catch (error) {
         dispatch(setErrorRequest(error.message));

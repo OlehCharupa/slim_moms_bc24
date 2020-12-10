@@ -4,7 +4,6 @@ import close from "./Image/close.svg";
 import styles from "./DiaryProductListItem.module.css";
 import {deleteElement} from "../../redux/operations/deleteOperations"
 
-
 const DiaryProductListItem = ({ title, kcal, weight, id }) => {
   const token = useSelector((state) => state.token);
   const dayId = useSelector((state) => state.currentDateInfo.dayID)

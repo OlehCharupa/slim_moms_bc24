@@ -41,6 +41,9 @@ const currentDateInfoSlice = createSlice({
         daySummary: payload.newDaySummary,
       };
     },
+    resetcurrentDateInfoSlice(state, { payload }) {
+      return initialState
+    }
   },
 });
 
@@ -51,6 +54,7 @@ export const {
   addProductRequest,
   addProductSuccess,
   deleteItems,
+  resetcurrentDateInfoSlice
 } = actions;
 
 export default reducer;

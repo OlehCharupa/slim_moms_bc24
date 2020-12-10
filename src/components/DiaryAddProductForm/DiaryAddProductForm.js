@@ -50,7 +50,6 @@ const DiaryAddProductForm = ({ toggleModal }) => {
     }
   }
 
-  // console.log("products", products);
   const debouncedGetProducts = useDebounce(getProducts, 500);
 
   const inputHandlerDiaryAddProduct = ({ target }) => {
@@ -65,7 +64,8 @@ const DiaryAddProductForm = ({ toggleModal }) => {
 
   const selectHandler = ({ target }) => {
     setProducts([]);
-    const { id } = target.firstElementChild.dataset;
+    const selectedIndex = target.options.selectedIndex;
+    const { id } = target.options[selectedIndex].dataset;
     setCurrentValue({ ...currentValue, title: target.value, id });
   }
 
@@ -73,11 +73,11 @@ const DiaryAddProductForm = ({ toggleModal }) => {
     e.preventDefault();
     const { title, weight, id } = currentValue;
     if (title === '' || weight === '') {
-      alert("заполни все поля")
+      alert("Внесены не все данные. Пожалуйста, заполните все поля")
       return
     }
     if (isNaN(Number(weight))) {
-      alert("введите числа")
+      alert("Некорректный ввод. Используйте только ЧИСЛА")
       return
     }
 
@@ -111,8 +111,11 @@ const DiaryAddProductForm = ({ toggleModal }) => {
             type='text'
             name='title'
             value={currentValue.title}
+            autoComplete="off"
           />
-          <span className={styles.clearInputText} onClick={clearInputProduct}>&#215;</span>
+          {currentValue.title.length > 0 &&
+            (<span className={styles.clearInputText} onClick={clearInputProduct}>&#215;</span>)
+          }
         </label>
 
         <label className={styles.diaryAddProductForm_label}>
@@ -123,9 +126,12 @@ const DiaryAddProductForm = ({ toggleModal }) => {
             type='text'
             name='weight'
             value={currentValue.weight}
+            autoComplete="off"
           >
           </input>
-          <span className={styles.clearInputText} onClick={clearInputWeight}>&#215;</span>
+          {currentValue.weight.length > 0 &&
+            (<span className={styles.clearInputText} onClick={clearInputWeight}>&#215;</span>)
+          }
 
         </label>
         <button

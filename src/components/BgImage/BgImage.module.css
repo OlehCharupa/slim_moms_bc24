@@ -17,8 +17,9 @@
   
   .bgImageLogin {
     width: 535px;
-    height: auto;
-   
+    padding-top: 202px;
+    padding-left: 90px;
+    padding-right: 115px;
     background: url("./image/Layer-desktop.png") rgba(240, 241, 243, 1) bottom
       right no-repeat;
   }

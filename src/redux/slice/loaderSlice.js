@@ -5,10 +5,12 @@ const loaderSlice=createSlice({
     name:"loader",
     initialState,
     reducers:{
-        loaderOn(state, {payload}){
+        // loaderOn(state, {payload}){
+        loaderOn(){
             return true
         },
-        loaderOff(state, {payload}){
+        // loaderOff(state, {payload}){
+        loaderOff(){
             return false
         }
     }

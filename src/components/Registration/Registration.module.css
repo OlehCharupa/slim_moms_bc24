@@ -1,108 +1,105 @@
-.section{
-    display: flex;
-    flex-direction: column;
-    max-width: 427px;
+.section {
+  display: flex;
+  flex-direction: column;
+  max-width: 427px;
 }
 
-.label{
-margin-bottom: 40px;
-
+.label {
+  margin-bottom: 40px;
 }
 
-.title{
+.title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 13px;
+  text-align: left;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 13px;
-    text-align: left;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-
-    color: #FC842D;
+  color: #fc842d;
 }
 
-.form{
-    display: flex;
-    flex-direction: column;
-    margin-top: 60px;
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
 }
 
-.input__title{
-    margin: 0 0 7px 0;
+.input__title {
+  margin: 0 0 7px 0;
 
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 17px;
-    letter-spacing: 0.04em;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
 
-    color: #9B9FAA;
+  color: #9b9faa;
 }
 
 .input {
-    border: none;
-    border-bottom: 1px solid #E0E0E0;
-    width: 100%;
-    outline: none;
-    background: transparent;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  width: 100%;
+  outline: none;
+  background: transparent;
+}
+.input:focus{
+  border-bottom: 1px solid #9B9FAA;
 }
 
 .input_err {
-    border: none;
-    border-bottom: 1px solid red;
-    width: 100%;
-    outline: none;
-    background: transparent;
+  border: none;
+  border-bottom: 1px solid red;
+  width: 100%;
+  outline: none;
+  background: transparent;
 }
 
-
-.contaner__err{
-    position: relative;
+.contaner__err {
+  position: relative;
 }
-.err__message{
-    position: absolute;
-    top: -47px;
-    left: 0;
-    font-family: Verdana;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    letter-spacing: 0.04em;
+.err__message {
+  position: absolute;
+  top: -47px;
+  left: 0;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
 
-    color: red;
-}
-
-.err__message__state{
-    position: absolute;
-    top: -2px;
-    left: 21px;
-    font-family: Verdana;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    letter-spacing: 0.04em;
-
-    color: red;
+  color: red;
 }
 
-.con__btns{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 60px;
-    align-items: center;
+.err__message__state {
+  position: absolute;
+  top: -2px;
+  left: 21px;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+
+  color: red;
+}
+
+.con__btns {
+  display: flex;
+  flex-direction: row;
+  margin-top: 60px;
+  align-items: center;
 }
 
 .login__btn{
     width: 176px;
     height: 44px;
-
+    cursor: pointer;
     padding: 13px 63px;
-    font-family: Verdana;
-    font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 14px;
     line-height: 17px;
     display: flex;
@@ -122,18 +119,16 @@ margin-bottom: 40px;
 .registration__btn{
     width: 176px;
     height: 44px;
-    margin-top: 20px;
 
     background: #FFFFFF;
-    border: 2px solid #FC842D;
+    border: 2px solid gray;
     box-sizing: border-box;
     border-radius: 30px;
 
-    padding: 13px 34px;
+    padding: 13px 40px;
 
-    font-family: Verdana;
-    font-style: normal;
-    font-weight: bold;
+
+    font-weight: 700;
     font-size: 14px;
     line-height: 17px;
     display: flex;
@@ -141,28 +136,129 @@ margin-bottom: 40px;
     text-align: center;
     letter-spacing: 0.04em;
 
-    color: #FC842D;
+    color: gray;
+    outline: none;
+}
+
+.reg__btn{
+     width: 176px;
+    height: 44px;
+    margin-left: 30px;
+
+
+    background: #FC842D;
+    border: 2px solid #FC842D;
+    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    border-radius: 30px;
+
+    padding: 14px 40px;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    color: white;
+    outline: none;
+}
+
+.login_white__btn{
+    width: 176px;
+    height: 44px;
+
+    padding: 13px 63px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+
+    background: #FFFFFF;
+    border: 2px solid gray;
+    box-sizing: border-box;
+    border-radius: 30px;
+    
+   color: gray;
     outline: none;
 }
 
 
-/* 
-768
-1280 */
+.login_white__cursor__btn{
+    width: 176px;
+    height: 44px;
+    cursor: pointer;
+    padding: 13px 63px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
 
-@media screen and (min-width: 320px) {
+    background: #FFFFFF;
+    border: 2px solid #FC842D;
+    box-sizing: border-box;
+    border-radius: 30px;
+    
+   color: #FC842D;
+    outline: none;
+}
+.registration__cursor__btn{
+    width: 176px;
+    height: 44px;
+
+    cursor: pointer;
+    background: #FFFFFF;
+    border: 2px solid #FC842D;
+    box-sizing: border-box;
+    border-radius: 30px;
+    margin-top: 0;
+    padding: 13px 30px;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 13px;
+    text-align: center;
+    letter-spacing: 0.04em;
+
+    color: #fc842d;
+  }
+
+  .con__btns {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .section {
+    max-width: 382px;
+  }
+
+
+@media screen and (max-width: 767px) {
     .con__btns{
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
         
     }
+    .title {
+    text-align: center;
+    } 
     .section{
-max-width: 382px;
+    max-width: 382px;
     }
    
-    
+    .registration__cursor__btn{
+      margin-top: 20px;
+    }
     .registration__btn{
-margin: 0;
+      margin-top: 20px;
+    }
+    .reg__btn{
+      margin-top: 20px;
     }
 }
-

@@ -8,6 +8,7 @@
 .diaryAddProductForm_label {
   position: relative;
   display: block;
+  margin-right: 31px;
 }
 
 .diaryAddProductForm_inputProduct,
@@ -17,7 +18,11 @@
   border-bottom: 1px solid #E0E0E0;
   padding: 10px 5px;
   min-width: 100%;
- 
+  outline: none;
+}
+.diaryAddProductForm_inputProduct:focus,
+.diaryAddProductForm_inputGrams:focus{
+  border-bottom: 1px solid #9B9FAA;
 }
 
 .diaryAddProductForm_inputProduct {
@@ -49,6 +54,7 @@
   border: none;
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);   
   color: #FFFFFF;
+  outline: none;
 }
 
 .diaryAddProductForm_button:focus,
@@ -75,8 +81,6 @@
   height: 28px;
   padding: 0 20px 0 7px;
   border: 0;
-  background: transparent;
-
 }
 
 .clearInputText {
@@ -103,13 +107,24 @@
     height: 44px;
     border-radius: 30px;
     margin-top: 30px;
-    
   }
 
-  .diaryAddProductForm_label {
-    padding-bottom: 30px;
-  }
+.diaryAddProductForm_label {
+  padding-bottom: 30px;
+}
 
+.diaryAddProductForm_button {
+  margin: 0 auto;
+  padding: 13px 46px;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  width: 176px;
+  height: 44px;
+  border-radius: 30px;
+  margin-top: 30px;
+  
+}
   .diaryAddProductForm_inputGrams,
   .diaryAddProductForm_inputProduct {
     width: 289px;
@@ -124,10 +139,10 @@
 @media screen and (min-width: 768px) {
   .diaryAddProductForm {
     align-items: self-start;
-    justify-content: space-between;
-    min-width: 473px;
+    /* justify-content: space-between; */
+    width: 524px;
     padding-top: 0; /* додала для перегляду*/
-    margin-bottom: 60px;
+    
   }
   .clearInputText {
   
@@ -135,7 +150,10 @@
     right: -13px;
    
   }
-  
+
+  .diaryAddProductForm_wrapper{
+    margin-bottom: 60px;
+  }
 
   .diaryAddProductForm_button {
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
@@ -159,7 +177,7 @@
   }
 
   .diaryAddProductForm_inputProduct{
-    width: 239px;
+    width: 292px;
     font-size: 16px;
   }
 
@@ -169,5 +187,9 @@
   .diaryAddProductForm_inputProduct,
   .diaryAddProductForm_inputGrams{
     font-size: 18px;
+  }
+
+  .diaryAddProductForm_inputProduct{
+    width: 305px;
   }
 }

@@ -35,7 +35,7 @@ const RightSideBar = () => {
                         <li className={style.list__item}>
                             <p className={style.list__item_text}>n% от нормы
                             <span className={style.list__item_text_right}>
-                                    {daySummary.percentsOfDailyRate ? (Math.round(daySummary.percentsOfDailyRate) + ' ккал') : '000 ккал'}
+                                    {daySummary.percentsOfDailyRate ? (Math.round(daySummary.percentsOfDailyRate) + ' %') : '000 %'}
                                 </span></p>
                         </li>
                     </ul>
